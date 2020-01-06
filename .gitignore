@@ -1,0 +1,7 @@
+# Project exclude paths
+/mettingcommons1/target/
+/mettingdao/target/
+/mettingmapper/target/
+/mettingpojo/target/
+/mettingservice/target/
+/mettingweb/target/
