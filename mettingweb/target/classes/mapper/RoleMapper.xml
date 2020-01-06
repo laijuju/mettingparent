@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.RoleMapper">
+
+<!--    通过用户id查找用户的角色-->
+    <select id="findRoleByAdminId" parameterType="int" resultType="com.juju.po.Role">
+        select * from
+        t_admin_role t1,
+        t_role t2
+        where
+        t2.id = #{value}
+        and t2.id = t1.roleId;
+    </select>
+
+<!--    添加一个角色-->
+    <insert id="addRole" parameterType="com.juju.po.Role">
+        insert into t_role(roleName,roleDes) values(#{roleName},#{roleDes})
+    </insert>
+
+<!--    删除一个角色-->
+    <delete id="deleteAdmin" parameterType="int">
+        delete from t_role where id = #{value}
+    </delete>
+
+<!--    查找所有角色-->
+    <select id="findRoleAll" resultType="com.juju.po.Role">
+        select * from t_role
+    </select>
+</mapper>

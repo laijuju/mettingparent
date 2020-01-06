@@ -1,0 +1,6 @@
+com\juju\result\AdminResult.class
+com\juju\po\Perm.class
+com\juju\po\User.class
+com\juju\result\BaseResult.class
+com\juju\po\Role.class
+com\juju\po\Admin.class

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="mettingweb:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3990dc89-771d-49e6-b962-5b90961f9b4a" name="Default Changelist" comment="第二次上传测试">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingcommons1/target/classes/com/juju/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingcommons1/target/classes/com/juju/utils/MD5Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingcommons1/target/classes/com/juju/utils/TokenUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingcommons1/target/test-classes/com/juju/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingdao/target/classes/com/juju/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingdao/target/test-classes/com/juju/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/mapper/AdminMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/mapper/PermMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/mapper/RoleMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingmapper/target/test-classes/com/juju/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Perm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/result/AdminResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/result/BaseResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/mettingpojo-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/target/test-classes/com/juju/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/IAdminService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/IPermService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/IRoleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/impl/AdminService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/impl/PermService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/impl/RoleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/target/test-classes/com/juju/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/config/SwaggerConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/control/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/control/UserControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/interceptor/AuthticationFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/mapper/AdminMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/mapper/PermMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/classes/spring-mvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/config/SwaggerConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/control/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/control/UserControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/interceptor/AuthticationFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/AdminMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/PermMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/ant-1.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/ant-launcher-1.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/asm-6.0_ALPHA.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.8.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/cglib-3.2.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/classmate-1.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/commons-io-2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/commons-lang3-3.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/druid-1.1.20.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/fastjson-1.2.62.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/guava-18.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/jackson-databind-2.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mapstruct-1.0.0.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingcommoms1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingdao-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mybatis-3.4.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.21.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-plugin-core-1.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-plugin-metadata-1.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.7.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-core-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-schema-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-spi-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-spring-web-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-swagger-common-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-swagger-ui-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/springfox-swagger2-2.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/swagger-annotations-1.5.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/swagger-models-1.5.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\IdeaProjects\mettingparent" />
+        <option value="D:\IdeaProjects\mettingparent\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Program Files\Maven\repository" />
+        <option name="mavenHome" value="D:/Program Files/Maven/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\Program Files\Maven\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1VozpNH8SNVpGoDyq7wk83eNQMW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2678161" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mettingparent\mettingdao\src\main\java\com\juju" />
+      <recent name="D:\IdeaProjects\mettingparent\mettingcommoms1\src\main\java\com\juju" />
+      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\mapper" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5.491" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.491" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="mettingweb:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/mettingweb_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_mettingparent_2" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58652" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="mettingweb:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <option name="contentProportion" value="0.043310132" />
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3990dc89-771d-49e6-b962-5b90961f9b4a" name="Default Changelist" comment="" />
+      <created>1577934417933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577934417933</updated>
+      <workItem from="1577934420568" duration="3154000" />
+      <workItem from="1577937593019" duration="50340000" />
+      <workItem from="1578068724918" duration="4303000" />
+      <workItem from="1578109796571" duration="10215000" />
+      <workItem from="1578274457751" duration="13751000" />
+    </task>
+    <task id="LOCAL-00001" summary="第二次上传测试">
+      <created>1578299767683</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578299767683</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第二次上传测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二次上传测试" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="24" key="#Notifications" timestamp="1578298023016">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="24" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1578298023016" />
+    <state x="275" y="24" key="#SQL_Dialects" timestamp="1578033042471">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="24" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1578033042471" />
+    <state x="110" y="9" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577947069651">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="110" y="9" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1577947069651" />
+    <state x="320" y="184" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1577946845617">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="320" y="184" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1577946845617" />
+    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1578291105942">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1578291105942" />
+    <state x="300" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1577957920634">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="300" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1577957920634" />
+    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1578300385179">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578300385179" />
+    <state x="311" y="55" key="FileChooserDialogImpl" timestamp="1578298298964">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="311" y="55" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1578298298964" />
+    <state x="390" y="288" key="Github.CreateGistDialog" timestamp="1578299375089">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="288" key="Github.CreateGistDialog/0.0.1366.728@0.0.1366.728" timestamp="1578299375089" />
+    <state x="266" y="249" width="558" height="218" key="Github.ShareDialog" timestamp="1578299811321">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="266" y="249" width="558" height="218" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1578299811321" />
+    <state width="1236" height="82" key="GridCell.Tab.0.bottom" timestamp="1578300262145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.0.center" timestamp="1578300262145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.0.left" timestamp="1578300262145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.0.right" timestamp="1578300262145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.1.bottom" timestamp="1578300262146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578300262146" />
+    <state width="1236" height="82" key="GridCell.Tab.1.center" timestamp="1578300262145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.1.left" timestamp="1578300262145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.1.right" timestamp="1578300262146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1578300262145" />
+    <state width="1236" height="82" key="GridCell.Tab.2.bottom" timestamp="1578300262146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578300262146" />
+    <state width="1236" height="82" key="GridCell.Tab.2.center" timestamp="1578300262146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1578300262146" />
+    <state width="1236" height="82" key="GridCell.Tab.2.left" timestamp="1578300262146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1578300262146" />
+    <state width="1236" height="82" key="GridCell.Tab.2.right" timestamp="1578300262146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="82" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1578300262146" />
+    <state width="1236" height="80" key="GridCell.Tab.3.bottom" timestamp="1578041603707">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="80" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578041603707" />
+    <state width="1236" height="80" key="GridCell.Tab.3.center" timestamp="1578041603706">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="80" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1578041603706" />
+    <state width="1236" height="80" key="GridCell.Tab.3.left" timestamp="1578041603706">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="80" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1578041603706" />
+    <state width="1236" height="80" key="GridCell.Tab.3.right" timestamp="1578041603707">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="80" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1578041603707" />
+    <state width="1236" height="452" key="GridCell.Tab.5.bottom" timestamp="1578104709398">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="452" key="GridCell.Tab.5.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578104709398" />
+    <state width="1236" height="452" key="GridCell.Tab.5.center" timestamp="1578104709397">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="452" key="GridCell.Tab.5.center/0.0.1366.728@0.0.1366.728" timestamp="1578104709397" />
+    <state width="1236" height="452" key="GridCell.Tab.5.left" timestamp="1578104709397">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="452" key="GridCell.Tab.5.left/0.0.1366.728@0.0.1366.728" timestamp="1578104709397" />
+    <state width="1236" height="452" key="GridCell.Tab.5.right" timestamp="1578104709397">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1236" height="452" key="GridCell.Tab.5.right/0.0.1366.728@0.0.1366.728" timestamp="1578104709397" />
+    <state x="171" y="66" key="NewModule_or_Project.wizard" timestamp="1577938559301">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="171" y="66" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1577938559301" />
+    <state x="82" y="0" width="1049" height="728" key="SettingsEditor" timestamp="1578299064258">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="82" y="0" width="1049" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578299064258" />
+    <state x="111" y="94" key="Vcs.Push.Dialog.v2" timestamp="1578299984262">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="111" y="94" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578299984262" />
+    <state x="375" y="190" key="com.intellij.ide.util.TipDialog" timestamp="1578274462767">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="375" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1578274462767" />
+    <state x="477" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578299614763">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="477" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1578299614763" />
+    <state x="57" y="67" key="new project wizard" timestamp="1577968752383">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="57" y="67" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1577968752383" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1578291846826">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1578291846826" />
+  </component>
+</project>

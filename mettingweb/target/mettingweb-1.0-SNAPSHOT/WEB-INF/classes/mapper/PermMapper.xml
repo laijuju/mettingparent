@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.PermMapper">
+
+<!--    通过角色id查找所有权限-->
+    <select id="findPermByRoleId" parameterType="int" resultType="com.juju.po.Perm">
+        select * from
+        t_role_perm t1,
+        t_perms t2
+        where
+        t1.roleId = #{value}
+        and t2.id = t1.permId
+    </select>
+
+<!--    查找所有权限-->
+    <select id="findPermsAll" resultType="com.juju.po.Perm">
+        select * from t_perms
+    </select>
+
+<!--   这里有一个问题  type类型的问题
+        type='res' : 插入的是资源
+        type='perm': 插入的是权限
+-->
+    <insert id="addPerm" parameterType="com.juju.po.Perm">
+        <if test="type=='res'">
+            insert into t_perms(type,resName,resPath) values(#{type},#{resName},#{resPath})
+        </if>
+        <if test="type=='perm'">
+            insert into t_perms(type,resName,resPath) values(#{type},#{permName},#{permDes})
+        </if>
+    </insert>
+
+<!--    删除一个权限-->
+    <delete id="deletePerm" parameterType="int">
+        delete from t_perms where id = #{value}
+    </delete>
+
+<!--    更新一个账号
+        这里有个问题，需要根据type去进行更新
+-->
+    <update id="updatePerm" parameterType="com.juju.po.Perm">
+        update t_perms set
+    </update>
+
+</mapper>
