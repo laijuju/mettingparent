@@ -28,11 +28,19 @@ public class RoleService implements IRoleService {
 
     @Override
     public void deleteRole(int roleId) throws Exception {
+        //第一步：先将相关联的关系数据删除掉
+
+        //第二步：删除role本身的数据
         roleMapper.deleteRole(roleId);
     }
 
     @Override
     public List<Role> findRoleAll() throws Exception {
         return roleMapper.findRoleAll();
+    }
+
+    @Override
+    public Role findRoleById(int roleId) throws Exception {
+        return roleMapper.findRoleById(roleId);
     }
 }

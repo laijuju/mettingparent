@@ -1,0 +1,5 @@
+com\juju\App.class
+com\juju\mapper\AdminMapper.class
+com\juju\mapper\UserMapper.class
+com\juju\mapper\RoleMapper.class
+com\juju\mapper\PermMapper.class

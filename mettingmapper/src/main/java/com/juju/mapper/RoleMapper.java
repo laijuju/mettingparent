@@ -29,4 +29,9 @@ public interface RoleMapper {
         查找多有的角色
       */
      List<Role> findRoleAll();
+
+     /*
+        通过roleId查询role
+      */
+    Role findRoleById(int roleId);
 }

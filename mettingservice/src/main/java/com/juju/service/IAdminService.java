@@ -41,4 +41,14 @@ public interface IAdminService {
         删除token,退出登录
      */
     void logout(String token) throws Exception;
+
+    /*
+        通过管理员的id查找管理员
+     */
+    Admin findAdminById(int id) throws Exception;
+
+    /*
+        通过ID修改管理员的信息
+     */
+    void updateAdminById(Admin admin) throws Exception;
 }

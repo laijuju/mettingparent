@@ -21,7 +21,9 @@ public class AuthticationFilter implements HandlerInterceptor {
     private String[] noInterceptorPath = {
         "login",
         "register",
-        "swagger-ui.html"
+        "swagger-ui.html",
+        "login.html",
+        "unlogin.html"
     };
 
     @Override
@@ -36,7 +38,7 @@ public class AuthticationFilter implements HandlerInterceptor {
             requestURI = requestURI.substring(0,requestURI.indexOf("?")-1);
         }
         //释放所有静态资源
-        if (requestURI.endsWith(".js")||requestURI.endsWith(".css")||requestURI.endsWith(".jpg")||requestURI.endsWith(".png")){
+        if (requestURI.endsWith(".js")||requestURI.endsWith(".css")||requestURI.endsWith(".jpg")||requestURI.endsWith(".png")||requestURI.endsWith("ttf")||requestURI.endsWith("gif")){
             return true;
         }
         logger.info("分离出来的这个地址是："+requestURI);
@@ -50,7 +52,12 @@ public class AuthticationFilter implements HandlerInterceptor {
         //第一步：先找到token
         String token = request.getHeader("token");
         if (null == token|| token.equals("")){//说明非法请求，因为没有token
-            //返回一个JSON格式，告诉身份不合法
+            //判断请求是否是浏览器发送的
+            String header = request.getHeader("User-Agent");
+            if (!header.equals("")&&null!=header){
+                //进行页面的转发
+                response.sendRedirect("/html/unlogin.html");
+            }
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("state",0);
             jsonObject.put("msg","没有token，身份不合法");

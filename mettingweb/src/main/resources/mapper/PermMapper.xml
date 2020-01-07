@@ -26,12 +26,12 @@
             insert into t_perms(type,resName,resPath) values(#{type},#{resName},#{resPath})
         </if>
         <if test="type=='perm'">
-            insert into t_perms(type,resName,resPath) values(#{type},#{permName},#{permDes})
+            insert into t_perms(type,permName,permDes) values(#{type},#{permName},#{permDes})
         </if>
     </insert>
 
-<!--    删除一个权限-->
-    <delete id="deletePerm" parameterType="int">
+<!--    通过ID删除一个权限-->
+    <delete id="deletePermById" parameterType="int">
         delete from t_perms where id = #{value}
     </delete>
 

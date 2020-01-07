@@ -24,7 +24,7 @@ public interface PermMapper {
     /*
         删除一个权限
      */
-    void deletePerm(int permId);
+    void deletePermById(int permId);
 
     /*
         修改一个权限

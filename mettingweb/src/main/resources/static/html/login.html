@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+</head>
+<body>
+<div class="bg"></div>
+<div class="container">
+    <div class="line bouncein">
+        <div class="xs6 xm4 xs3-move xm4-move">
+            <div style="height:150px;"></div>
+            <div class="media media-y margin-big-bottom">
+            </div>
+            <form action="index.html" method="post">
+                <div class="panel loginbox">
+                    <div class="text-center margin-big padding-big-top"><h1>千锋-会议app后台管理系统</h1></div>
+                    <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
+                        <div class="form-group">
+                            <div class="field field-icon-right">
+                                <input id="userName" type="text" class="input input-big" name="userName"
+                                       placeholder="登录账号" data-validate="required:请填写账号"/>
+                                <span class="icon icon-user margin-small"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field field-icon-right">
+                                <input id="password" type="password" class="input input-big" name="password"
+                                       placeholder="登录密码" data-validate="required:请填写密码"/>
+                                <span class="icon icon-key margin-small"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                                <input type="text" class="input input-big" name="code" placeholder="填写右侧的验证码"
+                                       data-validate="required:请填写右侧的验证码"/>
+                                <img src="images/passcode.jpg" alt="" width="100" height="32" class="passcode"
+                                     style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding:30px;"><input id="btnLogin" type="submit"
+                                                      class="button button-block bg-main text-big input-big" value="登录">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //页面加载完成之后 执行
+    $(document).ready(function () {
+        //监听按钮的点击事件
+        $("#btnLogin").click(function () {
+            //获取用户名的值 和密码的值
+            var userName = $("#userName").val();
+            var password = $("#password").val();
+            //发送ajax请求到控制器去进行用户身份的校验
+            $.ajax({
+                url: '/login',
+                type: 'post',
+                dataType: 'json',
+                data: JSON.stringify({adminLoginName: userName, adminPassword: password}),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                success: function (data) {
+                    console.log('请求成功数据是:'+data)
+                    console.log(data.state);
+                    if(data.state==1){  //说明登陆成功
+                        //首先将token放到咋们的localstorage中去
+                        //localStorage.setItem("token",data.admin.token);
+                        setCookie("token",data.admin.token,30);
+                        //下面进行页面的跳转
+                        location.href="/html/index.html";
+                    }
+                },
+                error: function (e) {
+                    console.log("登陆请求失败:" + e)
+                }
+            })
+        })
+    })
+
+    /**
+     * 将数据写到Cookie中去
+     * @param cname
+     * @param cvalue
+     * @param exdays
+     */
+    function setCookie(cname, cvalue, exdays){
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+</script>
+
+</body>
+</html>

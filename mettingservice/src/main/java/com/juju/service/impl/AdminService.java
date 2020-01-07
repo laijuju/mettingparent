@@ -92,4 +92,14 @@ public class AdminService implements IAdminService {
     public void logout(String token) throws Exception{
         adminMapper.updateToken(token);
     }
+
+    @Override
+    public Admin findAdminById(int id) throws Exception {
+        return adminMapper.findAdminById(id);
+    }
+
+    @Override
+    public void updateAdminById(Admin admin) throws Exception {
+        adminMapper.updateAdminById(admin);
+    }
 }

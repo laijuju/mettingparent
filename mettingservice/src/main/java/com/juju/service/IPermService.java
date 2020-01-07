@@ -24,7 +24,7 @@ public interface IPermService {
     /*
         删除一个权限
      */
-    void deletePerm(int permId) throws Exception;
+    void deletePermById(int permId) throws Exception;
 
     /*
         修改一个权限

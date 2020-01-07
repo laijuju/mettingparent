@@ -32,8 +32,8 @@ public class PermService implements IPermService {
     }
 
     @Override
-    public void deletePerm(int permId) throws Exception {
-        permMapper.deletePerm(permId);
+    public void deletePermById(int permId) throws Exception {
+        permMapper.deletePermById(permId);
     }
 
     @Override

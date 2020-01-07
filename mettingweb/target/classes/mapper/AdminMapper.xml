@@ -34,4 +34,20 @@
     <select id="tokenExistOrNot" parameterType="String" resultType="com.juju.po.Admin">
         select * from t_admin where token = #{token}
     </select>
+
+<!--    退出登录，将账号的token更改为''-->
+    <update id="updateToken" parameterType="String">
+        update t_admin set token = '',expireTokenTime = '' where token = #{token}
+    </update>
+
+<!--    通过Id查找管理员对象-->
+    <select id="findAdminById" parameterType="int" resultType="com.juju.po.Admin">
+        select * from t_admin where id = #{id}
+    </select>
+
+    <update id="updateAdminById" parameterType="com.juju.po.Admin">
+        update t_admin
+        set adminPassword = #{adminPassword},adminNickName = #{adminNickName},adminTel = #{adminTel}
+        where id = #{id}
+    </update>
 </mapper>

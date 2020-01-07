@@ -17,6 +17,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd" default-autowire="byName">
 
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/html/**" location="classpath:/static/html/"/>
 
     <mvc:interceptors>
             <bean class="com.juju.interceptor.AuthticationFilter"></bean>

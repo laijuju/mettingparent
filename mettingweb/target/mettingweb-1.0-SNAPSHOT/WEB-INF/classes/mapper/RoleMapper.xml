@@ -8,7 +8,7 @@
         t_admin_role t1,
         t_role t2
         where
-        t2.id = #{value}
+        t1.adminId = #{value}
         and t2.id = t1.roleId;
     </select>
 
@@ -18,12 +18,17 @@
     </insert>
 
 <!--    删除一个角色-->
-    <delete id="deleteAdmin" parameterType="int">
+    <delete id="deleteRole" parameterType="int">
         delete from t_role where id = #{value}
     </delete>
 
 <!--    查找所有角色-->
     <select id="findRoleAll" resultType="com.juju.po.Role">
         select * from t_role
+    </select>
+
+<!--    通过角色Id查看角色信息-->
+    <select id="findRoleById" parameterType="int" resultType="com.juju.po.Role">
+        select * from t_role where id = #{roleId}
     </select>
 </mapper>

@@ -26,4 +26,8 @@ public interface IRoleService {
      */
     List<Role> findRoleAll() throws Exception;
 
+    /*
+        通过roleId查询role
+     */
+    Role findRoleById(int roleId) throws Exception;
 }

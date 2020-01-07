@@ -4,6 +4,7 @@ package com.juju.po;
     角色实体
  */
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "角色的实体")
 public class Role {
     private int id;                 //ID字段
     private String roleName;        //角色名字

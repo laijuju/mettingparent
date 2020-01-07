@@ -40,4 +40,14 @@ public interface AdminMapper {
         登录退出,删除token
      */
     void updateToken(String token);
+
+    /*
+        通过Id查询管理员
+     */
+    Admin findAdminById(int id);
+
+    /*
+        通过Id修改管理员信息
+     */
+    void updateAdminById(Admin admin);
 }
