@@ -80,8 +80,13 @@
                         //首先将token放到咋们的localstorage中去
                         //localStorage.setItem("token",data.admin.token);
                         setCookie("token",data.admin.token,30);
+                        //将admin对象，以JSON的形式储存
+                        localStorage.setItem("userInfo",JSON.stringify(data.admin));
                         //下面进行页面的跳转
                         location.href="/html/index.html";
+                    };
+                    if (data.state==0){
+                       alert(data.msg);
                     }
                 },
                 error: function (e) {

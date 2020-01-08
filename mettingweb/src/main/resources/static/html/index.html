@@ -16,8 +16,8 @@
     <h1><img src="images/y.jpg" class="radius-circle rotate-hover" height="50" alt="" />千锋-会议APP后台系统</h1>
   </div>
   <div class="head-l"><a class="button button-little bg-green" href="personnew.html" >个人信息</a>  &nbsp;&nbsp;
-  	<a class="button button-little bg-red" href="login.html" >
-  		<span class="icon-power-off"></span> 退出登录</a> </div>
+  	<div class="button button-little bg-red" onclick="logout()" >
+  		<span class="icon-power-off"></span> 退出登录</div> </div>
 </div>
 <div class="leftnav">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
@@ -79,7 +79,59 @@ $(function(){
   })
   
 });
+    function logout() {
+        //调用服务端的代码实现退出功能
+        $.ajax({
+            url:'../logout',
+            type:'post',
+            dataType: 'json',
+            headers:{
+                "Content-Type": "application/json",
+                "token" : getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function(data){
+                console.log("请求成功的数据是："+data)
+                console.log(data.state);
+                if(data.state==1){//说明退出登录成功
+                    //清除cookie中的token
+                    delCookie("token");
+                    location.href='/html/login.html';
+                };
+                if(data.state==0){
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("登陆请求失败:" + e)
+            }
+        })
+    }
 
+    //获取cookie的值
+    function getCookie(name) {
+        var strcookie = document.cookie;    //获取cookie字符串
+        var arrcookie = strcookie.split(";");                //分割字符串
+        //匹配遍历
+        for (var i=0;i<arrcookie.length;i++){
+            var arr = arrcookie[i].split("=");
+            if((arr[0].trim())== name){
+                return arr[1];
+            }
+        }
+        return "";
+    }
+
+    /*
+        删除cookie中的token
+     */
+    function delCookie(name) {
+        var exp = new Date();
+        exp.setTime(exp.getTime()-10)
+        var cookie = getCookie(name);
+        if (cookie!=null){
+            document.cookie =name.trim()+ "=" +cookie+";exprie="+exp.toGMTString()+";path=/"
+        }
+    }
 
 </script>
 <ul class="bread">

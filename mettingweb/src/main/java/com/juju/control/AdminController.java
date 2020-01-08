@@ -54,6 +54,7 @@ public class AdminController {
     @PostMapping("login")
     @ApiOperation(value = "用户登录",notes = "用户名和密码不能为null")
     public AdminResult login(@RequestBody  Admin admin){
+        adminService.login(admin);
            return adminService.login(admin);
     }
     /*
@@ -71,7 +72,8 @@ public class AdminController {
             return adminResult;
         }
         try {
-            adminService.logout(token);
+            adminService.logout(token.trim());
+            System.out.println("退出账户的token："+token);
             adminResult.setState(1);
             adminResult.setMsg("退出账户成功");
         } catch (Exception e) {

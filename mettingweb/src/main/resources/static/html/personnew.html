@@ -25,118 +25,69 @@
         </div>
       <div class="form-group">  	
         <div class="label">
-          <label>工号：</label>
+          <label>昵称：</label>
         </div>
         <div class="field l10" >
-          <input type="text" class="input w100" value="" name="title" data-validate="required:请输入标题" />
+          <input type="text" id="nickName" class="input w100" value="" name="title" data-validate="required:请输入标题" />
           <div class="tips"></div>
         </div>
       </div>
             <div class="form-group">  	
         <div class="label">
-          <label>姓名：</label>
+          <label>登录名：</label>
         </div>
         <div class="field l10">
-          <input type="text" class="input w100" value="" name="title" data-validate="required:请输入标题" />
+          <input type="text" id="loginName" class="input w100" value="" name="title" data-validate="required:请输入标题" />
           <div class="tips"></div>
         </div>
       </div>
             <div class="form-group">  	
         <div class="label">
-          <label>职位：</label>
+          <label>性别：</label>
         </div>
         <div class="field l10">
-          <input type="text" class="input w50" value="" name="title" data-validate="required:请输入标题" />
+          <input type="text" id="sex" class="input w50" value="" name="title" data-validate="required:请输入标题" />
           <div class="tips"></div>
         </div>
       </div>
       <ul class="list-inline"  style="padding-left: 40px;  padding-bottom: 25px;">
-	<li>毕业院校:</li>
-	<li style="padding-right: 200px;"><div class="field" >
-          <input type="text" class="input" name="s_title" value="" data-validate="number:必须为数字" />
-       </div>     
-        </li>
-	<li>性别：</li>
-	<li  style="padding-left:34px;">
-		<div class="field"> 
-            <input name="type" id="isone"  type="radio" />女
-            <input name="type" id="istwo"  type="radio" />男
-          </div>  
-        </li>
-</ul>
-     <ul class="list-inline"  style="padding-left: 40px;  padding-bottom: 25px;">
-	<li>入职时间:</li>
-	<li style="padding-right: 200px;"><div class="field" >
-          <input type="text" class="input" name="s_title" value="" data-validate="number:必须为数字" />
-       </div>     
-        </li>
-	<li>学位：</li>
-	<li  style="padding-left:34px;">
-		<div class="field"> 
-            <input name="type" id="isone"  type="radio" />名誉博士
-            <input name="type" id="isone"  type="radio" />名誉硕士
-            <input name="type" id="isone"  type="radio" />本科
-            <input name="type" id="isone"  type="radio" />其他
-          </div>  
-        </li>
-</ul>
-<ul class="list-inline"  style="padding-left: 40px;  padding-bottom: 25px;">
-	<li>出生年月:</li>
-	<li style="padding-right: 200px;"><div class="field" >
-          <input type="text" class="input" name="s_title" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" value=""  data-validate="required:日期不能为空" style="padding:10px!important; height:auto!important;border:1px solid #ddd!important;" />
-       </div>     
-        </li>
-	<li>部门：</li>
-	<li><div class="field">
-          <input type="text" class="input" name="s_title" value=""  data-validate="number:必须为数字" />
-       </div>     
-        </li>
-</ul>
-<ul class="list-inline"  style="padding-left: 65px;  padding-bottom: 25px;">
 	<li>电话:</li>
 	<li style="padding-right: 200px;"><div class="field" >
-          <input type="text" class="input" name="s_title" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" value=""  data-validate="required:日期不能为空" style="padding:10px!important; height:auto!important;border:1px solid #ddd!important;" />
+          <input type="text" id="tel" class="input" name="s_title" value="" data-validate="number:必须为数字" />
        </div>     
         </li>
-	<li>邮箱：</li>
-	<li><div class="field">
-          <input type="text" class="input" name="s_title" value=""  data-validate="number:必须为数字" />
-       </div>     
-        </li>
+	<li>最后一次登录的时间：</li>
+          <li style="padding-right: 200px;"><div class="field" >
+              <input type="text" id="lastLoginTime" class="input" name="s_title" value="" data-validate="number:必须为数字" />
+          </div>
+          </li>
 </ul>
-<ul class="list-inline"  style="padding-left: 40px;  padding-bottom: 25px;">
-	<li>政治面貌:</li>
-	<li style="padding-right: 200px;"><div class="field" >
-          <input type="text" class="input" name="s_title" value="" />
-       </div>     
-        </li>
-	<li>学历：</li>
-	<li  style="padding-left:34px;"><div class="field"> 
-            <input name="type" id="isone"  type="radio" />博士
-            <input name="type" id="isone"  type="radio" />硕士
-            <input name="type" id="isone"  type="radio" />本科
-            <input name="type" id="isone"  type="radio" />其他
-            
-          </div>  
-        </li>
-</ul>
-
-      <div class="form-group">  	
-        <div class="label">
-          <label>家庭地址：</label>
-        </div>
-        <div class="field l10" >
-          <input type="text" class="input w100" value="" name="title" data-validate="required:请输入标题" />
-          <div class="tips"></div>
-        </div>
-      </div>
-     
         <div class="field">
           <button class="button bg-main icon-check-square-o" type="submit" style="margin-left: 500px;"> 提交</button>
         </div>
-      </div>
     </form>
   </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //信息插入第一步：将用户信息从localStorage中取出
+        var userInfo = localStorage.getItem("userInfo");
+        //将字符串对象转换为json
+        let userInfoObj = eval('('+userInfo+')');
+        init(userInfoObj);
+    })
+
+    /*
+        页面数据初始化
+     */
+    function init(userInfo) {
+        $("#nickName").val(userInfo.adminNickName);
+        $("#loginName").val(userInfo.adminLoginName);
+        $("#sex").val(userInfo.adminSex);
+        $("#tel").val(userInfo.adminTel);
+        $("#lastLoginTime").val(userInfo.lastLoginTime);
+    }
+</script>
 
 </body></html>

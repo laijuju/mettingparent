@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,7 +24,8 @@ public class AuthticationFilter implements HandlerInterceptor {
         "register",
         "swagger-ui.html",
         "login.html",
-        "unlogin.html"
+        "unlogin.html",
+//        "index.html"
     };
 
     @Override
@@ -48,12 +50,32 @@ public class AuthticationFilter implements HandlerInterceptor {
                 return true;
             }
         }
+        //判断请求是否是浏览器发送的
+        String header = request.getHeader("User-Agent");
+
         //如果执行到这里，说明地址需要拦截
         //第一步：先找到token
         String token = request.getHeader("token");
+        //判断是页面还是浏览器
+        //判断是否是浏览器发送过来的请求
+        if(null!=header&&!(header.equals(""))){//说明是浏览器
+            String cookieStr = request.getHeader("Cookie");
+            Cookie[] cookies = request.getCookies();
+            //对获取到的cookie进行处理
+            //第一步：更改cooki的格式，将cookie中的;更改为=
+            cookieStr = cookieStr.replace(";","=");
+            //第二步：分割更改好格式的cookie
+            String[] strings = cookieStr.split("=");
+            //第三版：通过for循环，获取出cookie中的token值
+            for (int i = 0;i<strings.length;i++){
+                if ((strings[i].trim()).equals("token"))
+                {
+                    token = strings[i+1].trim();
+                }
+            }
+        }
         if (null == token|| token.equals("")){//说明非法请求，因为没有token
-            //判断请求是否是浏览器发送的
-            String header = request.getHeader("User-Agent");
+
             if (!header.equals("")&&null!=header){
                 //进行页面的转发
                 response.sendRedirect("/html/unlogin.html");
