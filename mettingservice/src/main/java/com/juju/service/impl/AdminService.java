@@ -102,4 +102,19 @@ public class AdminService implements IAdminService {
     public void updateAdminById(Admin admin) throws Exception {
         adminMapper.updateAdminById(admin);
     }
+
+    @Override
+    public void updatePassword(String oldPassword, String newPassword, int id) throws Exception {
+        adminMapper.updatePassword(oldPassword,newPassword,id);
+    }
+
+    @Override
+    public int checkPassword(int id, String adminPassword) throws Exception {
+        String password = adminMapper.checkPassword(id);
+        adminPassword = MD5Util.encrypt(adminPassword);
+        if (adminPassword.equals(password)){
+            return 1;
+        }
+        return 0;
+    }
 }

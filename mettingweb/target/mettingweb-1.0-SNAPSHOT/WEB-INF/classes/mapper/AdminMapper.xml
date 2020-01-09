@@ -44,10 +44,19 @@
     <select id="findAdminById" parameterType="int" resultType="com.juju.po.Admin">
         select * from t_admin where id = #{id}
     </select>
-
+<!--    通过ID修改管理员信息-->
     <update id="updateAdminById" parameterType="com.juju.po.Admin">
         update t_admin
-        set adminPassword = #{adminPassword},adminNickName = #{adminNickName},adminTel = #{adminTel}
+        set adminNickName = #{adminNickName},adminTel = #{adminTel}
         where id = #{id}
     </update>
+<!--    通过ID修改密码-->
+    <update id="updatePassword">
+        update t_admin set adminPassword = #{newPassword} where id = #{id}
+    </update>
+
+<!--    校验密码-->
+    <select id="checkPassword" resultType="String">
+        select adminPassword from t_admin where id = #{id}
+    </select>
 </mapper>

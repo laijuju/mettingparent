@@ -1,6 +1,7 @@
 package com.juju.mapper;
 
 import com.juju.po.Admin;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -50,4 +51,14 @@ public interface AdminMapper {
         通过Id修改管理员信息
      */
     void updateAdminById(Admin admin);
+
+    /*
+        通过Id修改密码
+     */
+    void updatePassword(@Param("oldPassword") String oldPassword, @Param("newPassword") String newPassword, @Param("id") int id);
+
+    /*
+        校验密码
+     */
+    String checkPassword(@Param("id") int id);
 }

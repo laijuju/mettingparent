@@ -23,7 +23,6 @@ public class AdminController {
 
     @Autowired
     private IAdminService adminService;
-
     /*
         管理员的添加
      */
@@ -57,9 +56,11 @@ public class AdminController {
         adminService.login(admin);
            return adminService.login(admin);
     }
+
     /*
         登录退出
      */
+
     @PostMapping("logout")
     @ApiOperation(value = "退出登录功能借口",notes = "token不能为null")
     @ApiImplicitParam(paramType = "header",name = "token",value = "用户的token",dataType = "String",required = true)
@@ -85,6 +86,7 @@ public class AdminController {
     /*
         查看所有的管理员
      */
+
     @ApiOperation(value = "查找所有的管理员",notes = "token不能为null")
     @GetMapping("findAdminAll")
     @ApiImplicitParam(paramType = "header",value = "用户的token",name = "token",required = true,dataType = "String")
@@ -112,7 +114,7 @@ public class AdminController {
             @ApiImplicitParam(paramType = "query",name = "id",value = "管理员ID",dataType = "int",required = true),
             @ApiImplicitParam(paramType = "header",name = "token",value = "管理员token",dataType = "String",required = true)
     })
-    public AdminResult findAdminById(@RequestParam("id")  int id){
+    public AdminResult findAdminById(int id){
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         try {
@@ -126,7 +128,9 @@ public class AdminController {
             return adminResult;
         }
     }
-
+    /*
+        通过ID修改信息
+     */
     @PostMapping("updateAdminById")
     @ApiOperation(value = "通过Id修改管理员的信息",notes = "id不能为空")
     @ApiImplicitParam(paramType = "header",value = "操作人员token",name = "token",dataType = "String",required = true)
@@ -134,8 +138,6 @@ public class AdminController {
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         try {
-            //散列密码
-            admin.setAdminPassword(MD5Util.encrypt(admin.getAdminPassword()));
             adminService.updateAdminById(admin);
             adminResult.setState(1);
             adminResult.setMsg("修改信息成功");
@@ -143,6 +145,61 @@ public class AdminController {
         } catch (Exception e) {
             adminResult.setMsg("修改信息失败："+e.getMessage());
             return adminResult;
+        }
+    }
+    /*
+        通过ID修改密码
+     */
+    @PostMapping("updatePassword")
+    @ApiOperation(value = "修改密码的测试接口",notes = "token不能为空")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",dataType = "String",required = true),
+            @ApiImplicitParam(paramType = "query",name = "id",value = "用户id",dataType = "int",required = true),
+            @ApiImplicitParam(paramType = "query",name = "oldPassword",value = "旧密码",dataType = "String",required = true),
+            @ApiImplicitParam(paramType = "query",name = "newPassword",value = "新密码",dataType = "String",required = true)
+    })
+    public AdminResult updatePassword(String oldPassword,String newPassword, int adminId){
+        System.out.println("进入到修改密码界面");
+        AdminResult adminResult = new AdminResult();
+        adminResult.setState(0);
+        try {
+            //校验密码
+            int res = checkPassword(adminId, oldPassword);
+            if (res==0){
+                adminResult.setMsg("输入的原始密码不对");
+                return adminResult;
+            }
+            //执行到这里，说明校验成功
+            //加密密码
+            newPassword = MD5Util.encrypt(newPassword);
+            adminService.updatePassword(oldPassword,newPassword,adminId);
+            adminResult.setState(1);
+            adminResult.setMsg("修改密码成功");
+            logger.info("修改密码成功");
+            return adminResult;
+        } catch (Exception e) {
+            adminResult.setMsg("修改密码失败："+e.getMessage());
+            logger.error("修改密码失败:"+e.getMessage());
+            return adminResult;
+        }
+    }
+
+    /*
+        校验密码
+     */
+    @PostMapping("checkPassword")
+    @ApiOperation(value = "校验密码功能测试接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "oldPassword",value = "旧密码",dataType = "String",required = true),
+            @ApiImplicitParam(paramType = "query",name = "id",value = "用户ID",dataType = "int",required = true)
+    })
+    public int checkPassword(int id,@RequestParam("oldPassword") String adminPassword){
+        try {
+            int i = adminService.checkPassword(id, adminPassword);
+            return i;
+        } catch (Exception e) {
+            logger.error("校验密码失败："+e.getMessage());
+            return 0;
         }
     }
 }

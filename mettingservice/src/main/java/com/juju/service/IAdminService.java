@@ -51,4 +51,14 @@ public interface IAdminService {
         通过ID修改管理员的信息
      */
     void updateAdminById(Admin admin) throws Exception;
+
+    /*
+        修改密码
+     */
+    void updatePassword(String oldPassword,String newPassword,int id) throws Exception;
+
+    /*
+        校验密码
+     */
+    int checkPassword(int id, String adminPassword)throws Exception;
 }
