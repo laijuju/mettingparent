@@ -36,10 +36,21 @@
     </delete>
 
 <!--    更新一个账号
-        这里有个问题，需要根据type去进行更新
+        根据type去进行更新
+        type='res' : 更新的是资源
+        type='perm': 更新的是权限
 -->
     <update id="updatePerm" parameterType="com.juju.po.Perm">
-        update t_perms set
+        <if test="type=='res'">
+            update t_perms set resName = #{resName}, resPath = #{resPath} where id = #{id}
+        </if>
+        <if test="type=='perm'">
+            update t_perms set permName = #{permName}, permDes = #{permDes} where id = #{id}
+        </if>
     </update>
+
+    <select id="findPermByPermId" parameterType="int" resultType="com.juju.po.Perm">
+        select * from t_perms where id = #{value}
+    </select>
 
 </mapper>

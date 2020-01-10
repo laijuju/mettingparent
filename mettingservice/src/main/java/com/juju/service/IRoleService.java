@@ -30,4 +30,9 @@ public interface IRoleService {
         通过roleId查询role
      */
     Role findRoleById(int roleId) throws Exception;
+
+    /*
+        通过roleID修改角色信息
+     */
+    void updateRoleById(Role role) throws Exception;
 }

@@ -111,5 +111,48 @@ public class PermController {
         }
     }
 
+    @PostMapping("updatePerm")
+    @ApiOperation(value = "通过Id修改权限")
+    @ApiImplicitParam(paramType = "header",required = true,dataType = "String",name = "token",value = "用户token")
+    public PermResult updatePerm(@RequestBody Perm perm){
+        System.out.println("接受到的值："+perm);
+        PermResult permResult = new PermResult();
+        permResult.setState(0);
+        try {
+            permService.updatePerm(perm);
+            permResult.setState(1);
+            permResult.setMsg("修改权限成功");
+            logger.info("修改权限成功");
+            return permResult;
+        } catch (Exception e) {
+            permResult.setMsg("修改权限失败："+e.getMessage());
+            logger.error("修改权限失败："+e.getMessage());
+            return permResult;
+        }
+    }
+
+    @PostMapping("findPermByPermId")
+    @ApiOperation(value = "通过权限的Id查看权限")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",dataType = "String",required = true),
+            @ApiImplicitParam(paramType = "query",name = "permId",value = "权限ID",dataType = "int",required = true)
+    })
+    public PermResult findPermByPermId(int permId){
+        PermResult permResult = new PermResult();
+        permResult.setState(0);
+        try {
+            Perm perm = permService.findPermByPermId(permId);
+            permResult.setState(1);
+            permResult.setMsg("通过ID查找权限成功");
+            permResult.setPerm(perm);
+            logger.info("通过ID查找权限成功");
+            return permResult;
+        } catch (Exception e) {
+            logger.error("通过ID查找权限失败："+e.getMessage());
+            permResult.setMsg("通过ID查找权限失败："+e.getMessage());
+            return permResult;
+        }
+    }
+
 
 }

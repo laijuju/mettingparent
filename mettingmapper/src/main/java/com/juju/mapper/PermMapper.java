@@ -30,4 +30,9 @@ public interface PermMapper {
         修改一个权限
      */
     void updatePerm(Perm perm);
+
+    /*
+        通过ID查找权限
+     */
+    Perm findPermByPermId(int permId);
 }

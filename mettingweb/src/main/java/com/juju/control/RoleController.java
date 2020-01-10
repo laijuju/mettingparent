@@ -139,4 +139,23 @@ public class RoleController {
             return roleResult;
         }
     }
+
+    @PostMapping("updateRoleById")
+    @ApiOperation(value = "通过ID修改角色信息")
+    @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",dataType = "String",required = true)
+    public RoleResult updateRoleById(@RequestBody Role role){
+        RoleResult roleResult = new RoleResult();
+        roleResult.setState(0);
+        try {
+            roleService.updateRoleById(role);
+            roleResult.setState(1);
+            roleResult.setMsg("通过ID修改角色信息成功");
+            logger.info("通过ID修改角色信息成功");
+            return roleResult;
+        } catch (Exception e) {
+            logger.error("通过ID修改角色信息失败："+e.getMessage());
+            roleResult.setMsg("通过ID修改角色信息失败："+e.getMessage());
+            return roleResult;
+        }
+    }
 }

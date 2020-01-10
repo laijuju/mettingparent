@@ -31,4 +31,9 @@
     <select id="findRoleById" parameterType="int" resultType="com.juju.po.Role">
         select * from t_role where id = #{roleId}
     </select>
+
+<!--    通过roleId修改角色信息-->
+    <update id="updateRoleById" parameterType="com.juju.po.Role">
+        update t_role set roleName = #{roleName}, roleDes = #{roleDes} where id = #{id};
+    </update>
 </mapper>

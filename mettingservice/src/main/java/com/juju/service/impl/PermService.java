@@ -40,4 +40,10 @@ public class PermService implements IPermService {
     public void updatePerm(Perm perm) throws Exception {
         permMapper.updatePerm(perm);
     }
+
+    @Override
+    public Perm findPermByPermId(int permId) throws Exception {
+        return permMapper.findPermByPermId(permId);
+    }
+
 }

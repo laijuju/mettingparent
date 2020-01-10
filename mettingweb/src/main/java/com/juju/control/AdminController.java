@@ -159,7 +159,6 @@ public class AdminController {
             @ApiImplicitParam(paramType = "query",name = "newPassword",value = "新密码",dataType = "String",required = true)
     })
     public AdminResult updatePassword(String oldPassword,String newPassword, int adminId){
-        System.out.println("进入到修改密码界面");
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         try {

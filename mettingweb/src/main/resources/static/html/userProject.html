@@ -25,17 +25,17 @@
 <body>
 <form method="post" action="" id="listform">
     <div class="panel admin-panel">
-        <div class="panel-head"><strong class="icon-reorder">权限列表</strong></div>
-        <div class="padding border-bottom">
+        <div class="panel-head"><strong class="icon-reorder">用户列表</strong></div>
+<!--        <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <li><a class="button border-main icon-plus-square-o" href="editorProject.html"> 添加新的权限</a></li>
+                <li><a class="button border-main icon-plus-square-o" href="addRes.html"> 添加新的资源</a></li>
             </ul>
-        </div>
+        </div>-->
         <table class="table table-hover text-center" id="vo">
             <tr>
                 <th>ID</th>
-                <th>权限名称</th>
-                <th>权限描述</th>
+                <th>资源名称</th>
+                <th>资源路径</th>
                 <th>操作</th>
             </tr>
 <!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
@@ -149,10 +149,10 @@
             var trElement = document.createElement("tr");
             var permIdElement = document.createElement("td");
             permIdElement.innerText = perm.id;
-            var permNameElement = document.createElement("td");
-            permNameElement.innerText = perm.permName;
-            var permDesElement = document.createElement("td");
-            permDesElement.innerText = perm.permDes;
+            var resNameElement = document.createElement("td");
+            resNameElement.innerText = perm.resName;
+            var resPathElement = document.createElement("td");
+            resPathElement.innerText = perm.resPath;
 
             var czElement = document.createElement("td");
             var modifyElement = document.createElement("a");
@@ -166,8 +166,8 @@
             czElement.appendChild(modifyElement);
             czElement.appendChild(deleteElement);
             trElement.appendChild(permIdElement);
-            trElement.appendChild(permNameElement);
-            trElement.appendChild(permDesElement);
+            trElement.appendChild(resNameElement);
+            trElement.appendChild(resPathElement);
             trElement.appendChild(czElement);
             tableParent.appendChild(trElement);
 
@@ -220,7 +220,7 @@
         modify跳转页面
      */
     function junpModifyPage(id) {
-        location.href = "modifyPerm.html?id="+id;
+        location.href = "modifyRes.html?id="+id;
     }
 </script>
 </body>

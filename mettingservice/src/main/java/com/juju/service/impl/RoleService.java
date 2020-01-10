@@ -43,4 +43,9 @@ public class RoleService implements IRoleService {
     public Role findRoleById(int roleId) throws Exception {
         return roleMapper.findRoleById(roleId);
     }
+
+    @Override
+    public void updateRoleById(Role role) throws Exception {
+        roleMapper.updateRoleById(role);
+    }
 }

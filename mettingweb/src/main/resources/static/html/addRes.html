@@ -17,53 +17,47 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>新增项目</strong></div>
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>新增资源</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="#">
+        <form method="post" class="form-x" action="">
             <div style="padding-left:20px ;padding-bottom: 20px;">
                 <label>【基本信息】</label>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>角色的名字：</label>
+                    <label>资源名字：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="roleName" class="input w100" value="" name="roleName" data-validate="required:请输入内容"/>
+                    <input type="text" class="input w100" id="permName" value="" name="permName" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>角色的描述：</label>
+                    <label>权限描述：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="roleDes" class="input w100" value="" name="roleDes" data-validate="required:请输入内容"/>
+                    <input type="text" class="input w100" value="" id="permDes" name="permDes" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
-            <div class="form-group" style="padding: 30px 300px;">
-                <div class="label">
-                    <label></label>
-                </div>
-                <div class="field">
-                    <button class="button bg-main icon-check-square-o" onclick="addRole()" type="button"> 提交</button>
-                </div>
+            <div class="field" style="padding: 5px 35%;">
+                <button class="button bg-main icon-check-square-o" type="button" onclick="addPerm()"> 提交</button>
             </div>
         </form>
     </div>
 </div>
 
 <script type="text/javascript">
-    function addRole() {
-        var roleName = $("#roleName").val();
-        var roleDes = $("#roleDes").val();
+    function addPerm(){
         $.ajax({
-            url: '../addRole',
+            url: '../addPerm',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
-                roleName : roleName,
-                roleDes : roleDes
+                permName : $("#permName").val(),
+                permDes : $("#permDes").val(),
+                type : 'perm',
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -72,19 +66,19 @@
             success: function (data) {
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
-                if (data.state == 1) {//说明添加角色成功
-                    location.href = "xmList.html"
-                }
-                ;
+                if (data.state == 1) {//说明添加数据成功
+                    location.href = "saveProject.html";
+                };
                 if (data.state == 0) {
-                    alert(data.msg)
+                    console.log(data.msg);
                 }
             },
             error: function (e) {
-                console.log("添加角色请求失败:" + e)
+                console.log("添加perm请求失败:" + e)
             }
         })
     }
+
 </script>
 </body>
 </html>

@@ -31,4 +31,8 @@ public interface IPermService {
      */
     void updatePerm(Perm perm) throws Exception;
 
+    /*
+        通过权限ID查找权限
+     */
+    Perm findPermByPermId(int permId) throws Exception;
 }

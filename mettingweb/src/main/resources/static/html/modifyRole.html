@@ -14,14 +14,24 @@
     <script src="js/jquery.js"></script>
     <script src="js/pintuer.js"></script>
     <script src="js/commoms.js"></script>
+    <script src="js/getparameter.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>新增项目</strong></div>
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改角色</strong></div>
     <div class="body-content">
         <form method="post" class="form-x" action="#">
             <div style="padding-left:20px ;padding-bottom: 20px;">
                 <label>【基本信息】</label>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>角色的ID：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
             </div>
             <div class="form-group">
                 <div class="label">
@@ -46,7 +56,7 @@
                     <label></label>
                 </div>
                 <div class="field">
-                    <button class="button bg-main icon-check-square-o" onclick="addRole()" type="button"> 提交</button>
+                    <button class="button bg-main icon-check-square-o" onclick="updateRoleById()" type="button"> 提交</button>
                 </div>
             </div>
         </form>
@@ -54,16 +64,51 @@
 </div>
 
 <script type="text/javascript">
-    function addRole() {
-        var roleName = $("#roleName").val();
-        var roleDes = $("#roleDes").val();
+    $(document).ready(function () {
+        /*
+            获取前一个页面传递过来的数据
+         */
+        var roleId = UrlParam.paramValues("id");
+        var id = roleId[0];
+        findRoleById(id);
+    })
+
+    function findRoleById(id) {
         $.ajax({
-            url: '../addRole',
+            url: '../findRoleById',
+            type: 'post',
+            dataType: 'json',
+            data : {roleId : id},
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明查询数据成功
+                    console.log(data);
+                    console.log(data.msg);
+                    $("#id").val(data.role.id);
+                    $("#roleName").val(data.role.roleName);
+                    $("#roleDes").val(data.role.roleDes);
+                };
+            },
+            error: function (e) {
+                console.log("通过ID查询角色请求失败:" + e)
+            }
+        })
+    }
+
+    function updateRoleById() {
+        $.ajax({
+            url: '../updateRoleById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
-                roleName : roleName,
-                roleDes : roleDes
+                id : $("#id").val(),
+                roleName : $("#roleName").val(),
+                roleDes : $("#roleDes").val()
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -71,17 +116,12 @@
             },
             success: function (data) {
                 console.log("请求成功的数据是：" + data)
-                console.log(data.state);
-                if (data.state == 1) {//说明添加角色成功
+                if (data.state == 1) {//说明修改数据成功
                     location.href = "xmList.html"
-                }
-                ;
-                if (data.state == 0) {
-                    alert(data.msg)
-                }
+                };
             },
             error: function (e) {
-                console.log("添加角色请求失败:" + e)
+                console.log("通过ID修改角色信息请求失败:" + e)
             }
         })
     }

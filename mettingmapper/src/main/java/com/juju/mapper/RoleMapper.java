@@ -34,4 +34,9 @@ public interface RoleMapper {
         通过roleId查询role
       */
     Role findRoleById(int roleId);
+
+    /*
+        通过roleId修改角色信息
+     */
+    void updateRoleById(Role role);
 }
