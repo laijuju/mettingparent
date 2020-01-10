@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.MeetingNoticeMapper">
+
+<!--    查看所有的会议通知-->
+   <select id="findAllMeetingNotice" resultType="com.juju.po.MeetingNotice">
+       select * from t_meeting_notice
+   </select>
+
+<!--    通过Id查询会议通知信息-->
+    <select id="selectMeetingNoticeById" parameterType="int" resultType="com.juju.po.MeetingNotice">
+        select * from t_meeting_notice where id = #{value}
+    </select>
+
+<!--    添加新的会议信息-->
+    <insert id="addMeetingNotice" parameterType="com.juju.po.MeetingNotice">
+        insert into t_meeting_notice(meetingName,meetingTime,meetingAddress)
+        values(#{meetingName},#{meetingTime},#{meetingAddress})
+    </insert>
+
+<!--    修改会议通知-->
+    <update id="updateMeetingNotice" parameterType="com.juju.po.MeetingNotice">
+        update t_meeting_notice
+        set meetingTime = #{meetingTime},meetingAddress = #{meetingAddress}
+        where id = #{id}
+    </update>
+
+<!--    删除会议通知？-->
+    <delete id="deleteMeetingNoticeById" parameterType="int">
+        delete from t_meeting_notice where id = #{value}
+    </delete>
+</mapper>
