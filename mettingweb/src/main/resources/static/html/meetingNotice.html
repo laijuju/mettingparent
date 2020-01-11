@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+    <script src="js/commoms.js"></script>
+    <script src="js/getparameter.js"></script>
+    <style type="text/css">
+        .cz{
+            width: 40px;
+            height: 20px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder">用户列表</strong></div>
+<!--        <div class="padding border-bottom">
+            <ul class="search" style="padding-left:10px;">
+                <li><a class="button border-main icon-plus-square-o" href="addRes.html"> 添加新的资源</a></li>
+            </ul>
+        </div>-->
+        <table class="table table-hover text-center" id="vo">
+            <tr>
+                <th>ID</th>
+                <th>会议名称</th>
+                <th>会议地点</th>
+                <th>会议时间</th>
+                <th>操作</th>
+            </tr>
+<!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
+                                                                                              id="checkall"/>全选
+            </td>
+            <td><a class="button border-red" href="javascript:void(0)" style="padding: 2px 8px;"
+                   onclick="return del(1,1,1)">
+                <span class="icon-trash-o"></span> 批量删除</a></td>
+            <td>
+            </td>-->
+   <!--         </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="pagelist"><a href="">上一页</a> <span class="current">1</span><a href="">2</a><a
+                            href="">3</a><a href="">下一页</a><a href="">尾页</a></div>
+                </td>
+            </tr>-->
+        </table>
+    </div>
+    </div>
+    </div>
+</form>
+<script type="text/javascript">
+
+    //搜索
+    function changesearch() {
+
+    }
+
+    //单个删除
+    function del(id, mid, iscid) {
+        if (confirm("您确定要删除吗?")) {
+
+        }
+    }
+
+    //全选
+    $("#checkall").click(function () {
+        $("input[name='id[]']").each(function () {
+            if (this.checked) {
+                this.checked = false;
+            } else {
+                this.checked = true;
+            }
+        });
+    })
+
+    //批量删除
+    function DelSelect() {
+        var Checkbox = false;
+        $("input[name='id[]']").each(function () {
+            if (this.checked == true) {
+                Checkbox = true;
+            }
+        });
+        if (Checkbox) {
+            var t = confirm("您确认要删除选中的内容吗？");
+            if (t == false) return false;
+            $("#listform").submit();
+        } else {
+            alert("请选择您要删除的内容!");
+            return false;
+        }
+    }
+
+    $(document).ready(function () {
+        //发送ajax请求 请求数据库的数据
+        init();
+    })
+
+    /*
+        向数据库请求所有角色的数据
+     */
+    function init() {
+        $.ajax({
+            url: '../findAllMeetingNotice',
+            type: 'get',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明获取数据成功
+                    setData(data.meetingNotices);
+                }
+                ;
+                if (data.state == 0) {
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("主页菜单请求请求失败:" + e)
+            }
+        })
+    }
+
+    /*
+        将获取到底数据设置到页面上
+     */
+    function setData(meetingNotices){
+        //找到添加数据的父节点
+        var tableParent = document.getElementById("vo");
+
+        for (var i = 0; i <meetingNotices.length;i++){
+            var meeting = meetingNotices[i];
+            //拼接数据
+            //生成节点
+            var trElement = document.createElement("tr");
+            var meetingIdElement = document.createElement("td");
+            meetingIdElement.innerText = meeting.id;
+            var meetingNameElement = document.createElement("td");
+            meetingNameElement.innerText = meeting.meetingName;
+            var meetingAddressElement = document.createElement("td");
+            meetingAddressElement.innerText = meeting.meetingAddress;
+            var meetingTimeElement = document.createElement("td");
+            meetingTimeElement.innerText = dateFormat(meeting.meetingTime);
+
+            var czElement = document.createElement("td");
+            var modifyElement = document.createElement("a");
+            modifyElement.innerText = "修改";
+            modifyElement.className = "cz";
+            var deleteElement = document.createElement("a");
+            deleteElement.setAttribute("id","delete");
+            deleteElement.innerText = "删除";
+            deleteElement.className = "cz";
+
+            czElement.appendChild(modifyElement);
+            czElement.appendChild(deleteElement);
+            trElement.appendChild(meetingIdElement);
+            trElement.appendChild(meetingNameElement);
+            trElement.appendChild(meetingAddressElement);
+            trElement.appendChild(meetingTimeElement);
+            trElement.appendChild(czElement);
+            tableParent.appendChild(trElement);
+
+            //按钮点击事件设置
+            //修改按钮
+            modifyElement.onclick = function () {
+                var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
+                var id = td.innerText;
+                junpModifyPage(id);
+            }
+            //删除按钮
+            deleteElement.onclick = function () {
+                var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
+                var id = td.innerText;
+                deletePermById(id);
+            }
+        }
+    }
+
+    /*
+        删除Perm
+     */
+    function deletePermById(id) {
+        $.ajax({
+            url: '../deleteMeetingNoticeById',
+            type: 'post',
+            dataType: 'json',
+            data : JSON.stringify({id : id}),
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明删除数据成功
+                    location.href = "meetingNotice.html";
+                };
+                if (data.state == 0) {
+                    console.log(data.msg);
+                }
+            },
+            error: function (e) {
+                console.log("删除meetingNotice请求失败:" + e)
+            }
+        })
+    }
+
+    /*
+        modify跳转页面
+     */
+    function junpModifyPage(id) {
+        location.href = "modifyMeetingNotice.html?id="+id;
+    }
+
+    function dateFormat(date) {
+        let format = 'yyyy-MM-dd hh:mm:ss';
+        date = new Date(date)
+        if (date != 'Invalid Date') {
+            var o = {
+                "M+": date.getMonth() + 1, //month
+                "d+": date.getDate(), //day
+                "h+": date.getHours(), //hour
+                "m+": date.getMinutes(), //minute
+                "s+": date.getSeconds(), //second
+                "q+": Math.floor((date.getMonth() + 3) / 3), //quarter
+                "S": date.getMilliseconds() //millisecond
+            }
+            if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+                (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(format))
+                    format = format.replace(RegExp.$1,
+                        RegExp.$1.length == 1 ? o[k] :
+                            ("00" + o[k]).substr(("" + o[k]).length));
+            return format;
+        }
+        return '';
+    }
+
+</script>
+</body>
+</html>

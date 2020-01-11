@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+    <script src="js/commoms.js"></script>
+    <script src="js/getparameter.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改会议信息限</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="#">
+            <div style="padding-left:20px ;padding-bottom: 20px;">
+                <label>【基本信息】</label>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>会议通知的ID：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>会议的时间：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="meetingTime" class="input w100" value="" name="meetingTime" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>会议的地点：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="meetingAddress" class="input w100" value="" name="meetingAddress" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group" style="padding: 30px 300px;">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" onclick="updateRoleById()" type="button"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+            获取前一个页面传递过来的数据
+         */
+        var roleId = UrlParam.paramValues("id");
+        var id = roleId[0];
+        findRoleById(id);
+    })
+
+    function findRoleById(id) {
+        $.ajax({
+            url: '../selectMeetingNoticeById',
+            type: 'post',
+            dataType: 'json',
+            data : JSON.stringify({
+                id : id
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明查询数据成功
+                    console.log(data);
+                    console.log(data.msg);
+                    $("#id").val(data.meetingNotice.id);
+                    $("#meetingAddress").val(data.meetingNotice.meetingAddress);
+                    $("#meetingTime").val(dateFormat(data.meetingNotice.meetingTime));
+                };
+            },
+            error: function (e) {
+                console.log("通过ID查询权限请求失败:" + e)
+            }
+        })
+    }
+
+    function updateRoleById() {
+        $.ajax({
+            url: '../updateMeetingNotice',
+            type: 'post',
+            dataType: 'json',
+            data : JSON.stringify({
+                id : $("#id").val(),
+                meetingAddress : $("#meetingAddress").val(),
+                meetingTime : $("#meetingTime").val(),
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                if (data.state == 1) {//说明修改数据成功
+                    location.href = "meetingNotice.html"
+                };
+            },
+            error: function (e) {
+                console.log("通过ID修改会议通知信息请求失败:" + e)
+            }
+        })
+    }
+
+    function dateFormat(date) {
+        let format = 'yyyy-MM-dd hh:mm:ss';
+        date = new Date(date)
+        if (date != 'Invalid Date') {
+            var o = {
+                "M+": date.getMonth() + 1, //month
+                "d+": date.getDate(), //day
+                "h+": date.getHours(), //hour
+                "m+": date.getMinutes(), //minute
+                "s+": date.getSeconds(), //second
+                "q+": Math.floor((date.getMonth() + 3) / 3), //quarter
+                "S": date.getMilliseconds() //millisecond
+            }
+            if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+                (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(format))
+                    format = format.replace(RegExp.$1,
+                        RegExp.$1.length == 1 ? o[k] :
+                            ("00" + o[k]).substr(("" + o[k]).length));
+            return format;
+        }
+        return '';
+    }
+</script>
+</body>
+</html>

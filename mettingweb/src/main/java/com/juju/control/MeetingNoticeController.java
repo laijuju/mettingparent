@@ -82,4 +82,42 @@ public class MeetingNoticeController {
         }
     }
 
+    @PostMapping("addMeetingNotice")
+    @ApiOperation(value = "添加会议通知信息")
+    @ApiImplicitParam(paramType = "header", name = "token", value = "用户token", dataType = "String", required = true)
+    public MeetingNoticeResult addMeetingNotice(@RequestBody MeetingNotice meetingNotice){
+        MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
+        meetingNoticeResult.setState(0);
+        try {
+            mettingNoticeService.addMeetingNotice(meetingNotice);
+            meetingNoticeResult.setState(1);
+            meetingNoticeResult.setMsg("添加会议通知成功");
+            logger.info("添加会议通知成功");
+            return meetingNoticeResult;
+        } catch (Exception e) {
+            logger.error("添加会议信息失败");
+            meetingNoticeResult.setMsg("添加会议信息失败");
+            return meetingNoticeResult;
+        }
+    }
+
+    @ApiOperation(value = "修改会议通知信息")
+    @ApiImplicitParam(paramType = "header", name = "token", value = "用户token", dataType = "String", required = true)
+    @PostMapping("updateMeetingNotice")
+    public MeetingNoticeResult updateMeetingNotice(@RequestBody  MeetingNotice meetingNotice){
+        MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
+        meetingNoticeResult.setState(0);
+        try {
+            mettingNoticeService.updateMeetingNotice(meetingNotice);
+            meetingNoticeResult.setState(1);
+            meetingNoticeResult.setMsg("修改会议信息成功");
+            logger.info("修改会议信息成功");
+            return  meetingNoticeResult;
+        } catch (Exception e) {
+            logger.error("修改会议信息失败");
+            meetingNoticeResult.setMsg("修改会议信息失败");
+            return meetingNoticeResult;
+        }
+    }
+
 }

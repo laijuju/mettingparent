@@ -7,17 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3990dc89-771d-49e6-b962-5b90961f9b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/MeetingNoticeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/MeetingNotice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/result/MeetingNoticeResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/IMeetingNoticeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/MeetingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/MeetingNoticeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/MeetingNoticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addMeetingNotice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/meetingNotice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingNotice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/MeetingNoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/MeetingNoticeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +93,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mettingweb/src/main/resources/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mettingweb/src/main/resources/static/html" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -110,12 +106,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\mapper" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html" />
+      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources" />
+      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\mapper" />
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html\js" />
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static" />
-      <recent name="D:\IdeaProjects\mettingparent\mettingdao\src\main\java\com\juju" />
     </key>
   </component>
   <component name="RunManager">
@@ -241,7 +240,8 @@
       <workItem from="1578584238988" duration="27334000" />
       <workItem from="1578654502836" duration="6614000" />
       <workItem from="1578665425295" duration="2987000" />
-      <workItem from="1578671013302" duration="8177000" />
+      <workItem from="1578671013302" duration="8430000" />
+      <workItem from="1578706491706" duration="9893000" />
     </task>
     <task id="LOCAL-00001" summary="第二次上传测试">
       <created>1578299767683</created>
@@ -285,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578673926942</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="会议通知操作">
+      <created>1578679299632</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578679299632</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +305,8 @@
     <MESSAGE value="前端登录，登出，个人信息" />
     <MESSAGE value="修改密码" />
     <MESSAGE value="角色权限管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="角色权限管理" />
+    <MESSAGE value="会议通知操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="会议通知操作" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="24" key="#Notifications" timestamp="1578298023016">
@@ -325,10 +333,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="300" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1578675472807" />
-    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1578679262821">
+    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1578716577013">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578679262821" />
+    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578716577013" />
     <state x="311" y="55" key="FileChooserDialogImpl" timestamp="1578298298964">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -341,54 +349,54 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="266" y="249" width="558" height="218" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1578299811321" />
-    <state width="1293" height="-8" key="GridCell.Tab.0.bottom" timestamp="1578679138759">
+    <state width="1293" height="38" key="GridCell.Tab.0.bottom" timestamp="1578716419034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578679138759" />
-    <state width="1293" height="-8" key="GridCell.Tab.0.center" timestamp="1578679138758">
+    <state width="1293" height="38" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578716419034" />
+    <state width="1293" height="38" key="GridCell.Tab.0.center" timestamp="1578716419034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578679138758" />
-    <state width="1293" height="-8" key="GridCell.Tab.0.left" timestamp="1578679138758">
+    <state width="1293" height="38" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578716419034" />
+    <state width="1293" height="38" key="GridCell.Tab.0.left" timestamp="1578716419034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578679138758" />
-    <state width="1293" height="-8" key="GridCell.Tab.0.right" timestamp="1578679138759">
+    <state width="1293" height="38" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578716419034" />
+    <state width="1293" height="38" key="GridCell.Tab.0.right" timestamp="1578716419034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578679138759" />
-    <state width="1293" height="-8" key="GridCell.Tab.1.bottom" timestamp="1578679138587">
+    <state width="1293" height="38" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578716419034" />
+    <state width="1293" height="38" key="GridCell.Tab.1.bottom" timestamp="1578716418924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578679138587" />
-    <state width="1293" height="-8" key="GridCell.Tab.1.center" timestamp="1578679138587">
+    <state width="1293" height="38" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578716418924" />
+    <state width="1293" height="38" key="GridCell.Tab.1.center" timestamp="1578716418924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1578679138587" />
-    <state width="1293" height="-8" key="GridCell.Tab.1.left" timestamp="1578679138587">
+    <state width="1293" height="38" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1578716418924" />
+    <state width="1293" height="38" key="GridCell.Tab.1.left" timestamp="1578716418924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1578679138587" />
-    <state width="1293" height="-8" key="GridCell.Tab.1.right" timestamp="1578679138587">
+    <state width="1293" height="38" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1578716418924" />
+    <state width="1293" height="38" key="GridCell.Tab.1.right" timestamp="1578716418924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1578679138587" />
-    <state width="1293" height="-8" key="GridCell.Tab.2.bottom" timestamp="1578679138588">
+    <state width="1293" height="38" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1578716418924" />
+    <state width="1293" height="38" key="GridCell.Tab.2.bottom" timestamp="1578716418925">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578679138588" />
-    <state width="1293" height="-8" key="GridCell.Tab.2.center" timestamp="1578679138588">
+    <state width="1293" height="38" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578716418925" />
+    <state width="1293" height="38" key="GridCell.Tab.2.center" timestamp="1578716418924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1578679138588" />
-    <state width="1293" height="-8" key="GridCell.Tab.2.left" timestamp="1578679138588">
+    <state width="1293" height="38" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1578716418924" />
+    <state width="1293" height="38" key="GridCell.Tab.2.left" timestamp="1578716418924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1578679138588" />
-    <state width="1293" height="-8" key="GridCell.Tab.2.right" timestamp="1578679138588">
+    <state width="1293" height="38" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1578716418924" />
+    <state width="1293" height="38" key="GridCell.Tab.2.right" timestamp="1578716418925">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="-8" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1578679138588" />
+    <state width="1293" height="38" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1578716418925" />
     <state width="1236" height="80" key="GridCell.Tab.3.bottom" timestamp="1578041603707">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -429,14 +437,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="82" y="0" width="1049" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578557891129" />
-    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2" timestamp="1578673973827">
+    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2" timestamp="1578679338886">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578673973827" />
-    <state x="414" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1578671056435">
+    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578679338886" />
+    <state x="414" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1578706491035">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="414" y="240" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1578671056435" />
+    <state x="414" y="240" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1578706491035" />
     <state x="477" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578301526433">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
