@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class MeetingService implements IMeetingNoticeService {
+public class MeetingNoticeService implements IMeetingNoticeService {
 
     @Autowired
     private MeetingNoticeMapper meetingNoticeMapper;
@@ -39,5 +39,10 @@ public class MeetingService implements IMeetingNoticeService {
     @Override
     public MeetingNotice selectMeetingNoticeById(int id) throws  Exception{
         return meetingNoticeMapper.selectMeetingNoticeById(id);
+    }
+
+    @Override
+    public int findNoticeIdByMeetingName(String meetingName) throws Exception {
+        return meetingNoticeMapper.findNoticeIdByMeetingName(meetingName);
     }
 }

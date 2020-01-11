@@ -29,4 +29,9 @@
     <delete id="deleteMeetingNoticeById" parameterType="int">
         delete from t_meeting_notice where id = #{value}
     </delete>
+
+<!--    通过会议名字查询会议通知的ID-->
+    <select id="findNoticeIdByMeetingName" parameterType="String" resultType="int">
+        select id from t_meeting_notice where meetingName = #{value}
+    </select>
 </mapper>

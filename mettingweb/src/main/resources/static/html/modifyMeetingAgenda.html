@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改会议信息</strong></div>
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改会议议程</strong></div>
     <div class="body-content">
         <form method="post" class="form-x" action="#">
             <div style="padding-left:20px ;padding-bottom: 20px;">
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>会议通知的ID：</label>
+                    <label>议程的ID：</label>
                 </div>
                 <div class="field l10">
                     <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
@@ -35,19 +35,19 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>会议的时间：</label>
+                    <label>会议的名称：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="meetingTime" class="input w100" value="" name="meetingTime" data-validate="required:请输入内容"/>
+                    <input type="text" id="meetingName" disabled="disabled" class="input w100" value="" name="meetingName" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>会议的地点：</label>
+                    <label>议程的详情：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="meetingAddress" class="input w100" value="" name="meetingAddress" data-validate="required:请输入内容"/>
+                    <input type="text" id="meetingAgendaDetails" class="input w100" value="" name="meetingAgendaDetails" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <label></label>
                 </div>
                 <div class="field">
-                    <button class="button bg-main icon-check-square-o" onclick="updateRoleById()" type="button"> 提交</button>
+                    <button class="button bg-main icon-check-square-o" onclick="updateAgendaById()" type="button"> 提交</button>
                 </div>
             </div>
         </form>
@@ -70,12 +70,12 @@
          */
         var roleId = UrlParam.paramValues("id");
         var id = roleId[0];
-        findRoleById(id);
+        findAgendaById(id);
     })
 
-    function findRoleById(id) {
+    function findAgendaById(id) {
         $.ajax({
-            url: '../selectMeetingNoticeById',
+            url: '../findMeetingAgendaById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
@@ -92,25 +92,24 @@
                     console.log(data);
                     console.log(data.msg);
                     $("#id").val(data.meetingNotice.id);
-                    $("#meetingAddress").val(data.meetingNotice.meetingAddress);
-                    $("#meetingTime").val(dateFormat(data.meetingNotice.meetingTime));
+                    $("#meetingName").val(data.meetingNotice.meetingName);
+                    $("#meetingAgendaDetails").val(dateFormat(data.meetingNotice.meetingAgendaDetails));
                 };
             },
             error: function (e) {
-                console.log("通过ID查询权限请求失败:" + e)
+                console.log("通过ID查询议程请求失败:" + e)
             }
         })
     }
 
-    function updateRoleById() {
+    function updateAgendaById() {
         $.ajax({
-            url: '../updateMeetingNotice',
+            url: '../updateMeetingAgenda',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
                 id : $("#id").val(),
-                meetingAddress : $("#meetingAddress").val(),
-                meetingTime : $("#meetingTime").val(),
+                meetingAgendaDetails : $("#meetingAgendaDetails").val()
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -119,38 +118,13 @@
             success: function (data) {
                 console.log("请求成功的数据是：" + data)
                 if (data.state == 1) {//说明修改数据成功
-                    location.href = "meetingNotice.html"
+                    location.href = "meetingAgenda.html"
                 };
             },
             error: function (e) {
-                console.log("通过ID修改会议通知信息请求失败:" + e)
+                console.log("通过ID修改会议议程请求失败:" + e)
             }
         })
-    }
-
-    function dateFormat(date) {
-        let format = 'yyyy-MM-dd hh:mm:ss';
-        date = new Date(date)
-        if (date != 'Invalid Date') {
-            var o = {
-                "M+": date.getMonth() + 1, //month
-                "d+": date.getDate(), //day
-                "h+": date.getHours(), //hour
-                "m+": date.getMinutes(), //minute
-                "s+": date.getSeconds(), //second
-                "q+": Math.floor((date.getMonth() + 3) / 3), //quarter
-                "S": date.getMilliseconds() //millisecond
-            }
-            if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
-                (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-            for (var k in o)
-                if (new RegExp("(" + k + ")").test(format))
-                    format = format.replace(RegExp.$1,
-                        RegExp.$1.length == 1 ? o[k] :
-                            ("00" + o[k]).substr(("" + o[k]).length));
-            return format;
-        }
-        return '';
     }
 </script>
 </body>

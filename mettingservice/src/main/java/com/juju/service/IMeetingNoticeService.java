@@ -30,4 +30,9 @@ public interface IMeetingNoticeService {
         通过ID查询会议通知信息
      */
     MeetingNotice selectMeetingNoticeById(int id) throws  Exception;
+
+    /*
+        通过会议名字查询会议通知ID
+     */
+    int findNoticeIdByMeetingName(String meetingName) throws Exception;
 }

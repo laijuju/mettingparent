@@ -31,4 +31,9 @@ public interface MeetingNoticeMapper {
         通过ID查询会议通知信息
      */
     MeetingNotice selectMeetingNoticeById(int id);
+
+    /*
+        通过会议名称查询会议通知ID
+     */
+    int findNoticeIdByMeetingName(String meetingName);
 }

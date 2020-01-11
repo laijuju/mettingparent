@@ -16,4 +16,5 @@ public class MeetingNotice {
     private String meetingName;         //会议名字
     private Date meetingTime;           //会议召开时间
     private String meetingAddress;      //会议召开地址
+    private String meetingAgendaDetails;//会议议程详情
 }

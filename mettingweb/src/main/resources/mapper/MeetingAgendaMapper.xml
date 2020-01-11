@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.MeetingAgendaMapper">
+
+    <!--    查看所有的会议议程-->
+    <select id="findMeetingAgendaAll" resultType="com.juju.po.MeetingNotice">
+       select notice.meetingName,agenda.meetingAgendaDetails,agenda.id
+       from t_meeting_notice notice,t_meeting_agenda agenda
+       where notice.id = agenda.meetingNoticeId
+   </select>
+
+    <!--    通过Id查询会议议程信息-->
+    <select id="findMeetingAgendaById" parameterType="int" resultType="com.juju.po.MeetingNotice">
+        select notice.meetingName,agenda.meetingAgendaDetails,agenda.id
+        from t_meeting_notice notice,t_meeting_agenda agenda
+        where notice.id = agenda.meetingNoticeId
+        and agenda.id = #{id}
+    </select>
+
+    <!--    添加新的会议信息-->
+    <insert id="addMeetingAgenda" parameterType="com.juju.po.MeetingNotice">
+        insert into t_meeting_agenda(meetingAgendaDetails,meetingNoticeId)
+        values(#{meetingAgendaDetails},#{id})
+    </insert>
+
+    <!--    修改会议通知-->
+    <update id="updateMeetingAgenda" parameterType="com.juju.po.MeetingNotice">
+        update t_meeting_agenda
+        set meetingAgendaDetails = #{meetingAgendaDetails}
+        where id = #{id}
+    </update>
+
+    <!--    删除会议通知？-->
+    <delete id="deleteMeetingAgenda" parameterType="int">
+        delete from t_meeting_agenda where id = #{value}
+    </delete>
+</mapper>

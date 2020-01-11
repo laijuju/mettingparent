@@ -5,6 +5,7 @@ import com.juju.result.MeetingNoticeResult;
 import com.juju.service.IMeetingNoticeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class MeetingNoticeController {
     Logger logger = Logger.getLogger(MeetingNoticeController.class);
 
     @Autowired
-    private IMeetingNoticeService mettingNoticeService;
+    private IMeetingNoticeService meetingNoticeService;
 
     @ApiOperation(value = "查看所有会议通知")
     @GetMapping("findAllMeetingNotice")
@@ -31,7 +32,7 @@ public class MeetingNoticeController {
         MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
         meetingNoticeResult.setState(0);
         try {
-            List<MeetingNotice> allMeetingNotice = mettingNoticeService.findAllMeetingNotice();
+            List<MeetingNotice> allMeetingNotice = meetingNoticeService.findAllMeetingNotice();
             meetingNoticeResult.setState(1);
             meetingNoticeResult.setMeetingNotices(allMeetingNotice);
             meetingNoticeResult.setMsg("查询所有会议通知成功");
@@ -50,7 +51,7 @@ public class MeetingNoticeController {
         MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
         meetingNoticeResult.setState(0);
         try {
-            MeetingNotice meeting = mettingNoticeService.selectMeetingNoticeById(meetingNotice.getId());
+            MeetingNotice meeting = meetingNoticeService.selectMeetingNoticeById(meetingNotice.getId());
             meetingNoticeResult.setState(1);
             meetingNoticeResult.setMsg("通过ID查询会议通知成功");
             meetingNoticeResult.setMeetingNotice(meeting);
@@ -70,7 +71,7 @@ public class MeetingNoticeController {
         MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
         meetingNoticeResult.setState(0);
         try {
-            mettingNoticeService.deleteMeetingNoticeById(meetingNotice.getId());
+            meetingNoticeService.deleteMeetingNoticeById(meetingNotice.getId());
             meetingNoticeResult.setState(1);
             meetingNoticeResult.setMsg("删除会议信息成功");
             logger.info("删除会议信息成功");
@@ -89,7 +90,7 @@ public class MeetingNoticeController {
         MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
         meetingNoticeResult.setState(0);
         try {
-            mettingNoticeService.addMeetingNotice(meetingNotice);
+            meetingNoticeService.addMeetingNotice(meetingNotice);
             meetingNoticeResult.setState(1);
             meetingNoticeResult.setMsg("添加会议通知成功");
             logger.info("添加会议通知成功");
@@ -108,7 +109,7 @@ public class MeetingNoticeController {
         MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
         meetingNoticeResult.setState(0);
         try {
-            mettingNoticeService.updateMeetingNotice(meetingNotice);
+            meetingNoticeService.updateMeetingNotice(meetingNotice);
             meetingNoticeResult.setState(1);
             meetingNoticeResult.setMsg("修改会议信息成功");
             logger.info("修改会议信息成功");
@@ -120,4 +121,24 @@ public class MeetingNoticeController {
         }
     }
 
+    @ApiOperation(value = "通过会议名字查询会议通知ID")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", name = "token", value = "用户token", dataType = "String", required = true),
+            @ApiImplicitParam(paramType = "query",name = "meetingName",value = "会议名字",dataType = "String",required = true)
+    })
+    @PostMapping("findNoticeIdByMeetingName")
+    public MeetingNoticeResult findNoticeIdByMeetingName(String meetingName){
+        MeetingNoticeResult meetingNoticeResult = new MeetingNoticeResult();
+        meetingNoticeResult.setState(0);
+        try {
+            int noticeId = meetingNoticeService.findNoticeIdByMeetingName(meetingName);
+            meetingNoticeResult.setState(1);
+            meetingNoticeResult.setMsg("通过会议名字查询会议通知ID成功");
+            logger.info("通过会议名字查询会议通知ID成功"+noticeId);
+            return meetingNoticeResult;
+        } catch (Exception e) {
+            meetingNoticeResult.setMsg("通过会议名字查询会议通知ID失败："+e.getMessage());
+            return meetingNoticeResult;
+        }
+    }
 }
