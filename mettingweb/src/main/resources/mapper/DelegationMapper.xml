@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.DelegationMapper">
+
+<!--    查询所有的代表团信息-->
+    <select id="findDelegationAll" resultType="com.juju.po.Delegation">
+        select * from t_delegation
+    </select>
+
+<!--    通过ID查询代表团信息-->
+    <select id="findDelegationById" parameterType="int" resultType="com.juju.po.Delegation">
+        select * from t_delegation where id = #{value}
+    </select>
+
+<!--    增加代表团-->
+    <insert id="addDelegation" parameterType="com.juju.po.Delegation">
+        insert into t_delegation(delegationName,delegationDetails) values(#{delegationName},#{delegationDetails})
+    </insert>
+
+<!--    修改代表团信息-->
+    <update id="updateDelegation" parameterType="com.juju.po.Delegation">
+        update t_delegation
+        set delegationName = #{delegationName},delegationDetails = #{delegationDetails}
+        where id = #{id}
+    </update>
+
+<!--    删除代表团信息-->
+    <delete id="deleteDelegation" parameterType="int">
+        delete from t_delegation where id = #{id}
+    </delete>
+</mapper>
