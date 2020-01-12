@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.WorkerMapper">
+
+<!--    查询所有的工作人员-->
+    <select id="findWorkersAll" resultType="com.juju.po.Worker">
+        select * from t_worker
+    </select>
+
+<!--    通过ID查询工作人员信息-->
+    <select id="findWorkerById" parameterType="int" resultType="com.juju.po.Worker">
+        select * from t_worker where id = #{id}
+    </select>
+
+<!--    增加工作人员-->
+    <insert id="addWorker" parameterType="com.juju.po.Worker">
+        insert into t_worker(workerName,workerTel,workerSex) values(#{workerName},#{workerTel},#{workerSex})
+    </insert>
+
+<!--    修改工作人员信息-->
+    <update id="updateWorker" parameterType="com.juju.po.Worker">
+        update t_worker set workerTel = #{workerTel} where id = #{id}
+    </update>
+
+<!--    删除工作人员信息-->
+    <delete id="deleteWorker" parameterType="int">
+        delete from t_worker where id = #{id}
+    </delete>
+</mapper>

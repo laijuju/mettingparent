@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+    <script src="js/commoms.js"></script>
+    <script src="js/getparameter.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改会议议程</strong></div>
+    <div class="body-content">
+        <form method="post" class="form-x" action="#">
+            <div style="padding-left:20px ;padding-bottom: 20px;">
+                <label>【基本信息】</label>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>议程的ID：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>会议的名称：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="meetingName" disabled="disabled" class="input w100" value="" name="meetingName" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>议程的详情：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="meetingAgendaDetails" class="input w100" value="" name="meetingAgendaDetails" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group" style="padding: 30px 300px;">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" onclick="updateAgendaById()" type="button"> 提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+            获取前一个页面传递过来的数据
+         */
+        var roleId = UrlParam.paramValues("id");
+        var id = roleId[0];
+        findAgendaById(id);
+    })
+
+    function findAgendaById(id) {
+        $.ajax({
+            url: '../findMeetingAgendaById',
+            type: 'post',
+            dataType: 'json',
+            data : JSON.stringify({
+                id : id
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明查询数据成功
+                    console.log(data);
+                    console.log(data.msg);
+                    $("#id").val(data.meetingNotice.id);
+                    $("#meetingName").val(data.meetingNotice.meetingName);
+                    $("#meetingAgendaDetails").val(dateFormat(data.meetingNotice.meetingAgendaDetails));
+                };
+            },
+            error: function (e) {
+                console.log("通过ID查询议程请求失败:" + e)
+            }
+        })
+    }
+
+    function updateAgendaById() {
+        $.ajax({
+            url: '../updateMeetingAgenda',
+            type: 'post',
+            dataType: 'json',
+            data : JSON.stringify({
+                id : $("#id").val(),
+                meetingAgendaDetails : $("#meetingAgendaDetails").val()
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                if (data.state == 1) {//说明修改数据成功
+                    location.href = "meetingAgenda.html"
+                };
+            },
+            error: function (e) {
+                console.log("通过ID修改会议议程请求失败:" + e)
+            }
+        })
+    }
+</script>
+</body>
+</html>
