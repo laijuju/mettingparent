@@ -59,4 +59,9 @@
     <select id="checkPassword" resultType="String">
         select adminPassword from t_admin where id = #{id}
     </select>
+
+    <!--    添加用户角色-->
+    <insert id="addUserRole">
+        insert into t_admin_role(adminId,roleId) values(#{adminId},#{roleId})
+    </insert>
 </mapper>

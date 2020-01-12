@@ -33,4 +33,9 @@ public class Admin {
     @ApiModelProperty(value = "管理员token",required = false)
     private String token;               //管理员的token
     private long expireTokenTime;       //token过期时间
+
+    private String userTel;             //用户的电话号码
+    private String staffId;             //职位ID
+    private String delegationId;        //代表团ID
+
 }

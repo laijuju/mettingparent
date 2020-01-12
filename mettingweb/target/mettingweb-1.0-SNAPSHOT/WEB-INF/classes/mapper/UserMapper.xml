@@ -2,24 +2,32 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juju.mapper.UserMapper">
 
-    <insert id="insertUser" parameterType="com.juju.po.User">
-        insert into user(username,password)  values (#{username},#{password})
+    <!--    添加用户-->
+    <insert id="addUser" parameterType="com.juju.po.Admin">
+        insert into t_admin(adminNickName,adminSex,userTel,staffId,delegationId)
+        values (#{adminNickName},#{adminSex},#{userTel},#{staffId},#{delegationId})
     </insert>
 
-    <select id="findAllUser" resultType="com.juju.po.User">
-        select * from user
+    <!--    查询所有的用户-->
+    <select id="findUserAll" resultType="com.juju.po.Admin">
+        select * from t_admin t1,t_admin_role t2 where t1.id = t2.adminId and t2.roleId = 3;
     </select>
 
-    <select id="findUserByName" parameterType="String" resultType="com.juju.po.User">
-        select * from user where username = #{username}
+    <!--    通过Id查询用户-->
+    <select id="findUserById" parameterType="int" resultType="com.juju.po.Admin">
+        select * from t_admin where id = #{id}
     </select>
 
-    <select id="findUserByNameAndPassword" parameterType="com.juju.po.User" resultType="com.juju.po.User">
-        select * from user where username = #{username} and password = #{password}
+    <!--    通过电话查询用户-->
+    <select id="findUserByTel" parameterType="String" resultType="com.juju.po.Admin">
+        select id from t_admin where userTel = #{userTel}
     </select>
 
-    <select id="findUser" resultType="com.juju.po.User">
-        select * from user where username = #{username} and password = #{password}
-    </select>
+    <!--    修改用户信息-->
+    <update id="updateUser" parameterType="com.juju.po.Admin">
+         update t_admin
+         set userTel = #{userTel},staffId = #{staffId},delegationId = #{delegationId}
+         where id = #{id}
+    </update>
 
 </mapper>

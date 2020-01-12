@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+    <script src="js/commoms.js"></script>
+    <script src="js/getparameter.js"></script>
+    <style type="text/css">
+        .cz{
+            width: 40px;
+            height: 20px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder">会议座次列表</strong></div>
+<!--        <div class="padding border-bottom">
+            <ul class="search" style="padding-left:10px;">
+                <li><a class="button border-main icon-plus-square-o" href="addRes.html"> 添加新的资源</a></li>
+            </ul>
+        </div>-->
+        <table class="table table-hover text-center" id="vo">
+            <tr>
+                <th>ID</th>
+                <th>座次编号</th>
+                <th>会议Id</th>
+                <th>操作</th>
+            </tr>
+<!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
+                                                                                              id="checkall"/>全选
+            </td>
+            <td><a class="button border-red" href="javascript:void(0)" style="padding: 2px 8px;"
+                   onclick="return del(1,1,1)">
+                <span class="icon-trash-o"></span> 批量删除</a></td>
+            <td>
+            </td>-->
+   <!--         </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="pagelist"><a href="">上一页</a> <span class="current">1</span><a href="">2</a><a
+                            href="">3</a><a href="">下一页</a><a href="">尾页</a></div>
+                </td>
+            </tr>-->
+        </table>
+    </div>
+    </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //发送ajax请求 请求数据库的数据
+        init();
+    })
+
+    /*
+        向数据库请求所有角色的数据
+     */
+    function init() {
+        $.ajax({
+            url: '../findSeatAll',
+            type: 'get',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明获取数据成功
+                    setData(data.seats);
+                }
+                ;
+                if (data.state == 0) {
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("主页菜单请求请求失败:" + e)
+            }
+        })
+    }
+
+    /*
+        将获取到底数据设置到页面上
+     */
+    function setData(seats){
+        //找到添加数据的父节点
+        var tableParent = document.getElementById("vo");
+
+        for (var i = 0; i <seats.length;i++){
+            var seat = seats[i];
+            //拼接数据
+            //生成节点
+            var trElement = document.createElement("tr");
+            var seatIdElement = document.createElement("td");
+            seatIdElement.innerText = seat.id;
+            var seatNumElement = document.createElement("td");
+            seatNumElement.innerText = seat.seatNum;
+            var meetingNoticeIdElement = document.createElement("td");
+            meetingNoticeIdElement.innerText = seat.meetingNoticeId;
+
+            var czElement = document.createElement("td");
+            var modifyElement = document.createElement("a");
+            modifyElement.innerText = "修改";
+            modifyElement.className = "cz";
+            var deleteElement = document.createElement("a");
+            deleteElement.setAttribute("id","delete");
+            deleteElement.innerText = "删除";
+            deleteElement.className = "cz";
+
+            czElement.appendChild(modifyElement);
+            czElement.appendChild(deleteElement);
+            trElement.appendChild(seatIdElement);
+            trElement.appendChild(seatNumElement);
+            trElement.appendChild(meetingNoticeIdElement);
+            trElement.appendChild(czElement);
+            tableParent.appendChild(trElement);
+
+            //按钮点击事件设置
+            //修改按钮
+            modifyElement.onclick = function () {
+                var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
+                var id = td.innerText;
+                junpModifyPage(id);
+            }
+            //删除按钮
+            deleteElement.onclick = function () {
+                var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
+                var id = td.innerText;
+                deleteSeat(id);
+            }
+        }
+    }
+
+    /*
+        删除工作人员
+     */
+    function deleteSeat(id) {
+        $.ajax({
+            url: '../deleteSeat',
+            type: 'post',
+            dataType: 'json',
+            data : JSON.stringify({id : id}),
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明删除数据成功
+                    location.href = "meetingSeat.html";
+                };
+                if (data.state == 0) {
+                    console.log(data.msg);
+                }
+            },
+            error: function (e) {
+                console.log("删除座次请求失败:" + e)
+            }
+        })
+    }
+
+    /*
+        modify跳转页面
+     */
+    function junpModifyPage(id) {
+        location.href = "modifyMeetingSeat.html?id="+id;
+    }
+
+</script>
+</body>
+</html>

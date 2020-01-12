@@ -61,4 +61,9 @@ public interface AdminMapper {
         校验密码
      */
     String checkPassword(@Param("id") int id);
+
+    /*
+        添加用户的角色
+     */
+    void addUserRole(@Param("adminId") int adminId,@Param("roleId") int roleId);
 }

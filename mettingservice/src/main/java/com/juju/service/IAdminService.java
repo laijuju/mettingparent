@@ -2,6 +2,7 @@ package com.juju.service;
 
 import com.juju.po.Admin;
 import com.juju.result.AdminResult;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -55,10 +56,15 @@ public interface IAdminService {
     /*
         修改密码
      */
-    void updatePassword(String oldPassword,String newPassword,int id) throws Exception;
+    void updatePassword(String oldPassword, String newPassword, int id) throws Exception;
 
     /*
         校验密码
      */
-    int checkPassword(int id, String adminPassword)throws Exception;
+    int checkPassword(int id, String adminPassword) throws Exception;
+
+    /*
+        添加用户的角色
+     */
+    void addUserRole(@Param("adminId") int adminId, @Param("roleId") int roleId) throws Exception;
 }

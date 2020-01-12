@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.SeatMapper">
+
+<!--    查看所有座次信息-->
+    <select id="findSeatAll" resultType="com.juju.po.Seat">
+        select * from t_seat
+    </select>
+
+<!--    通过ID查询座次信息-->
+    <select id="findSeatById" parameterType="int" resultType="com.juju.po.Seat">
+        select * from t_seat where id = #{value}
+    </select>
+
+<!--    添加座次信息-->
+    <insert id="addSeat" parameterType="com.juju.po.Seat">
+        insert into t_seat(seatNum,meetingNoticeId) values(#{seatNum},#{meetingNoticeId})
+    </insert>
+
+<!--    修改座次信息-->
+    <update id="updateSeat" parameterType="com.juju.po.Seat">
+        update t_seat
+        set seatNum = #{seatNum}
+        where id = #{id}
+    </update>
+
+<!--    删除座次信息-->
+    <delete id="deleteSeat" parameterType="int">
+        delete  from t_seat where id = #{value}
+    </delete>
+</mapper>

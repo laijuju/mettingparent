@@ -1,19 +1,39 @@
 package com.juju.mapper;
 
-import com.juju.po.User;
-import org.apache.ibatis.annotations.Param;
+import com.juju.po.Admin;
 
 import java.util.List;
 
 public interface UserMapper {
 
-    public void insertUser(User user);
+    /*
+        添加用户
+     */
+    void addUser(Admin admin);
 
-    public List<User> findAllUser();
+    /*
+        查看所有用户
+     */
+    List<Admin> findUserAll();
 
-    public List<User> findUserByName(String username);
+    /*
+        根据用户ID查找用户
+     */
+    Admin findUserById(int id);
 
-    public List<User> findUserByNameAndPassword(User user);
+    /*
+        根据电话查询用户
+     */
+    Admin findUserByTel(String userTel);
 
-    public List<User> findUser(@Param("username") String username, @Param("password") String password);
+    /*
+        修改用户信息
+     */
+    void updateUser(Admin admin);
+
+    /*
+        删除用户
+     */
+    void deleteUser(int id);
+
 }

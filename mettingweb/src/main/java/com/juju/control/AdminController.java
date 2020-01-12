@@ -201,4 +201,24 @@ public class AdminController {
             return 0;
         }
     }
+
+    @PostMapping("addUserRole")
+    @ApiOperation(value = "添加用户看角色")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "adminId",value = "用户Id",dataType = "int",required = true),
+            @ApiImplicitParam(paramType = "query",name = "roleId",value = "角色Id",dataType = "int",required = true)
+    })
+    public AdminResult addUserRole(int adminId,int roleId){
+        AdminResult adminResult = new AdminResult();
+        adminResult.setState(0);
+        try {
+            adminService.addUserRole(adminId,roleId);
+            adminResult.setState(1);
+            adminResult.setMsg("添加用户角色成功");
+            return adminResult;
+        } catch (Exception e) {
+            adminResult.setMsg("添加用户角色失败："+e.getMessage());
+            return adminResult;
+        }
+    }
 }
