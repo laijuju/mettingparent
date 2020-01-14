@@ -39,8 +39,8 @@
                     <label>性别：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="adminSex" class="input w100" value="" name="adminSex"
-                           data-validate="required:请输入内容"/>
+                    <input type="radio"  value="1" name="adminSex"/>男 &nbsp;&nbsp;
+                    <input type="radio" value="0" name="adminSex"/>女
                     <div class="tips"></div>
                 </div>
             </div>
@@ -59,8 +59,11 @@
                     <label>职位：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="staffName" class="input w100" value="" name="staffName"
-                           data-validate="required:请输入内容"/>
+<!--                    <input type="text" id="staffName" class="input w100" value="" name="staffName"
+                           data-validate="required:请输入内容"/>-->
+                    <select id="staffName" class="input w100" name="staffName">
+                        <option value="职位1">----请选择职位----</option>
+                    </select>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -69,8 +72,11 @@
                     <label>代表团：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="delegationName" class="input w100" value="" name="delegationName"
-                           data-validate="required:请输入内容"/>
+<!--                    <input type="text" id="delegationName" class="input w100" value="" name="delegationName"
+                           data-validate="required:请输入内容"/>-->
+                    <select id="delegationName" class="input w100" name="delegationName">
+                        <option value="职位1">----请选择代表团----</option>
+                    </select>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -87,6 +93,92 @@
 </div>
 
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        init();
+    })
+
+    function init() {
+        $.ajax({
+            url: '../findStaffAll',
+            type: 'get',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明获取数据成功
+                    setData(data.staffs);
+                }
+                ;
+                if (data.state == 0) {
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("主页菜单请求请求失败:" + e)
+            }
+        });
+
+        $.ajax({
+            url: '../findDelegationAll',
+            type: 'get',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明获取数据成功
+                    setDelegation(data.delegations);
+                }
+                ;
+                if (data.state == 0) {
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("主页菜单请求请求失败:" + e)
+            }
+        })
+
+    }
+
+    function setData(staffs) {
+        //找到添加数据的父节点
+        var selectParent = document.getElementById("staffName");
+
+        for (var i = 0; i <staffs.length;i++){
+            var staff = staffs[i];
+            //拼接数据
+            //生成节点
+            var optionElement = document.createElement("option");
+            optionElement.innerText = staff.staffName;
+            selectParent.appendChild(optionElement);
+        }
+
+    }
+
+    function setDelegation(delegations) {
+        //找到添加数据的父节点
+        var selectParent = document.getElementById("delegationName");
+
+        for (var i = 0; i <delegations.length;i++){
+            var delegation = delegations[i];
+            //拼接数据
+            //生成节点
+            var optionElement = document.createElement("option");
+            optionElement.innerText = delegation.delegationName;
+            selectParent.appendChild(optionElement);
+        }
+
+    }
+
 
     function addUser() {
         $.ajax({

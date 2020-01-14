@@ -7,15 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3990dc89-771d-49e6-b962-5b90961f9b4a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/StaffMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/result/StaffResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/IStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/StaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/StaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/StaffMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/SeatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/SeatMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/SeatMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addDelegation.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addDelegation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addSeat.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addSeat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/meetingSeat.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/meetingSeat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingSeat.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingSeat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/IDelegationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/IDelegationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingAgenda.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingAgenda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingNews.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyMeetingNews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,15 +115,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\mapper" />
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html" />
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources" />
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html\js" />
       <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mettingparent\mettingweb\src\main\resources\static\html" />
     </key>
   </component>
   <component name="RunManager">
@@ -247,7 +253,7 @@
       <workItem from="1578706491706" duration="22283000" />
       <workItem from="1578807107075" duration="33830000" />
       <workItem from="1578879136977" duration="32699000" />
-      <workItem from="1578968444926" duration="15813000" />
+      <workItem from="1578968444926" duration="25872000" />
     </task>
     <task id="LOCAL-00001" summary="第二次上传测试">
       <created>1578299767683</created>
@@ -340,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578989010089</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="修改座次操作界面和功能操作">
+      <created>1578996501160</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1578996501160</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +373,8 @@
     <MESSAGE value="代表团完整操作" />
     <MESSAGE value="座次和普通用户完整操作" />
     <MESSAGE value="会议新闻完整操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="会议新闻完整操作" />
+    <MESSAGE value="修改座次操作界面和功能操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改座次操作界面和功能操作" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="24" key="#Notifications" timestamp="1578298023016">
@@ -379,10 +393,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="320" y="184" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1577946845617" />
-    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1578909466919">
+    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1579000688370">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1578909466919" />
+    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1579000688370" />
     <state x="54" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578843555275">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -391,10 +405,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1578884817247" />
-    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1578988955904">
+    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1579006556928">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578988955904" />
+    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579006556928" />
     <state x="311" y="55" key="FileChooserDialogImpl" timestamp="1578298298964">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -407,54 +421,54 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="266" y="249" width="558" height="218" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1578299811321" />
-    <state width="1293" height="71" key="GridCell.Tab.0.bottom" timestamp="1578996043865">
+    <state width="1293" height="392" key="GridCell.Tab.0.bottom" timestamp="1579005996123">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578996043865" />
-    <state width="1293" height="71" key="GridCell.Tab.0.center" timestamp="1578996043864">
+    <state width="1293" height="392" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579005996123" />
+    <state width="1293" height="392" key="GridCell.Tab.0.center" timestamp="1579005996123">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578996043864" />
-    <state width="1293" height="71" key="GridCell.Tab.0.left" timestamp="1578996043864">
+    <state width="1293" height="392" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579005996123" />
+    <state width="1293" height="392" key="GridCell.Tab.0.left" timestamp="1579005996123">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578996043864" />
-    <state width="1293" height="71" key="GridCell.Tab.0.right" timestamp="1578996043864">
+    <state width="1293" height="392" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579005996123" />
+    <state width="1293" height="392" key="GridCell.Tab.0.right" timestamp="1579005996123">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578996043864" />
-    <state width="1293" height="71" key="GridCell.Tab.1.bottom" timestamp="1578996043628">
+    <state width="1293" height="392" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579005996123" />
+    <state width="1293" height="392" key="GridCell.Tab.1.bottom" timestamp="1579005995970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578996043628" />
-    <state width="1293" height="71" key="GridCell.Tab.1.center" timestamp="1578996043628">
+    <state width="1293" height="392" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579005995970" />
+    <state width="1293" height="392" key="GridCell.Tab.1.center" timestamp="1579005995970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1578996043628" />
-    <state width="1293" height="71" key="GridCell.Tab.1.left" timestamp="1578996043628">
+    <state width="1293" height="392" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579005995970" />
+    <state width="1293" height="392" key="GridCell.Tab.1.left" timestamp="1579005995970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1578996043628" />
-    <state width="1293" height="71" key="GridCell.Tab.1.right" timestamp="1578996043628">
+    <state width="1293" height="392" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579005995970" />
+    <state width="1293" height="392" key="GridCell.Tab.1.right" timestamp="1579005995970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1578996043628" />
-    <state width="1293" height="71" key="GridCell.Tab.2.bottom" timestamp="1578996043629">
+    <state width="1293" height="392" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579005995970" />
+    <state width="1293" height="392" key="GridCell.Tab.2.bottom" timestamp="1579005995971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578996043629" />
-    <state width="1293" height="71" key="GridCell.Tab.2.center" timestamp="1578996043629">
+    <state width="1293" height="392" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579005995971" />
+    <state width="1293" height="392" key="GridCell.Tab.2.center" timestamp="1579005995970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1578996043629" />
-    <state width="1293" height="71" key="GridCell.Tab.2.left" timestamp="1578996043629">
+    <state width="1293" height="392" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1579005995970" />
+    <state width="1293" height="392" key="GridCell.Tab.2.left" timestamp="1579005995970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1578996043629" />
-    <state width="1293" height="71" key="GridCell.Tab.2.right" timestamp="1578996043629">
+    <state width="1293" height="392" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1579005995970" />
+    <state width="1293" height="392" key="GridCell.Tab.2.right" timestamp="1579005995971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="71" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1578996043629" />
+    <state width="1293" height="392" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1579005995971" />
     <state width="1236" height="80" key="GridCell.Tab.3.bottom" timestamp="1578041603707">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -495,10 +509,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="82" y="0" width="1049" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578970442286" />
-    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2" timestamp="1578850889779">
+    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2" timestamp="1578996599816">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578850889779" />
+    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578996599816" />
     <state x="414" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1578969828690">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -519,9 +533,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1578848880644" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1578844908370">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1579000471675">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1578844908370" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1579000471675" />
   </component>
 </project>

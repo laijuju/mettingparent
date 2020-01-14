@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IDelegationService {
     /*
-        查看多有的代表团信息
+        查看所有的代表团信息
      */
     List<Delegation> findDelegationAll() throws Exception;
 
