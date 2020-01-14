@@ -36,4 +36,14 @@ public interface UserMapper {
      */
     void deleteUser(int id);
 
+    /*
+        通过职位名称查询职位Id
+     */
+    int findStaffIdByStaffName(String staffName);
+
+    /*
+        通过代表团名称查询代表团Id
+     */
+    int findDelegationIdByDelName(String delName);
+
 }

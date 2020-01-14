@@ -34,8 +34,11 @@
         <table class="table table-hover text-center" id="vo">
             <tr>
                 <th>ID</th>
-                <th>资源名称</th>
-                <th>资源路径</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>电话</th>
+                <th>职位</th>
+                <th>代表团</th>
                 <th>操作</th>
             </tr>
 <!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
@@ -60,47 +63,6 @@
 </form>
 <script type="text/javascript">
 
-    //搜索
-    function changesearch() {
-
-    }
-
-    //单个删除
-    function del(id, mid, iscid) {
-        if (confirm("您确定要删除吗?")) {
-
-        }
-    }
-
-    //全选
-    $("#checkall").click(function () {
-        $("input[name='id[]']").each(function () {
-            if (this.checked) {
-                this.checked = false;
-            } else {
-                this.checked = true;
-            }
-        });
-    })
-
-    //批量删除
-    function DelSelect() {
-        var Checkbox = false;
-        $("input[name='id[]']").each(function () {
-            if (this.checked == true) {
-                Checkbox = true;
-            }
-        });
-        if (Checkbox) {
-            var t = confirm("您确认要删除选中的内容吗？");
-            if (t == false) return false;
-            $("#listform").submit();
-        } else {
-            alert("请选择您要删除的内容!");
-            return false;
-        }
-    }
-
     $(document).ready(function () {
         //发送ajax请求 请求数据库的数据
         init();
@@ -111,8 +73,8 @@
      */
     function init() {
         $.ajax({
-            url: '../findPermsAll',
-            type: 'post',
+            url: '../findUserAll',
+            type: 'get',
             dataType: 'json',
             headers: {
                 "Content-Type": "application/json",
@@ -122,7 +84,7 @@
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
                 if (data.state == 1) {//说明获取数据成功
-                    setData(data.perms);
+                    setData(data.admins);
                 }
                 ;
                 if (data.state == 0) {
@@ -138,21 +100,27 @@
     /*
         将获取到底数据设置到页面上
      */
-    function setData(perms){
+    function setData(admins){
         //找到添加数据的父节点
         var tableParent = document.getElementById("vo");
 
-        for (var i = 0; i <perms.length;i++){
-            var perm = perms[i];
+        for (var i = 0; i <admins.length;i++){
+            var admin = admins[i];
             //拼接数据
             //生成节点
             var trElement = document.createElement("tr");
-            var permIdElement = document.createElement("td");
-            permIdElement.innerText = perm.id;
-            var resNameElement = document.createElement("td");
-            resNameElement.innerText = perm.resName;
-            var resPathElement = document.createElement("td");
-            resPathElement.innerText = perm.resPath;
+            var adminIdElement = document.createElement("td");
+            adminIdElement.innerText = admin.id;
+            var adminNickNameElement = document.createElement("td");
+            adminNickNameElement.innerText = admin.adminNickName;
+            var adminSexElement = document.createElement("td");
+            adminSexElement.innerText = sexTransform(admin.adminSex);
+            var userTelElement = document.createElement("td");
+            userTelElement.innerText = admin.userTel;
+            var staffElement = document.createElement("td");
+            staffElement.innerText = admin.staff.staffName;
+            var delegationElement = document.createElement("td");
+            delegationElement.innerText = admin.delegation.delegationName;
 
             var czElement = document.createElement("td");
             var modifyElement = document.createElement("a");
@@ -165,9 +133,12 @@
 
             czElement.appendChild(modifyElement);
             czElement.appendChild(deleteElement);
-            trElement.appendChild(permIdElement);
-            trElement.appendChild(resNameElement);
-            trElement.appendChild(resPathElement);
+            trElement.appendChild(adminIdElement);
+            trElement.appendChild(adminNickNameElement);
+            trElement.appendChild(adminSexElement);
+            trElement.appendChild(userTelElement);
+            trElement.appendChild(staffElement);
+            trElement.appendChild(delegationElement);
             trElement.appendChild(czElement);
             tableParent.appendChild(trElement);
 
@@ -176,13 +147,13 @@
             modifyElement.onclick = function () {
                 var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
                 var id = td.innerText;
-                junpModifyPage(id);
+                jumpModifyPage(id);
             }
             //删除按钮
             deleteElement.onclick = function () {
                 var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
                 var id = td.innerText;
-                deletePermById(id);
+                deleteUserById(id);
             }
         }
     }
@@ -190,28 +161,28 @@
     /*
         删除Perm
      */
-    function deletePermById(id) {
+    function deleteUserById(id) {
         $.ajax({
-            url: '../deletePerm',
+            url: '../deleteAdmin',
             type: 'post',
             dataType: 'json',
-            data : {permId : id},
+            data : JSON.stringify({id : id}),
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
                 "token": getCookie("token")  //此处的token应该从cookie中获取
             },
             success: function (data) {
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
                 if (data.state == 1) {//说明删除数据成功
-                    location.href = "saveProject.html";
+                    location.href = "userProject.html";
                 };
                 if (data.state == 0) {
                     console.log(data.msg);
                 }
             },
             error: function (e) {
-                console.log("删除perm请求失败:" + e)
+                console.log("删除user请求失败:" + e)
             }
         })
     }
@@ -219,9 +190,24 @@
     /*
         modify跳转页面
      */
-    function junpModifyPage(id) {
-        location.href = "modifyRes.html?id="+id;
+    function jumpModifyPage(id) {
+        location.href = "modifyUser.html?id="+id;
     }
+
+    /*
+        性别显示转换
+     */
+    function sexTransform(sex) {
+        if(sex == 1){
+            return "男";
+        }
+        else if (sex == 0){
+            return "女";
+        }else {
+            return "其他"
+        }
+    }
+
 </script>
 </body>
 </html>

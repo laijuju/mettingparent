@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Seat {
-    private  int id;
-    private int meetingNoticeId;
-    private String seatNum;
+    private  int id;                //座次ID
+    private int meetingNoticeId;    //会议通知Id
+    private String seatNum;         //座次号
 }

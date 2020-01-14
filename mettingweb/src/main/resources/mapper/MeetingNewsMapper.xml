@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.MeetingNewsMapper">
+
+    <!--    查询所有的新闻信息-->
+    <select id="findNewsAll" resultType="com.juju.po.MeetingNews">
+        select * from t_meeting_news
+    </select>
+
+    <!--    通过ID查询新闻信息-->
+    <select id="findNewsById" parameterType="int" resultType="com.juju.po.MeetingNews">
+        select * from t_meeting_news where id = #{value}
+    </select>
+
+    <!--    增加新闻信息-->
+    <insert id="addNews" parameterType="com.juju.po.MeetingNews">
+        insert into t_meeting_news(meetingName,meetingIntroduce,meetingDetails,type,meetingNewPio)
+        values(#{meetingName},#{meetingIntroduce},#{meetingDetails},#{type},#{meetingNewPio})
+    </insert>
+
+    <!--    修改新闻信息-->
+    <update id="updateNews" parameterType="com.juju.po.MeetingNews">
+        update t_meeting_news
+        set meetingIntroduce = #{meetingIntroduce},
+            meetingDetails = #{meetingDetails},
+            meetingNewPio = #{meetingNewPio}
+         where id = #{id}
+    </update>
+
+    <!--    删除新闻信息-->
+    <delete id="deleteNews" parameterType="int">
+        delete from t_meeting_news where id = #{id}
+    </delete>
+</mapper>

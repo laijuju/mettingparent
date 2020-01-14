@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改秘书信息</strong></div>
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改用户信息</strong></div>
     <div class="body-content">
         <form method="post" class="form-x" action="#">
             <div style="padding-left:20px ;padding-bottom: 20px;">
@@ -26,19 +26,21 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>秘书的ID：</label>
+                    <label>用户的ID：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
+                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>秘书的名字：</label>
+                    <label>姓名：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="workerName" disabled="disabled" class="input w100" value="" name="workerName" data-validate="required:请输入内容"/>
+                    <input type="text" id="adminNickName" disabled="disabled" class="input w100" value=""
+                           name="adminNickName" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -47,16 +49,38 @@
                     <label>性别：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="workerSex" disabled="disabled" class="input w100" value="" name="workerSex" data-validate="required:请输入内容"/>
+                    <input type="text" id="adminSex" disabled="disabled" class="input w100" value="" name="adminSex"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>联系电话：</label>
+                    <label>电话：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="workerTel" class="input w100" value="" name="workerTel" data-validate="required:请输入内容"/>
+                    <input type="text" id="userTel" class="input w100" value="" name="userTel"
+                           data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>职位：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="staffName" class="input w100" value="" name="staffName"
+                           data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>代表团：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="delegationName" class="input w100" value="" name="delegationName"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -65,7 +89,7 @@
                     <label></label>
                 </div>
                 <div class="field">
-                    <button class="button bg-main icon-check-square-o" onclick="updateWorker()" type="button"> 提交</button>
+                    <button class="button bg-main icon-check-square-o" onclick="updateUser()" type="button"> 提交</button>
                 </div>
             </div>
         </form>
@@ -79,16 +103,16 @@
          */
         var roleId = UrlParam.paramValues("id");
         var id = roleId[0];
-        findWorkerById(id);
+        findUserById(id);
     })
 
-    function findWorkerById(id) {
+    function findUserById(id) {
         $.ajax({
-            url: '../findWorkerById',
+            url: '../findUserById',
             type: 'post',
             dataType: 'json',
-            data : JSON.stringify({
-                id : id
+            data: JSON.stringify({
+                id: id
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -100,26 +124,31 @@
                 if (data.state == 1) {//说明查询数据成功
                     console.log(data);
                     console.log(data.msg);
-                    $("#id").val(data.worker.id);
-                    $("#workerName").val(data.worker.workerName);
-                    $("#workerSex").val(sexTransform(data.worker.workerSex));
-                    $("#workerTel").val(data.worker.workerTel);
-                };
+                    $("#id").val(data.admin.id);
+                    $("#adminNickName").val(data.admin.adminNickName);
+                    $("#adminSex").val(sexTransform(data.admin.adminSex));
+                    $("#userTel").val(data.admin.userTel);
+                    $("#staffName").val(data.admin.staff.staffName);
+                    $("#delegationName").val(data.admin.delegation.delegationName);
+                }
+                ;
             },
             error: function (e) {
-                console.log("通过ID查询工作人员请求失败:" + e)
+                console.log("通过ID查询用户请求失败:" + e)
             }
         })
     }
 
-    function updateWorker() {
+    function updateUser() {
         $.ajax({
-            url: '../updateWorker',
+            url: '../updateUser',
             type: 'post',
             dataType: 'json',
-            data : JSON.stringify({
-                id : $("#id").val(),
-                workerTel : $("#workerTel").val()
+            data: JSON.stringify({
+                id: $("#id").val(),
+                userTel: $("#userTel").val(),
+                staff: {staffName: $("#staffName").val()},
+                delegation: {delegationName: $("#delegationName").val()}
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -128,11 +157,12 @@
             success: function (data) {
                 console.log("请求成功的数据是：" + data)
                 if (data.state == 1) {//说明修改数据成功
-                    location.href = "meetingWorker.html"
-                };
+                    location.href = "userProject.html"
+                }
+                ;
             },
             error: function (e) {
-                console.log("通过ID修改秘书信息请求失败:" + e)
+                console.log("通过ID修改座次信息请求失败:" + e)
             }
         })
     }
@@ -150,7 +180,7 @@
             return "其他"
         }
     }
-
+    
 </script>
 </body>
 </html>

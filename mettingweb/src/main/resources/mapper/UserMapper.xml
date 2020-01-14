@@ -5,18 +5,40 @@
     <!--    添加用户-->
     <insert id="addUser" parameterType="com.juju.po.Admin">
         insert into t_admin(adminNickName,adminSex,userTel,staffId,delegationId)
-        values (#{adminNickName},#{adminSex},#{userTel},#{staffId},#{delegationId})
+        values (#{adminNickName},#{adminSex},#{userTel},#{staff.id},#{delegation.id})
     </insert>
 
     <!--    查询所有的用户-->
-    <select id="findUserAll" resultType="com.juju.po.Admin">
-        select * from t_admin t1,t_admin_role t2 where t1.id = t2.adminId and t2.roleId = 3;
+    <select id="findUserAll" resultMap="userInfo">
+        select * from t_admin t1,t_admin_role t2,t_staff staff,t_delegation del
+        where
+        t1.id = t2.adminId
+        and t2.roleId = 3
+        and t1.staffId = staff.id
+        and del.id = t1.delegationId;
     </select>
 
     <!--    通过Id查询用户-->
-    <select id="findUserById" parameterType="int" resultType="com.juju.po.Admin">
-        select * from t_admin where id = #{id}
+    <select id="findUserById" parameterType="int" resultMap="userInfo">
+        select * from t_admin t1,t_staff staff,t_delegation del
+        where t1.id = #{value}
+        and t1.staffId = staff.id
+        and t1.delegationId = del.id ;
     </select>
+    <resultMap id="userInfo" type="com.juju.po.Admin">
+        <id property="id" column="id"/>
+        <result property="adminNickName" column="adminNickName"/>
+        <result property="adminSex" column="adminSex"/>
+        <result property="userTel" column="userTel"/>
+        <association property="staff" javaType="com.juju.po.Staff">
+            <id property="id" column="staffId"/>
+            <result property="staffName" column="staffName"/>
+        </association>
+        <association property="delegation" javaType="com.juju.po.Delegation">
+            <id property="id" column="delegationId"/>
+            <result property="delegationName" column="delegationName"/>
+        </association>
+    </resultMap>
 
     <!--    通过电话查询用户-->
     <select id="findUserByTel" parameterType="String" resultType="com.juju.po.Admin">
@@ -26,8 +48,17 @@
     <!--    修改用户信息-->
     <update id="updateUser" parameterType="com.juju.po.Admin">
          update t_admin
-         set userTel = #{userTel},staffId = #{staffId},delegationId = #{delegationId}
+         set userTel = #{userTel},staffId = #{staff.id},delegationId = #{delegation.id}
          where id = #{id}
     </update>
 
+    <!--    通过职位名字查询职位ID-->
+    <select id="findStaffIdByStaffName" parameterType="String" resultType="int">
+        select id from t_staff where staffName = #{value}
+    </select>
+
+    <!--    通过代表团-->
+    <select id="findDelegationIdByDelName" parameterType="String" resultType="int">
+        select id from t_delegation where delegationName = #{value}
+    </select>
 </mapper>

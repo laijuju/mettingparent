@@ -111,7 +111,7 @@
             var workerNameElement = document.createElement("td");
             workerNameElement.innerText = worker.workerName;
             var workerSexElement = document.createElement("td");
-            workerSexElement.innerText = worker.workerSex;
+            workerSexElement.innerText = sexTransform(worker.workerSex);
             var workerTelElement = document.createElement("td");
             workerTelElement.innerText = worker.workerTel;
 
@@ -183,6 +183,20 @@
      */
     function junpModifyPage(id) {
         location.href = "modifyMeetingWorker.html?id="+id;
+    }
+
+    /*
+        性别显示转换
+     */
+    function sexTransform(sex) {
+        if(sex == 1){
+            return "男";
+        }
+        else if (sex == 0){
+            return "女";
+        }else {
+            return "其他"
+        }
     }
 
 </script>

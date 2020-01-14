@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel
-public class Delegation {
-    private int id;                     //代表团ID
-    private String delegationName;      //代表团名字
-    private String delegationDetails;   //代表团描述
+public class Staff {
+    private int id;                 //职位Id
+    private String staffName;       //职位
+    private String staffDes;        //职位描述
 }

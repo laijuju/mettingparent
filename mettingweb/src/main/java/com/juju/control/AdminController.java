@@ -203,7 +203,7 @@ public class AdminController {
     }
 
     @PostMapping("addUserRole")
-    @ApiOperation(value = "添加用户看角色")
+    @ApiOperation(value = "添加用户角色")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name = "adminId",value = "用户Id",dataType = "int",required = true),
             @ApiImplicitParam(paramType = "query",name = "roleId",value = "角色Id",dataType = "int",required = true)
@@ -221,4 +221,24 @@ public class AdminController {
             return adminResult;
         }
     }
+
+    @ApiOperation(value = "删除用户")
+    @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",dataType = "String",required = true)
+    @PostMapping("deleteAdmin")
+    public AdminResult deleteAdmin(@RequestBody Admin admin){
+        AdminResult adminResult = new AdminResult();
+        adminResult.setState(0);
+        try {
+            adminService.deleteAdmin(admin.getId());
+            adminResult.setState(1);
+            adminResult.setMsg("删除用户成功");
+            logger.info("删除用户成功");
+            return adminResult;
+        } catch (Exception e) {
+            adminResult.setMsg("删除用户失败："+e.getMessage());
+            logger.error("删除用户失败："+e.getMessage());
+            return adminResult;
+        }
+    }
+
 }

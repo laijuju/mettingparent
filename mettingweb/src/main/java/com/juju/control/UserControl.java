@@ -1,5 +1,6 @@
 package com.juju.control;
 
+import com.juju.mapper.UserMapper;
 import com.juju.po.Admin;
 import com.juju.result.AdminResult;
 import com.juju.service.IAdminService;
@@ -23,6 +24,9 @@ public class UserControl {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private IAdminService adminService;
@@ -56,7 +60,7 @@ public class UserControl {
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         try {
-            Admin user = adminService.findAdminById(admin.getId());
+            Admin user = userService.findUserById(admin.getId());
             adminResult.setState(1);
             adminResult.setMsg("通过Id查看用户成功");
             adminResult.setAdmin(user);
@@ -96,10 +100,13 @@ public class UserControl {
     @ApiImplicitParam(paramType = "header", name = "token", value = "用户token", required = true, dataType = "String")
     @PostMapping("addUser")
     public AdminResult addUser(@RequestBody Admin admin) {
-        System.out.println("得到的User："+admin);
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         try {
+            int staffId = userMapper.findStaffIdByStaffName(admin.getStaff().getStaffName());
+            int delegationId = userMapper.findDelegationIdByDelName(admin.getDelegation().getDelegationName());
+            admin.getStaff().setId(staffId);
+            admin.getDelegation().setId(delegationId);
             userService.addUser(admin);
             adminResult.setState(1);
             adminResult.setMsg("增加用户成功");
@@ -121,6 +128,10 @@ public class UserControl {
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         try {
+            int staffId = userMapper.findStaffIdByStaffName(admin.getStaff().getStaffName());
+            int delegationId = userMapper.findDelegationIdByDelName(admin.getDelegation().getDelegationName());
+            admin.getStaff().setId(staffId);
+            admin.getDelegation().setId(delegationId);
             userService.updateUser(admin);
             adminResult.setState(1);
             adminResult.setMsg("修改用户信息成功");

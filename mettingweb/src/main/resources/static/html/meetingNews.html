@@ -13,7 +13,7 @@
     <script src="js/commoms.js"></script>
     <script src="js/getparameter.js"></script>
     <style type="text/css">
-        .cz{
+        .cz {
             width: 40px;
             height: 20px;
             border: 1px solid gray;
@@ -26,11 +26,11 @@
 <form method="post" action="" id="listform">
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder">会议新闻列表</strong></div>
-<!--        <div class="padding border-bottom">
-            <ul class="search" style="padding-left:10px;">
-                <li><a class="button border-main icon-plus-square-o" href="addRes.html"> 添加新的资源</a></li>
-            </ul>
-        </div>-->
+        <!--        <div class="padding border-bottom">
+                    <ul class="search" style="padding-left:10px;">
+                        <li><a class="button border-main icon-plus-square-o" href="addRes.html"> 添加新的资源</a></li>
+                    </ul>
+                </div>-->
         <table class="table table-hover text-center" id="vo">
             <tr>
                 <th>ID</th>
@@ -41,21 +41,21 @@
                 <th>会议图片</th>
                 <th>操作</th>
             </tr>
-<!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
-                                                                                              id="checkall"/>全选
-            </td>
-            <td><a class="button border-red" href="javascript:void(0)" style="padding: 2px 8px;"
-                   onclick="return del(1,1,1)">
-                <span class="icon-trash-o"></span> 批量删除</a></td>
-            <td>
-            </td>-->
-   <!--         </tr>
-            <tr>
-                <td colspan="8">
-                    <div class="pagelist"><a href="">上一页</a> <span class="current">1</span><a href="">2</a><a
-                            href="">3</a><a href="">下一页</a><a href="">尾页</a></div>
-                </td>
-            </tr>-->
+            <!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
+                                                                                                          id="checkall"/>全选
+                        </td>
+                        <td><a class="button border-red" href="javascript:void(0)" style="padding: 2px 8px;"
+                               onclick="return del(1,1,1)">
+                            <span class="icon-trash-o"></span> 批量删除</a></td>
+                        <td>
+                        </td>-->
+            <!--         </tr>
+                     <tr>
+                         <td colspan="8">
+                             <div class="pagelist"><a href="">上一页</a> <span class="current">1</span><a href="">2</a><a
+                                     href="">3</a><a href="">下一页</a><a href="">尾页</a></div>
+                         </td>
+                     </tr>-->
         </table>
     </div>
     </div>
@@ -72,7 +72,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findMeetingAgendaAll',
+            url: '../findNewsAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -83,7 +83,7 @@
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
                 if (data.state == 1) {//说明获取数据成功
-                    setData(data.meetingNotices);
+                    setData(data.meetingNewsList);
                 }
                 ;
                 if (data.state == 0) {
@@ -99,36 +99,45 @@
     /*
         将获取到底数据设置到页面上
      */
-    function setData(meetingNotices){
+    function setData(meetingNewsList) {
         //找到添加数据的父节点
         var tableParent = document.getElementById("vo");
 
-        for (var i = 0; i <meetingNotices.length;i++){
-            var meeting = meetingNotices[i];
+        for (var i = 0; i < meetingNewsList.length; i++) {
+            var news = meetingNewsList[i];
             //拼接数据
             //生成节点
             var trElement = document.createElement("tr");
-            var meetingIdElement = document.createElement("td");
-            meetingIdElement.innerText = meeting.id;
+            var meetingNewsIdElement = document.createElement("td");
+            meetingNewsIdElement.innerText = news.id;
             var meetingNameElement = document.createElement("td");
-            meetingNameElement.innerText = meeting.meetingName;
-            var meetingAgendaDetailsElement = document.createElement("td");
-            meetingAgendaDetailsElement.innerText = meeting.meetingAgendaDetails;
+            meetingNameElement.innerText = news.meetingName;
+            var meetingIntroduceElement = document.createElement("td");
+            meetingIntroduceElement.innerText = news.meetingIntroduce;
+            var meetingDetailsElement = document.createElement("td");
+            meetingDetailsElement.innerText = news.meetingDetails;
+            var typeElement = document.createElement("td");
+            typeElement.innerText = typeTransform(news.type);
+            var meetingPioElement = document.createElement("td");
+            meetingPioElement.innerText = news.meetingNewPio;
 
             var czElement = document.createElement("td");
             var modifyElement = document.createElement("a");
             modifyElement.innerText = "修改";
             modifyElement.className = "cz";
             var deleteElement = document.createElement("a");
-            deleteElement.setAttribute("id","delete");
+            deleteElement.setAttribute("id", "delete");
             deleteElement.innerText = "删除";
             deleteElement.className = "cz";
 
             czElement.appendChild(modifyElement);
             czElement.appendChild(deleteElement);
-            trElement.appendChild(meetingIdElement);
+            trElement.appendChild(meetingNewsIdElement);
             trElement.appendChild(meetingNameElement);
-            trElement.appendChild(meetingAgendaDetailsElement);
+            trElement.appendChild(meetingIntroduceElement);
+            trElement.appendChild(meetingDetailsElement);
+            trElement.appendChild(typeElement);
+            trElement.appendChild(meetingPioElement);
             trElement.appendChild(czElement);
             tableParent.appendChild(trElement);
 
@@ -143,7 +152,7 @@
             deleteElement.onclick = function () {
                 var td = this.parentElement.parentElement.getElementsByTagName("td")[0];
                 var id = td.innerText;
-                deleteAgendaById(id);
+                deleteNewsById(id);
             }
         }
     }
@@ -151,12 +160,12 @@
     /*
         删除会议议程
      */
-    function deleteAgendaById(id) {
+    function deleteNewsById(id) {
         $.ajax({
-            url: '../deleteMeetingAgenda',
+            url: '../deleteNews',
             type: 'post',
             dataType: 'json',
-            data : JSON.stringify({id : id}),
+            data: JSON.stringify({id: id}),
             headers: {
                 "Content-Type": "application/json",
                 "token": getCookie("token")  //此处的token应该从cookie中获取
@@ -165,14 +174,15 @@
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
                 if (data.state == 1) {//说明删除数据成功
-                    location.href = "meetingAgenda.html";
-                };
+                    location.href = "meetingNews.html";
+                }
+                ;
                 if (data.state == 0) {
                     console.log(data.msg);
                 }
             },
             error: function (e) {
-                console.log("删除会议议程请求失败:" + e)
+                console.log("删除会议新闻请求失败:" + e)
             }
         })
     }
@@ -181,32 +191,25 @@
         modify跳转页面
      */
     function junpModifyPage(id) {
-        location.href = "modifyMeetingAgenda.html?id="+id;
+        location.href = "modifyMeetingNews.html?id=" + id;
     }
 
-    function dateFormat(date) {
-        let format = 'yyyy-MM-dd hh:mm:ss';
-        date = new Date(date)
-        if (date != 'Invalid Date') {
-            var o = {
-                "M+": date.getMonth() + 1, //month
-                "d+": date.getDate(), //day
-                "h+": date.getHours(), //hour
-                "m+": date.getMinutes(), //minute
-                "s+": date.getSeconds(), //second
-                "q+": Math.floor((date.getMonth() + 3) / 3), //quarter
-                "S": date.getMilliseconds() //millisecond
-            }
-            if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
-                (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-            for (var k in o)
-                if (new RegExp("(" + k + ")").test(format))
-                    format = format.replace(RegExp.$1,
-                        RegExp.$1.length == 1 ? o[k] :
-                            ("00" + o[k]).substr(("" + o[k]).length));
-            return format;
+    function typeTransform(type) {
+        if (type == 1) {
+            return "图片报道";
         }
-        return '';
+        if (type == 0) {
+            return "新闻报道";
+        }
+    }
+
+    function typeTransform(type) {
+        if (type == 1) {
+            return "图片报道";
+        }
+        if (type == 0) {
+            return "新闻报道";
+        }
     }
 
 </script>
