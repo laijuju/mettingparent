@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改座次团信息</strong></div>
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改座次信息</strong></div>
     <div class="body-content">
         <form method="post" class="form-x" action="#">
             <div style="padding-left:20px ;padding-bottom: 20px;">
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>座次的ID：</label>
+                    <label>座次ID：</label>
                 </div>
                 <div class="field l10">
                     <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
@@ -35,16 +35,25 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>会议的Id：</label>
+                    <label>会议名称：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="meetingNoticeId" disabled="disabled" class="input w100" value="" name="meetingNoticeId" data-validate="required:请输入内容"/>
+                    <input type="text" id="meetingName" disabled="disabled" class="input w100" value="" name="meetingName" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>座次的序号：</label>
+                    <label>出席人员：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="adminNickName" disabled="disabled" class="input w100" value="" name="adminNickName" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>座次序号：</label>
                 </div>
                 <div class="field l10">
                     <input type="text" id="seatNum"  class="input w100" value="" name="seatNum" data-validate="required:请输入内容"/>
@@ -92,12 +101,13 @@
                     console.log(data);
                     console.log(data.msg);
                     $("#id").val(data.seat.id);
-                    $("#meetingNoticeId").val(data.seat.meetingNoticeId);
+                    $("#meetingName").val(data.seat.meetingNotice.meetingName);
                     $("#seatNum").val(data.seat.seatNum);
+                    $("#adminNickName").val(data.seat.admin.adminNickName);
                 };
             },
             error: function (e) {
-                console.log("通过ID查询座次团请求失败:" + e)
+                console.log("通过ID查询座次请求失败:" + e)
             }
         })
     }

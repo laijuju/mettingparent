@@ -35,7 +35,8 @@
             <tr>
                 <th>ID</th>
                 <th>座次编号</th>
-                <th>会议Id</th>
+                <th>会议名称</th>
+                <th>出席人员</th>
                 <th>操作</th>
             </tr>
 <!--            <td colspan="1" style="text-align:left; padding:10px 0;padding-left:20px;"><input type="checkbox"
@@ -109,8 +110,10 @@
             seatIdElement.innerText = seat.id;
             var seatNumElement = document.createElement("td");
             seatNumElement.innerText = seat.seatNum;
-            var meetingNoticeIdElement = document.createElement("td");
-            meetingNoticeIdElement.innerText = seat.meetingNoticeId;
+            var meetingeNameElement = document.createElement("td");
+            meetingeNameElement.innerText = seat.meetingNotice.meetingName;
+            var adminNickNameElement = document.createElement("td");
+            adminNickNameElement.innerText = seat.admin.adminNickName;
 
             var czElement = document.createElement("td");
             var modifyElement = document.createElement("a");
@@ -125,7 +128,8 @@
             czElement.appendChild(deleteElement);
             trElement.appendChild(seatIdElement);
             trElement.appendChild(seatNumElement);
-            trElement.appendChild(meetingNoticeIdElement);
+            trElement.appendChild(meetingeNameElement);
+            trElement.appendChild(adminNickNameElement);
             trElement.appendChild(czElement);
             tableParent.appendChild(trElement);
 

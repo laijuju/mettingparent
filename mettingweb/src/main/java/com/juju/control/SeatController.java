@@ -1,8 +1,11 @@
 package com.juju.control;
 
+import com.juju.po.Admin;
 import com.juju.po.Seat;
 import com.juju.result.SeatResult;
+import com.juju.service.IMeetingNoticeService;
 import com.juju.service.ISeatService;
+import com.juju.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -20,6 +23,10 @@ import java.util.List;
 public class SeatController {
     @Autowired
     private ISeatService seatService;
+    @Autowired
+    private IUserService userService;
+    @Autowired
+    private IMeetingNoticeService meetingNoticeService;
 
     Logger logger = Logger.getLogger(SeatController.class);
 
@@ -70,6 +77,10 @@ public class SeatController {
         SeatResult seatResult = new SeatResult();
         seatResult.setState(0);
         try {
+            Admin user = userService.findUserByTel(seat.getAdmin().getUserTel());
+            int noticeId = meetingNoticeService.findNoticeIdByMeetingName(seat.getMeetingNotice().getMeetingName());
+            seat.getAdmin().setId(user.getId());
+            seat.getMeetingNotice().setId(noticeId);
             seatService.addSeat(seat);
             seatResult.setState(1);
             seatResult.setMsg("增加座次信息成功");

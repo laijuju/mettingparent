@@ -29,16 +29,38 @@
                     <label>座次序号：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="seatNum" class="input w100"  value="" name="seatNum" data-validate="required:请输入内容"/>
+                    <input type="text" id="seatNum" class="input w100" value="" name="seatNum"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>会议ID：</label>
+                    <label>出席会议：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="meetingNoticeId" class="input w100" value="" name="meetingNoticeId" data-validate="required:请输入内容"/>
+                    <input type="text" id="meetingName" class="input w100" value="" name="meetingName"
+                           data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>出席人员：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="adminNickName" class="input w100" value="" name="adminNickName"
+                           data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>联系电话：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="userTel" class="input w100" value="" name="userTel"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -61,9 +83,13 @@
             url: '../addSeat',
             type: 'post',
             dataType: 'json',
-            data : JSON.stringify({
-                seatNum : $("#seatNum").val(),
-                meetingNoticeId : $("#meetingNoticeId").val()
+            data: JSON.stringify({
+                seatNum: $("#seatNum").val(),
+                meetingNotice : {meetingName: $("#meetingName").val()},
+                admin: {
+                    adminNickName: $("#adminNickName").val(),
+                    userTel: $("#userTel").val()
+                }
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -73,7 +99,8 @@
                 console.log("请求成功的数据是：" + data)
                 if (data.state == 1) {//说明增加数据成功
                     location.href = "meetingSeat.html"
-                };
+                }
+                ;
             },
             error: function (e) {
                 console.log("添加座次请求失败:" + e)

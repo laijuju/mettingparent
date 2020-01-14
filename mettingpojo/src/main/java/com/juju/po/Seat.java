@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Seat {
     private  int id;                //座次ID
-    private int meetingNoticeId;    //会议通知Id
+    private MeetingNotice meetingNotice;    //会议通知信息
     private String seatNum;         //座次号
+    private Admin admin;            //用户信息
 }
