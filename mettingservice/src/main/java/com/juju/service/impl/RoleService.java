@@ -48,4 +48,14 @@ public class RoleService implements IRoleService {
     public void updateRoleById(Role role) throws Exception {
         roleMapper.updateRoleById(role);
     }
+
+    @Override
+    public void deleteAllPermsByRoleId(int id) throws Exception {
+        roleMapper.deleteAllPermsByRoleId(id);
+    }
+
+    @Override
+    public void addPermsByRoleId(Role role) throws Exception {
+        roleMapper.addPermsByRoleId(role);
+    }
 }

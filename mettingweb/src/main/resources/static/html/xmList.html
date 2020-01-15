@@ -24,15 +24,15 @@
 <body style="border-top: 2px">
 <form method="post" action="" id="listform">
     <div class="panel admin-panel">
-        <div class="panel-head"><strong class="icon-reorder">项目列表</strong></div>
+        <div class="panel-head"><strong class="icon-reorder">角色列表</strong></div>
         <div class="padding border-bottom">
-            <ul class="search" style="padding-left:10px;">
-                <li><a class="button border-main icon-plus-square-o" href="addProject.html"> 新增角色</a></li>
-                <if condition="$iscid eq 1">
-                </if>
+        <ul class="search" style="padding-left:10px;">
+            <li><a class="button border-main icon-plus-square-o" href="addProject.html"> 新增角色</a></li>
+            <if condition="$iscid eq 1">
+            </if>
 
-            </ul>
-        </div>
+        </ul>
+    </div>
         <table class="table table-hover text-center" id="vo">
             <tr>
                 <th width="20%">角色id</th>
@@ -141,7 +141,7 @@
             //生成节点
             var trElement = document.createElement("tr");
             var roleIdElement = document.createElement("td");
-            roleIdElement.innerText = role.id;
+            roleIdElement.innerText = role.roleId;
             var roleNameElement = document.createElement("td");
             roleNameElement.innerText = role.roleName;
             var roleDesElement = document.createElement("td");

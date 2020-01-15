@@ -2,25 +2,32 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juju.mapper.PermMapper">
 
-<!--    通过角色id查找所有权限-->
-    <select id="findPermByRoleId" parameterType="int" resultType="com.juju.po.Perm">
-        select * from
-        t_role_perm t1,
-        t_perms t2
-        where
-        t1.roleId = #{value}
-        and t2.id = t1.permId
+    <!--    通过角色id查找所有权限-->
+    <select id="findPermByRoleId" parameterType="int" resultMap="rolePerm">
+        select role.roleId,role.roleName,role.roleDes,perm.permName
+        from t_role role,t_perms perm,t_role_perm rp
+        where rp.roleId = #{value}
+        and rp.roleId = role.roleId
+        and rp.permId = perm.id
     </select>
+    <resultMap id="rolePerm" type="com.juju.po.Role">
+        <result property="roleId" column="roleId"/>
+        <result property="roleName" column="roleName"/>
+        <result property="roleDes" column="roleDes"/>
+        <collection property="perms" ofType="com.juju.po.Perm">
+            <result property="permName" column="permName"/>
+        </collection>
+    </resultMap>
 
-<!--    查找所有权限-->
+    <!--    查找所有权限-->
     <select id="findPermsAll" resultType="com.juju.po.Perm">
         select * from t_perms
     </select>
 
-<!--   这里有一个问题  type类型的问题
-        type='res' : 插入的是资源
-        type='perm': 插入的是权限
--->
+    <!--   这里有一个问题  type类型的问题
+            type='res' : 插入的是资源
+            type='perm': 插入的是权限
+    -->
     <insert id="addPerm" parameterType="com.juju.po.Perm">
         <if test="type=='res'">
             insert into t_perms(type,resName,resPath) values(#{type},#{resName},#{resPath})
@@ -30,16 +37,16 @@
         </if>
     </insert>
 
-<!--    通过ID删除一个权限-->
+    <!--    通过ID删除一个权限-->
     <delete id="deletePermById" parameterType="int">
         delete from t_perms where id = #{value}
     </delete>
 
-<!--    更新一个账号
-        根据type去进行更新
-        type='res' : 更新的是资源
-        type='perm': 更新的是权限
--->
+    <!--    更新一个账号
+            根据type去进行更新
+            type='res' : 更新的是资源
+            type='perm': 更新的是权限
+    -->
     <update id="updatePerm" parameterType="com.juju.po.Perm">
         <if test="type=='res'">
             update t_perms set resName = #{resName}, resPath = #{resPath} where id = #{id}
@@ -49,8 +56,13 @@
         </if>
     </update>
 
+    <!--    通过权限ID查找权限-->
     <select id="findPermByPermId" parameterType="int" resultType="com.juju.po.Perm">
         select * from t_perms where id = #{value}
     </select>
 
+<!--    通过权限名字查询权限ID-->
+    <select id="findPermIdByPermName" parameterType="String" resultType="int">
+        select id from t_perms where permName = #{value}
+    </select>
 </mapper>

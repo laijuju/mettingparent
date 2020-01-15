@@ -2,38 +2,51 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juju.mapper.RoleMapper">
 
-<!--    通过用户id查找用户的角色-->
+    <!--    通过用户id查找用户的角色-->
     <select id="findRoleByAdminId" parameterType="int" resultType="com.juju.po.Role">
         select * from
         t_admin_role t1,
         t_role t2
         where
         t1.adminId = #{value}
-        and t2.id = t1.roleId;
+        and t2.roleId = t1.roleId;
     </select>
 
-<!--    添加一个角色-->
+    <!--    添加一个角色-->
     <insert id="addRole" parameterType="com.juju.po.Role">
         insert into t_role(roleName,roleDes) values(#{roleName},#{roleDes})
     </insert>
 
-<!--    删除一个角色-->
+    <!--    删除一个角色-->
     <delete id="deleteRole" parameterType="int">
-        delete from t_role where id = #{value}
+        delete from t_role where roleId = #{value}
     </delete>
 
-<!--    查找所有角色-->
+    <!--    查找所有角色-->
     <select id="findRoleAll" resultType="com.juju.po.Role">
         select * from t_role
     </select>
 
-<!--    通过角色Id查看角色信息-->
+    <!--    通过角色Id查看角色信息-->
     <select id="findRoleById" parameterType="int" resultType="com.juju.po.Role">
-        select * from t_role where id = #{roleId}
+        select * from t_role where roleId = #{roleId}
     </select>
 
-<!--    通过roleId修改角色信息-->
+    <!--    通过roleId修改角色信息-->
     <update id="updateRoleById" parameterType="com.juju.po.Role">
-        update t_role set roleName = #{roleName}, roleDes = #{roleDes} where id = #{id};
+        update t_role set roleName = #{roleName}, roleDes = #{roleDes} where roleId = #{roleId};
     </update>
+
+    <!--    通过角色ID删除角色的所有权限-->
+    <delete id="deleteAllPermsByRoleId" parameterType="int">
+        delete from t_role_perm where roleId = #{value}
+    </delete>
+
+    <!--    通过角色ID赋予角色权限-->
+    <insert id="addPermsByRoleId" parameterType="com.juju.po.Role">
+        insert into t_role_perm(roleId,permId) values
+        <foreach collection="perms" item="perms" separator=",">
+            (#{perms.roleId},#{perms.id})
+        </foreach>
+    </insert>
 </mapper>

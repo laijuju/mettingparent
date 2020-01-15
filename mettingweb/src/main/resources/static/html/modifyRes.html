@@ -35,6 +35,15 @@
             </div>
             <div class="form-group">
                 <div class="label">
+                    <label>权限：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="permName" class="input w100" disabled="disabled" value="" name="permName" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
                     <label>资源的名字：</label>
                 </div>
                 <div class="field l10">
@@ -90,6 +99,7 @@
                     console.log(data);
                     console.log(data.msg);
                     $("#id").val(data.perm.id);
+                    $("#permName").val(data.perm.permName);
                     $("#resName").val(data.perm.resName);
                     $("#resPath").val(data.perm.resPath);
                 };

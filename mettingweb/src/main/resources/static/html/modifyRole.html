@@ -38,7 +38,7 @@
                     <label>角色的名字：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="roleName" class="input w100" value="" name="roleName" data-validate="required:请输入内容"/>
+                    <input type="text" id="roleName" disabled="disabled" class="input w100" value="" name="roleName" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -47,7 +47,16 @@
                     <label>角色的描述：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="roleDes" class="input w100" value="" name="roleDes" data-validate="required:请输入内容"/>
+                    <input type="text" id="roleDes" disabled="disabled" class="input w100" value="" name="roleDes" data-validate="required:请输入内容"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>角色拥有的权限：</label>
+                </div>
+                <div class="field l10">
+                    <input type="text" id="permName" disabled="disabled" class="input w100" value="" name="permName" data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -89,7 +98,7 @@
                 if (data.state == 1) {//说明查询数据成功
                     console.log(data);
                     console.log(data.msg);
-                    $("#id").val(data.role.id);
+                    $("#id").val(data.role.roleId);
                     $("#roleName").val(data.role.roleName);
                     $("#roleDes").val(data.role.roleDes);
                 };
@@ -106,7 +115,7 @@
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
-                id : $("#id").val(),
+                roleId : $("#id").val(),
                 roleName : $("#roleName").val(),
                 roleDes : $("#roleDes").val()
             }),

@@ -2,6 +2,7 @@ package com.juju.service.impl;
 
 import com.juju.mapper.PermMapper;
 import com.juju.po.Perm;
+import com.juju.po.Role;
 import com.juju.service.IPermService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class PermService implements IPermService {
     private PermMapper permMapper;
 
     @Override
-    public List<Perm> findPermByRoleId(int roleId) throws Exception {
+    public Role findPermByRoleId(int roleId) throws Exception {
         return permMapper.findPermByRoleId(roleId);
     }
 
@@ -44,6 +45,11 @@ public class PermService implements IPermService {
     @Override
     public Perm findPermByPermId(int permId) throws Exception {
         return permMapper.findPermByPermId(permId);
+    }
+
+    @Override
+    public int findPermIdByPermName(String permName) {
+        return permMapper.findPermIdByPermName(permName);
     }
 
 }

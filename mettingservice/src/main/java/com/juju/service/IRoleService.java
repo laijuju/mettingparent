@@ -22,7 +22,7 @@ public interface IRoleService {
     void deleteRole(int roleId) throws Exception;
 
     /*
-       查找多有的角色
+       查找所有的角色
      */
     List<Role> findRoleAll() throws Exception;
 
@@ -35,4 +35,14 @@ public interface IRoleService {
         通过roleID修改角色信息
      */
     void updateRoleById(Role role) throws Exception;
+
+    /*
+    通过角色的ID删除角色的所有权限
+ */
+    void deleteAllPermsByRoleId(int id) throws Exception;
+
+    /*
+        根据角色ID赋予权限
+     */
+    void addPermsByRoleId(Role role) throws Exception;
 }

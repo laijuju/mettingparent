@@ -1,7 +1,9 @@
 package com.juju.control;
 
+import com.juju.po.Perm;
 import com.juju.po.Role;
 import com.juju.result.RoleResult;
+import com.juju.service.IPermService;
 import com.juju.service.IRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -21,6 +23,8 @@ public class RoleController {
 
     @Autowired
     private IRoleService roleService;
+    @Autowired
+    private  IPermService permService;
 
     private Logger logger = Logger.getLogger(RoleController.class);
 
@@ -155,6 +159,33 @@ public class RoleController {
         } catch (Exception e) {
             logger.error("通过ID修改角色信息失败："+e.getMessage());
             roleResult.setMsg("通过ID修改角色信息失败："+e.getMessage());
+            return roleResult;
+        }
+    }
+
+    @ApiOperation(value = "通过角色ID修改角色权限")
+    @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",dataType = "String",required = true)
+    @PostMapping("addPermsByRoleId")
+    public RoleResult addPermsByRoleId(@RequestBody  Role role){
+        RoleResult roleResult = new RoleResult();
+        roleResult.setState(0);
+        try {
+            List<Perm> perms = role.getPerms();
+            for (Perm perm:perms) {
+                perm.setId(permService.findPermIdByPermName(perm.getPermName()));
+                perm.setRoleId(role.getRoleId());
+            }
+            role.setPerms(perms);
+            System.out.println("转换后的角色信息："+role);
+            roleService.deleteAllPermsByRoleId(role.getRoleId());
+            roleService.addPermsByRoleId(role);
+            roleResult.setState(1);
+            roleResult.setMsg("通过角色ID修改角色权限成功");
+            logger.info("通过角色ID修改角色权限成功");
+            return roleResult;
+        } catch (Exception e) {
+            roleResult.setMsg("通过角色ID修改角色权限失败："+e.getMessage());
+            logger.error("通过角色ID修改角色权限失败："+e.getMessage());
             return roleResult;
         }
     }

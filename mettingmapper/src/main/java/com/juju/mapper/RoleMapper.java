@@ -26,7 +26,7 @@ public interface RoleMapper {
      void deleteRole(int roleId);
 
      /*
-        查找多有的角色
+        查找所有的角色
       */
      List<Role> findRoleAll();
 
@@ -39,4 +39,14 @@ public interface RoleMapper {
         通过roleId修改角色信息
      */
     void updateRoleById(Role role);
+
+    /*
+        通过角色的ID删除角色的所有权限
+     */
+    void deleteAllPermsByRoleId(int id);
+
+    /*
+        根据角色ID赋予权限
+     */
+    void addPermsByRoleId(Role role);
 }

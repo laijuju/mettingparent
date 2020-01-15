@@ -1,7 +1,9 @@
 package com.juju.control;
 
 import com.juju.po.Perm;
+import com.juju.po.Role;
 import com.juju.result.PermResult;
+import com.juju.result.RoleResult;
 import com.juju.service.IPermService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -52,20 +54,20 @@ public class PermController {
             @ApiImplicitParam(paramType = "header",name = "token",value = "用户的token",dataType = "String",required = true),
             @ApiImplicitParam(paramType = "query",name = "roleId",value = "角色Id",dataType = "int",required = true)
     })
-    public PermResult findPermByRoleId(int roleId){
-        PermResult permResult = new PermResult();
-        permResult.setState(0);
+    public RoleResult findPermByRoleId(int roleId){
+        RoleResult roleResult = new RoleResult();
+        roleResult.setState(0);
         try {
-            List<Perm> perms = permService.findPermByRoleId(roleId);
-            permResult.setState(1);
-            permResult.setPerms(perms);
-            permResult.setMsg("通过角色ID查询权限成功");
+            Role role = permService.findPermByRoleId(roleId);
+            roleResult.setState(1);
+            roleResult.setRole(role);
+            roleResult.setMsg("通过角色ID查询权限成功");
             logger.info("通过角色ID查询权限成功");
-            return permResult;
+            return roleResult;
         } catch (Exception e) {
-            permResult.setMsg("通过角色ID查询权限失败："+e.getMessage());
+            roleResult.setMsg("通过角色ID查询权限失败："+e.getMessage());
             logger.error("通过角色ID查询权限失败"+e.getMessage());
-            return permResult;
+            return roleResult;
         }
     }
 

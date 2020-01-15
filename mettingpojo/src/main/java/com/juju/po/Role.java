@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @ApiModel(value = "角色的实体")
 public class Role {
-    private int id;                 //ID字段
+    private int roleId;             //ID字段
     private String roleName;        //角色名字
     private String roleDes;         //角色描述
     private List<Perm> perms;       //角色具有权限

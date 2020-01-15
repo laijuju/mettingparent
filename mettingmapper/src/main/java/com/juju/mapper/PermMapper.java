@@ -1,6 +1,7 @@
 package com.juju.mapper;
 
 import com.juju.po.Perm;
+import com.juju.po.Role;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface PermMapper {
     /*
         通过角色的id查找这个的权限
      */
-    List<Perm> findPermByRoleId(int roleId);
+    Role findPermByRoleId(int roleId);
 
     /*
         查找所有权限
@@ -35,4 +36,9 @@ public interface PermMapper {
         通过ID查找权限
      */
     Perm findPermByPermId(int permId);
+
+    /*
+        通过权限名查询权限ID
+     */
+    int findPermIdByPermName(String permName);
 }

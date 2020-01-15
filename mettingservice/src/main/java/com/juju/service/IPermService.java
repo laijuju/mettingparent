@@ -1,6 +1,7 @@
 package com.juju.service;
 
 import com.juju.po.Perm;
+import com.juju.po.Role;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface IPermService {
     /*
         通过角色的id查找这个的权限
      */
-    List<Perm> findPermByRoleId(int roleId) throws Exception;
+    Role findPermByRoleId(int roleId) throws Exception;
 
     /*
         查找所有权限
@@ -35,4 +36,9 @@ public interface IPermService {
         通过权限ID查找权限
      */
     Perm findPermByPermId(int permId) throws Exception;
+
+    /*
+    通过权限名查询权限ID
+    */
+    int findPermIdByPermName(String permName);
 }

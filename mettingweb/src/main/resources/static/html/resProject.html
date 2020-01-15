@@ -34,6 +34,7 @@
         <table class="table table-hover text-center" id="vo">
             <tr>
                 <th>ID</th>
+                <th>权限名</th>
                 <th>资源名称</th>
                 <th>资源路径</th>
                 <th>操作</th>
@@ -149,10 +150,13 @@
             var trElement = document.createElement("tr");
             var permIdElement = document.createElement("td");
             permIdElement.innerText = perm.id;
+            var permNameElement = document.createElement("td");
+            permNameElement.innerText = perm.permName;
             var resNameElement = document.createElement("td");
             resNameElement.innerText = perm.resName;
             var resPathElement = document.createElement("td");
             resPathElement.innerText = perm.resPath;
+
 
             var czElement = document.createElement("td");
             var modifyElement = document.createElement("a");
@@ -166,6 +170,7 @@
             czElement.appendChild(modifyElement);
             czElement.appendChild(deleteElement);
             trElement.appendChild(permIdElement);
+            trElement.appendChild(permNameElement);
             trElement.appendChild(resNameElement);
             trElement.appendChild(resPathElement);
             trElement.appendChild(czElement);
