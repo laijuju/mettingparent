@@ -67,4 +67,5 @@ public interface IAdminService {
         添加用户的角色
      */
     void addUserRole(@Param("adminId") int adminId, @Param("roleId") int roleId) throws Exception;
+
 }

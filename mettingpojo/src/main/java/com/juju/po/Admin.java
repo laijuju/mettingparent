@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -36,5 +37,6 @@ public class Admin {
     private String userTel;             //用户的电话号码
     private Staff staff;                //职位
     private Delegation delegation;      //代表团ID
+    private Date lastLoginTime;         //最后一次登录时间
 
 }

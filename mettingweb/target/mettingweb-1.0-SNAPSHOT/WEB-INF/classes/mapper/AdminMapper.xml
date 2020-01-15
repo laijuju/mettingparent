@@ -2,60 +2,60 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.juju.mapper.AdminMapper">
 
-<!--    通过字段查找对象-->
+    <!--    通过字段查找对象-->
     <select id="findAdminByAdminName" parameterType="String" resultType="com.juju.po.Admin">
         select * from t_admin where adminLoginName = #{value}
     </select>
 
-<!--    添加admin账户-->
+    <!--    添加admin账户-->
     <insert id="addAdmin" parameterType="com.juju.po.Admin">
         insert into t_admin(adminNickName,adminLoginName,adminPassword,adminSex,adminTel)
         values (#{adminNickName},#{adminLoginName},#{adminPassword},#{adminSex},#{adminTel})
     </insert>
 
-<!--    删除一个admin账号-->
+    <!--    删除一个admin账号-->
     <delete id="deleteAdmin" parameterType="int">
         delete from t_admin where id = #{value}
     </delete>
 
-<!--    获取所有的管理员-->
+    <!--    获取所有的管理员-->
     <select id="findAdminAll" resultType="com.juju.po.Admin">
         select * from t_admin
     </select>
 
-<!--    通过用户ID更新用户的token和token过期时间-->
+    <!--    通过用户ID更新用户的token和token过期时间-->
     <update id="updateTokenAndExpireTime" parameterType="com.juju.po.Admin">
         update t_admin
         set token = #{token},expireTokenTime = #{expireTokenTime}
         where id = #{id}
     </update>
 
-<!--    通过token查询用户-->
+    <!--    通过token查询用户-->
     <select id="tokenExistOrNot" parameterType="String" resultType="com.juju.po.Admin">
         select * from t_admin where token = #{token}
     </select>
 
-<!--    退出登录，将账号的token更改为''-->
+    <!--    退出登录，将账号的token更改为''-->
     <update id="updateToken" parameterType="String">
         update t_admin set token = '',expireTokenTime = '' where token = #{token}
     </update>
 
-<!--    通过Id查找管理员对象-->
+    <!--    通过Id查找管理员对象-->
     <select id="findAdminById" parameterType="int" resultType="com.juju.po.Admin">
         select * from t_admin where id = #{id}
     </select>
-<!--    通过ID修改管理员信息-->
+    <!--    通过ID修改管理员信息-->
     <update id="updateAdminById" parameterType="com.juju.po.Admin">
         update t_admin
         set adminNickName = #{adminNickName},adminTel = #{adminTel}
         where id = #{id}
     </update>
-<!--    通过ID修改密码-->
+    <!--    通过ID修改密码-->
     <update id="updatePassword">
         update t_admin set adminPassword = #{newPassword} where id = #{id}
     </update>
 
-<!--    校验密码-->
+    <!--    校验密码-->
     <select id="checkPassword" resultType="String">
         select adminPassword from t_admin where id = #{id}
     </select>
@@ -64,4 +64,15 @@
     <insert id="addUserRole">
         insert into t_admin_role(adminId,roleId) values(#{adminId},#{roleId})
     </insert>
+
+    <!--    修改最后一次登录时间-->
+    <update id="updateLastLoginTime" parameterType="com.juju.po.Admin">
+        update t_admin set lastLoginTime = #{lastLoginTime} where id = #{id}
+    </update>
+
+<!--    生成登录日志记录-->
+    <insert id="addLog" parameterType="com.juju.po.Admin">
+        insert into t_log(userId,loginTime) values(#{id},#{lastLoginTime})
+    </insert>
+
 </mapper>

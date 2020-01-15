@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -170,13 +171,16 @@ public class RoleController {
         RoleResult roleResult = new RoleResult();
         roleResult.setState(0);
         try {
-            List<Perm> perms = role.getPerms();
-            for (Perm perm:perms) {
-                perm.setId(permService.findPermIdByPermName(perm.getPermName()));
-                perm.setRoleId(role.getRoleId());
+            List<Perm> perms = new ArrayList<>();
+            String permsString = role.getPermsString();
+            String[] permNames = permsString.split(",");
+            for (String permName:permNames) {
+                Perm perm = new Perm();
+                perm.setId(permService.findPermIdByPermName(permName));
+                perms.add(perm);
             }
+            System.out.println("添加完成的perms："+perms);
             role.setPerms(perms);
-            System.out.println("转换后的角色信息："+role);
             roleService.deleteAllPermsByRoleId(role.getRoleId());
             roleService.addPermsByRoleId(role);
             roleResult.setState(1);

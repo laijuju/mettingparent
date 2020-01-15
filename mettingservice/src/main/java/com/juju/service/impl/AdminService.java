@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -63,9 +64,13 @@ public class AdminService implements IAdminService {
             //设置过期时间
             //获取到时间戳
             long currentTimeMillis = System.currentTimeMillis();
+            Date date = new Date(currentTimeMillis);
             currentTimeMillis = currentTimeMillis + 2592000;
             admin1.setExpireTokenTime(currentTimeMillis);
             adminMapper.updateTokenAndExpireTime(admin1);
+            admin1.setLastLoginTime(date);
+            adminMapper.updateLastLoginTime(admin1);
+            adminMapper.addLog(admin1);
             //执行到这里，说明整个流程是通的
             adminResult.setState(1);
             admin1.setAdminPassword("");
@@ -122,4 +127,5 @@ public class AdminService implements IAdminService {
     public void addUserRole(int adminId, int roleId) throws Exception {
         adminMapper.addUserRole(adminId, roleId);
     }
+
 }

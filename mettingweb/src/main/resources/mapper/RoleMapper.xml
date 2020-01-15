@@ -46,7 +46,7 @@
     <insert id="addPermsByRoleId" parameterType="com.juju.po.Role">
         insert into t_role_perm(roleId,permId) values
         <foreach collection="perms" item="perms" separator=",">
-            (#{perms.roleId},#{perms.id})
+            (#{roleId},#{perms.id})
         </foreach>
     </insert>
 </mapper>

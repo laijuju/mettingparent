@@ -20,4 +20,5 @@ public class Role {
     private String roleName;        //角色名字
     private String roleDes;         //角色描述
     private List<Perm> perms;       //角色具有权限
+    private String permsString;
 }

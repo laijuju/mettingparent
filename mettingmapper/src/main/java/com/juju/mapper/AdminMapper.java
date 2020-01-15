@@ -66,4 +66,14 @@ public interface AdminMapper {
         添加用户的角色
      */
     void addUserRole(@Param("adminId") int adminId,@Param("roleId") int roleId);
+
+    /*
+        修改最后一次登录时间
+     */
+    void updateLastLoginTime(Admin admin);
+
+    /*
+        记录登录，写入日志
+     */
+    void addLog(Admin admin);
 }

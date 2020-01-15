@@ -29,7 +29,8 @@
                     <label>角色的ID：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id" data-validate="required:请输入内容"/>
+                    <input type="text" id="id" class="input w100" disabled="disabled" value="" name="id"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -38,7 +39,8 @@
                     <label>角色的名字：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="roleName" disabled="disabled" class="input w100" value="" name="roleName" data-validate="required:请输入内容"/>
+                    <input type="text" id="roleName" disabled="disabled" class="input w100" value="" name="roleName"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -47,7 +49,8 @@
                     <label>角色的描述：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="roleDes" disabled="disabled" class="input w100" value="" name="roleDes" data-validate="required:请输入内容"/>
+                    <input type="text" id="roleDes" disabled="disabled" class="input w100" value="" name="roleDes"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -55,8 +58,9 @@
                 <div class="label">
                     <label>角色拥有的权限：</label>
                 </div>
-                <div class="field l10">
-                    <input type="text" id="permName" disabled="disabled" class="input w100" value="" name="permName" data-validate="required:请输入内容"/>
+                <br>
+                <div class="field l10" id="perms">
+                    <!--                    <input type="text" id="permName" disabled="disabled" class="input w100" value="" name="permName" data-validate="required:请输入内容"/>-->
                     <div class="tips"></div>
                 </div>
             </div>
@@ -65,7 +69,8 @@
                     <label></label>
                 </div>
                 <div class="field">
-                    <button class="button bg-main icon-check-square-o" onclick="updateRoleById()" type="button"> 提交</button>
+                    <button class="button bg-main icon-check-square-o" onclick="updateRoleById()" type="button"> 提交
+                    </button>
                 </div>
             </div>
         </form>
@@ -73,6 +78,7 @@
 </div>
 
 <script type="text/javascript">
+    var permsById;
     $(document).ready(function () {
         /*
             获取前一个页面传递过来的数据
@@ -80,14 +86,67 @@
         var roleId = UrlParam.paramValues("id");
         var id = roleId[0];
         findRoleById(id);
+        init();
     })
+
+    function init() {
+        $.ajax({
+            url: '../findPermsAll',
+            type: 'get',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明获取数据成功
+                    setPerms(data.perms);
+                }
+                ;
+                if (data.state == 0) {
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("主页菜单请求请求失败:" + e)
+            }
+        });
+
+
+        function setPerms(perms) {
+            //找到添加数据的父节点
+            var permsParent = document.getElementById("perms");
+            for (var i = 0; i < perms.length; i++) {
+                var perm = perms[i];
+                //拼接数据
+                //生成节点
+                var inputElement = document.createElement("input");
+                var spanElement = document.createElement("span");
+                spanElement.innerText = perm.permName;
+                inputElement.setAttribute("type", "checkbox");
+                inputElement.setAttribute("name", "permName");
+                inputElement.setAttribute("value", perm.permName);
+                for (var j = 0; j < permsById.length; j++) {
+                    if (perm.permName == permsById[j].permName) {
+                        console.log("通过ID找到的perms" + perm.permName);
+                        inputElement.setAttribute("checked", "true");
+                    }
+                }
+                permsParent.appendChild(spanElement);
+                permsParent.appendChild(inputElement);
+            }
+        }
+    }
 
     function findRoleById(id) {
         $.ajax({
-            url: '../findRoleById',
+            url: '../findPermByRoleId',
+            async: false,
             type: 'post',
             dataType: 'json',
-            data : {roleId : id},
+            data: {roleId: id},
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "token": getCookie("token")  //此处的token应该从cookie中获取
@@ -96,12 +155,13 @@
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
                 if (data.state == 1) {//说明查询数据成功
-                    console.log(data);
                     console.log(data.msg);
                     $("#id").val(data.role.roleId);
                     $("#roleName").val(data.role.roleName);
                     $("#roleDes").val(data.role.roleDes);
-                };
+                    permsById = data.role.perms;
+                }
+                ;
             },
             error: function (e) {
                 console.log("通过ID查询角色请求失败:" + e)
@@ -110,14 +170,18 @@
     }
 
     function updateRoleById() {
+        var pName = '';
+        $('input[name=permName]:checked').each(function () {
+            pName +=  $(this).val() + ",";
+        });
+        console.log("传输的perms：" + pName.substring(0, pName.length - 1));
         $.ajax({
-            url: '../updateRoleById',
+            url: '../addPermsByRoleId',
             type: 'post',
             dataType: 'json',
-            data : JSON.stringify({
-                roleId : $("#id").val(),
-                roleName : $("#roleName").val(),
-                roleDes : $("#roleDes").val()
+            data: JSON.stringify({
+                roleId: $("#id").val(),
+                permsString: pName
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -127,7 +191,8 @@
                 console.log("请求成功的数据是：" + data)
                 if (data.state == 1) {//说明修改数据成功
                     location.href = "xmList.html"
-                };
+                }
+                ;
             },
             error: function (e) {
                 console.log("通过ID修改角色信息请求失败:" + e)

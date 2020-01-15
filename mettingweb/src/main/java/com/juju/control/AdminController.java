@@ -53,7 +53,6 @@ public class AdminController {
     @PostMapping("login")
     @ApiOperation(value = "用户登录",notes = "用户名和密码不能为null")
     public AdminResult login(@RequestBody  Admin admin){
-        adminService.login(admin);
            return adminService.login(admin);
     }
 

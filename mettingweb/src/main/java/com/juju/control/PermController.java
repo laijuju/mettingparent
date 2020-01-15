@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,7 +72,7 @@ public class PermController {
         }
     }
 
-    @PostMapping("findPermsAll")
+    @GetMapping("findPermsAll")
     @ApiOperation(value = "查看所有的权限")
     @ApiImplicitParam(paramType = "header",value = "用户token",name = "token",dataType = "String",required = true)
     public PermResult findPermsAll(){
