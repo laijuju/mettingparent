@@ -17,7 +17,12 @@ public class LogService implements ILogService {
     private LogMapper logMapper;
 
     @Override
-    public List<Log> findLogAll(int userId) throws Exception {
-        return logMapper.findLogAll(userId);
+    public List<Log> findLogAll(String loginName) throws Exception {
+        return logMapper.findLogAll(loginName);
+    }
+
+    @Override
+    public void addLog(Log log) throws Exception {
+        logMapper.addLog(log);
     }
 }

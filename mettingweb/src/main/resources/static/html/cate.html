@@ -1,73 +1,132 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="renderer" content="webkit">
-<title></title>
-<link rel="stylesheet" href="css/pintuer.css">
-<link rel="stylesheet" href="css/admin.css">
-<script src="js/jquery.js"></script>
-<script src="js/pintuer.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>
+    <script src="js/commoms.js"></script>
+    <script src="js/getparameter.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder"> 日志列表</strong></div>
-  <table class="table table-hover text-center">
-    <tr>
-      <th width="5%">用户名</th>
-      <th width="15%">账号</th>
-      <th width="10%">登录时间</th>
-      <th width="10%">登录状态</th>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>20137003</td>
-      <td>2016-05-03</td>
-      <td>成功</td>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>20137003</td>
-      <td>2016-05-03</td>
-      <td>成功</td>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>20137003</td>
-      <td>2016-05-03</td>
-      <td>成功</td>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>20137003</td>
-      <td>2016-05-03</td>
-      <td>成功</td>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>20137003</td>
-      <td>2016-05-03</td>
-      <td>成功</td>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>20137003</td>
-      <td>2016-05-03</td>
-      <td>成功</td>
-    </tr>
-      <td colspan="7" style="text-align:left;padding-left:20px;">
-    	  <a href="javascript:void(0)" class="button border-red" style="padding:5px 15px;" onclick="DelSelect()"> 导出</a>
-      </td>
-  </table>
+    <div class="panel-head"><strong class="icon-reorder"> 日志列表</strong></div>
+    <table class="table table-hover text-center" id="vo">
+        <tr>
+            <th width="5%">ID</th>
+            <th width="5%">用户名</th>
+            <th width="15%">账号</th>
+            <th width="10%">登录时间</th>
+            <th width="10%">登录状态</th>
+        </tr>
+    </table>
 </div>
 <script type="text/javascript">
-function del(id,mid){
-	if(confirm("您确定要删除吗?")){			
-		
-	}
-}
+    $(document).ready(function () {
+        //发送ajax请求 请求数据库的数据
+        init();
+        /*
+            获取local storage 中的admin信息
+         */
+    })
+
+    /*
+        向数据库请求所有日志的数据
+     */
+    function init() {
+        var userInfoObj = localStorage.getItem("userInfo");
+        var userInfo = eval('(' + userInfoObj + ')');
+        var adminLoginName = userInfo.adminLoginName;
+        $.ajax({
+            url: '../findLogAll',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                loginName: adminLoginName
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "token": getCookie("token")  //此处的token应该从cookie中获取
+            },
+            success: function (data) {
+                console.log("请求成功的数据是：" + data)
+                console.log(data.state);
+                if (data.state == 1) {//说明获取数据成功
+                    setData(data.logs);
+                }
+                ;
+                if (data.state == 0) {
+                    alert(data.msg)
+                }
+            },
+            error: function (e) {
+                console.log("主页菜单请求请求失败:" + e)
+            }
+        })
+    }
+
+    /*
+        将获取到底数据设置到页面上
+     */
+    function setData(logs) {
+        //找到添加数据的父节点
+
+        for (var i = 0; i < logs.length; i++) {
+            var log = logs[i];
+            //拼接数据
+            //生成节点
+            var tableParent = document.getElementById("vo")
+            var trElement = document.createElement("tr");
+            var logIdElement = document.createElement("td");
+            logIdElement.innerText = log.id;
+            var nickNameElement = document.createElement("td");
+            nickNameElement.innerText = log.nickName;
+            var loginNameElement = document.createElement("td");
+            loginNameElement.innerText = log.loginName;
+            var loginTimeElement = document.createElement("td");
+            loginTimeElement.innerText = dateFormat(log.loginTime);
+            var loginStateElement = document.createElement("td");
+            loginStateElement.innerText = log.loginState;
+
+            trElement.appendChild(logIdElement);
+            trElement.appendChild(nickNameElement);
+            trElement.appendChild(loginNameElement);
+            trElement.appendChild(loginTimeElement);
+            trElement.appendChild(loginStateElement);
+            tableParent.appendChild(trElement);
+        }
+    }
+
+    function dateFormat(date) {
+        let format = 'yyyy-MM-dd hh:mm:ss';
+        date = new Date(date)
+        if (date != 'Invalid Date') {
+            var o = {
+                "M+": date.getMonth() + 1, //month
+                "d+": date.getDate(), //day
+                "h+": date.getHours(), //hour
+                "m+": date.getMinutes(), //minute
+                "s+": date.getSeconds(), //second
+                "q+": Math.floor((date.getMonth() + 3) / 3), //quarter
+                "S": date.getMilliseconds() //millisecond
+            }
+            if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+                (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(format))
+                    format = format.replace(RegExp.$1,
+                        RegExp.$1.length == 1 ? o[k] :
+                            ("00" + o[k]).substr(("" + o[k]).length));
+            return format;
+        }
+        return '';
+    }
+
 </script>
 </body>
 </html>

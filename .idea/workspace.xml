@@ -7,41 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3990dc89-771d-49e6-b962-5b90961f9b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/LogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/result/LogResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/ILogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/LogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/LogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/LogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/ActionLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/AdminMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/mapper/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingmapper/target/classes/com/juju/mapper/AdminMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Perm.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Perm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Perm.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Perm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/target/classes/com/juju/po/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/LogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingmapper/src/main/java/com/juju/mapper/LogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingpojo/src/main/java/com/juju/po/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/ILogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/ILogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingservice/src/main/java/com/juju/service/impl/LogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/impl/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingservice/target/classes/com/juju/service/impl/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/PermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/PermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/modifyRole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/resProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/resProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/saveProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/saveProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/classes/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/control/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/control/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/classes/mapper/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/classes/mapper/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/classes/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/control/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/control/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/control/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/LogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/mapper/LogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/cate.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/cate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingmapper-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingpojo-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/lib/mettingservice-1.0-SNAPSHOT.jar" afterDir="false" />
@@ -74,8 +50,8 @@
         <option value="spring-beans.schema" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -280,7 +256,9 @@
       <workItem from="1579011735070" duration="12054000" />
       <workItem from="1579052452172" duration="26821000" />
       <workItem from="1579083965497" duration="8404000" />
-      <workItem from="1579098964424" duration="6973000" />
+      <workItem from="1579098964424" duration="7099000" />
+      <workItem from="1579108141248" duration="216000" />
+      <workItem from="1579141110013" duration="12382000" />
     </task>
     <task id="LOCAL-00001" summary="第二次上传测试">
       <created>1578299767683</created>
@@ -394,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579060108074</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="日志操作更新">
+      <created>1579106752547</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1579106752547</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,82 +422,82 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="320" y="184" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1577946845617" />
-    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1579105444760">
+    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1579143428542">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1579105444760" />
-    <state x="54" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578843555275">
+    <state x="488" y="71" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1579143428542" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579161152577">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="54" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1578843555275" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1579161152577" />
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578884817247">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1578884817247" />
-    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1579106705426">
+    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1579161590178">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579106705426" />
+    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579161590178" />
     <state x="311" y="55" key="FileChooserDialogImpl" timestamp="1578298298964">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="311" y="55" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1578298298964" />
-    <state x="390" y="288" key="Github.CreateGistDialog" timestamp="1579056413950">
+    <state x="390" y="288" key="Github.CreateGistDialog" timestamp="1579150532441">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="288" key="Github.CreateGistDialog/0.0.1366.728@0.0.1366.728" timestamp="1579056413950" />
+    <state x="390" y="288" key="Github.CreateGistDialog/0.0.1366.728@0.0.1366.728" timestamp="1579150532441" />
     <state x="266" y="249" width="558" height="218" key="Github.ShareDialog" timestamp="1578299811321">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="266" y="249" width="558" height="218" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1578299811321" />
-    <state width="1293" height="436" key="GridCell.Tab.0.bottom" timestamp="1579105889312">
+    <state width="1293" height="-14" key="GridCell.Tab.0.bottom" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579105889312" />
-    <state width="1293" height="436" key="GridCell.Tab.0.center" timestamp="1579105889311">
+    <state width="1293" height="-14" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.0.center" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579105889311" />
-    <state width="1293" height="436" key="GridCell.Tab.0.left" timestamp="1579105889311">
+    <state width="1293" height="-14" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.0.left" timestamp="1579161114750">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579105889311" />
-    <state width="1293" height="436" key="GridCell.Tab.0.right" timestamp="1579105889312">
+    <state width="1293" height="-14" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579161114750" />
+    <state width="1293" height="-14" key="GridCell.Tab.0.right" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579105889312" />
-    <state width="1293" height="436" key="GridCell.Tab.1.bottom" timestamp="1579105889000">
+    <state width="1293" height="-14" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.1.bottom" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579105889000" />
-    <state width="1293" height="436" key="GridCell.Tab.1.center" timestamp="1579105889000">
+    <state width="1293" height="-14" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.1.center" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579105889000" />
-    <state width="1293" height="436" key="GridCell.Tab.1.left" timestamp="1579105888999">
+    <state width="1293" height="-14" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.1.left" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579105888999" />
-    <state width="1293" height="436" key="GridCell.Tab.1.right" timestamp="1579105889000">
+    <state width="1293" height="-14" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.1.right" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579105889000" />
-    <state width="1293" height="436" key="GridCell.Tab.2.bottom" timestamp="1579105889002">
+    <state width="1293" height="-14" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.2.bottom" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579105889002" />
-    <state width="1293" height="436" key="GridCell.Tab.2.center" timestamp="1579105889001">
+    <state width="1293" height="-14" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.2.center" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1579105889001" />
-    <state width="1293" height="436" key="GridCell.Tab.2.left" timestamp="1579105889000">
+    <state width="1293" height="-14" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.2.left" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1579105889000" />
-    <state width="1293" height="436" key="GridCell.Tab.2.right" timestamp="1579105889001">
+    <state width="1293" height="-14" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
+    <state width="1293" height="-14" key="GridCell.Tab.2.right" timestamp="1579161114751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1293" height="436" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1579105889001" />
+    <state width="1293" height="-14" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1579161114751" />
     <state width="1236" height="80" key="GridCell.Tab.3.bottom" timestamp="1578041603707">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -553,14 +538,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="82" y="0" width="1049" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1578970442286" />
-    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2" timestamp="1579060214745">
+    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2" timestamp="1579106751179">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579060214745" />
-    <state x="414" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1579098994135">
+    <state x="142" y="50" width="877" height="531" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1579106751179" />
+    <state x="414" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1579141115468">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="414" y="240" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1579098994135" />
+    <state x="414" y="240" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1579141115468" />
     <state x="477" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578816299073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,7 +1,9 @@
 package com.juju.service.impl;
 
 import com.juju.mapper.AdminMapper;
+import com.juju.mapper.LogMapper;
 import com.juju.po.Admin;
+import com.juju.po.Log;
 import com.juju.result.AdminResult;
 import com.juju.service.IAdminService;
 import com.juju.utils.MD5Util;
@@ -19,6 +21,8 @@ public class AdminService implements IAdminService {
 
     @Autowired
     private AdminMapper adminMapper;
+    @Autowired
+    private LogMapper logMapper;
 
     @Override
     public Admin findAdminByAdminName(String adminName) throws Exception {
@@ -42,6 +46,10 @@ public class AdminService implements IAdminService {
 
     @Override
     public AdminResult login(Admin admin) {
+        Log log = new Log();
+        //获取到时间戳
+        long currentTimeMillis = System.currentTimeMillis();
+        Date date = new Date(currentTimeMillis);
         AdminResult adminResult = new AdminResult();
         adminResult.setState(0);
         //第一步，需要找到用户名，然后通过用户名找到用户对象
@@ -53,6 +61,14 @@ public class AdminService implements IAdminService {
             //执行到这里，说明用户名是对的
             //比较密码是否一致
             if (!(MD5Util.encrypt(admin.getAdminPassword()).equals(admin1.getAdminPassword()))) {
+                /*
+                    生成登录失败的日志
+                 */
+                log.setLoginState("密码错误");
+                log.setNickName(admin1.getAdminNickName());
+                log.setLoginName(admin1.getAdminLoginName());
+                log.setLoginTime(date);
+                logMapper.addLog(log);
                 throw new RuntimeException("密码不正确");
             }
             //用户整个身份合法
@@ -62,19 +78,30 @@ public class AdminService implements IAdminService {
             //将token设置到admin上
             admin1.setToken(token);
             //设置过期时间
-            //获取到时间戳
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date = new Date(currentTimeMillis);
             currentTimeMillis = currentTimeMillis + 2592000;
             admin1.setExpireTokenTime(currentTimeMillis);
+            /*
+                设置好登录后的koken
+             */
             adminMapper.updateTokenAndExpireTime(admin1);
             admin1.setLastLoginTime(date);
+            /*
+                修改用户最后一次登录时间
+             */
             adminMapper.updateLastLoginTime(admin1);
-            adminMapper.addLog(admin1);
+            /*
+                添加登录日志
+             */
+            log.setLoginState("登录成功");
+            log.setNickName(admin1.getAdminNickName());
+            log.setLoginName(admin1.getAdminLoginName());
+            log.setLoginTime(date);
+            logMapper.addLog(log);
             //执行到这里，说明整个流程是通的
             adminResult.setState(1);
             admin1.setAdminPassword("");
             adminResult.setAdmin(admin1);
+            adminResult.setMsg("登录成功");
             //第二步：将token和用户信息返回给客户端，客户端进行存储
             return adminResult;
         } catch (Exception err) {

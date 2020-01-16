@@ -3,8 +3,14 @@
 <mapper namespace="com.juju.mapper.LogMapper">
 
     <!--    通过用户id查询登陆日志-->
-    <select id="findLogAll" parameterType="int" resultType="com.juju.po.Log">
-        select * from t_log where userId = #{value}
+    <select id="findLogAll" parameterType="String" resultType="com.juju.po.Log">
+        select * from t_log where loginName = #{value}
     </select>
+
+    <!--    生成登录日志记录-->
+    <insert id="addLog" parameterType="com.juju.po.Log">
+        insert into t_log(nickName,loginName,loginTime,loginState)
+        values(#{nickName},#{loginName},#{loginTime},#{loginState})
+    </insert>
 
 </mapper>

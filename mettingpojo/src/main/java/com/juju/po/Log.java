@@ -13,6 +13,8 @@ import java.util.Date;
 @ApiModel
 public class Log {
     private int id;                 //日志主键
-    private int userId;             //用户主键
-    private Date loginTime;    //登录时间
+    private String nickName;        //用户名
+    private String loginName;       //用户账号
+    private Date loginTime;         //登录时间
+    private String loginState;      //登录状态
 }
