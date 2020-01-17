@@ -1,6 +1,8 @@
 package com.juju.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
+import com.juju.po.ActionLog;
+import com.juju.po.Admin;
 import com.juju.service.IActionLogService;
 import com.juju.service.IAdminService;
 import org.apache.log4j.Logger;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 public class AuthticationFilter implements HandlerInterceptor {
 
@@ -81,7 +84,7 @@ public class AuthticationFilter implements HandlerInterceptor {
 
             if (!header.equals("")&&null!=header){
                 //进行页面的转发
-                response.sendRedirect("/html/unlogin.html");
+                response.sendRedirect("/mettingweb-1.0-SNAPSHOT/html/unlogin.html");
             }
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("state",0);
@@ -103,7 +106,18 @@ public class AuthticationFilter implements HandlerInterceptor {
             response.getWriter().close();
             return false;
         }
-
+        if(!requestURI.endsWith(".html")){
+            Admin admin = adminService.findAdminByToken(token);
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date = new Date(currentTimeMillis);
+            ActionLog actionLog = new ActionLog();
+            actionLog.setNickName(admin.getAdminNickName());
+            actionLog.setAdminLoginName(admin.getAdminLoginName());
+            actionLog.setActionName(requestURI);
+            actionLog.setActionTime(date);
+            actionLog.setActionState("操作成功");
+            actionLogService.addActionLog(actionLog);
+        }
         return true;
     }
 

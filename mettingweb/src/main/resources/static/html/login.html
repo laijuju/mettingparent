@@ -66,7 +66,7 @@
             var password = $("#password").val();
             //发送ajax请求到控制器去进行用户身份的校验
             $.ajax({
-                url: '/login',
+                url: '/mettingweb-1.0-SNAPSHOT/login',
                 type: 'post',
                 dataType: 'json',
                 data: JSON.stringify({adminLoginName: userName, adminPassword: password}),
@@ -83,7 +83,7 @@
                         //将admin对象，以JSON的形式储存
                         localStorage.setItem("userInfo",JSON.stringify(data.admin));
                         //下面进行页面的跳转
-                        location.href="/html/index.html";
+                        location.href="index.html";
                     };
                     if (data.state==0){
                        alert(data.msg);

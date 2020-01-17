@@ -29,7 +29,8 @@
                     <label>秘书名字：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="workerName" class="input w100"  value="" name="workerName" data-validate="required:请输入内容"/>
+                    <input type="text" id="workerName" class="input w100" value="" name="workerName"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -38,7 +39,8 @@
                     <label>秘书性别：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="workerSex" class="input w100" value="" name="workerSex" data-validate="required:请输入内容"/>
+                    <input type="radio" value="1" name="workerSex"/>男 &nbsp;&nbsp;
+                    <input type="radio" value="0" name="workerSex"/>女
                     <div class="tips"></div>
                 </div>
             </div>
@@ -47,7 +49,8 @@
                     <label>秘书电话：</label>
                 </div>
                 <div class="field l10">
-                    <input type="text" id="workerTel" class="input w100" value="" name="workerTel" data-validate="required:请输入内容"/>
+                    <input type="text" id="workerTel" class="input w100" value="" name="workerTel"
+                           data-validate="required:请输入内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -70,10 +73,10 @@
             url: '/mettingweb-1.0-SNAPSHOT/addWorker',
             type: 'post',
             dataType: 'json',
-            data : JSON.stringify({
-                workerName : $("#workerName").val(),
-                workerSex : $("#workerSex").val(),
-                workerTel : $("#workerTel").val()
+            data: JSON.stringify({
+                workerName: $("#workerName").val(),
+                workerSex: $("#workerSex").val(),
+                workerTel: $("#workerTel").val()
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +86,8 @@
                 console.log("请求成功的数据是：" + data)
                 if (data.state == 1) {//说明增加数据成功
                     location.href = "meetingWorker.html"
-                };
+                }
+                ;
             },
             error: function (e) {
                 console.log("添加会议议程请求失败:" + e)
