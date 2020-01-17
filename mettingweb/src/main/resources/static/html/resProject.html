@@ -112,7 +112,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findPermsAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findPermsAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -197,7 +197,7 @@
      */
     function deletePermById(id) {
         $.ajax({
-            url: '../deletePerm',
+            url: '/mettingweb-1.0-SNAPSHOT/deletePerm',
             type: 'post',
             dataType: 'json',
             data : {permId : id},

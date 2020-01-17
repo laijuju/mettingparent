@@ -1,6 +1,7 @@
 package com.juju.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
+import com.juju.service.IActionLogService;
 import com.juju.service.IAdminService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class AuthticationFilter implements HandlerInterceptor {
 
     @Autowired
     private IAdminService adminService;
+    @Autowired
+    private IActionLogService actionLogService;
 
     private Logger logger = Logger.getLogger(AuthticationFilter.class);
 
@@ -100,6 +103,7 @@ public class AuthticationFilter implements HandlerInterceptor {
             response.getWriter().close();
             return false;
         }
+
         return true;
     }
 

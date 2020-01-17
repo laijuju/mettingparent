@@ -112,7 +112,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findAllMeetingNotice',
+            url: '/mettingweb-1.0-SNAPSHOT/findAllMeetingNotice',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -196,7 +196,7 @@
      */
     function deleteNoticeById(id) {
         $.ajax({
-            url: '../deleteMeetingNoticeById',
+            url: '/mettingweb-1.0-SNAPSHOT/deleteMeetingNoticeById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({id : id}),

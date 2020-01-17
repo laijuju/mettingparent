@@ -69,7 +69,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findDelegationAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findDelegationAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -150,7 +150,7 @@
      */
     function deleteDelegation(id) {
         $.ajax({
-            url: '../deleteDelegation',
+            url: '/mettingweb-1.0-SNAPSHOT/deleteDelegation',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({id : id}),

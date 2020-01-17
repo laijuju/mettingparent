@@ -15,7 +15,7 @@ public class ActionLog {
     private int id;                     //行为操作表ID
     private String nickName;            //用户
     private String adminLoginName;      //账户
-    private String action;              //操作
+    private String actionName;          //操作
     private Date actionTime;            //操作时间
     private String actionState;         //状态
 }

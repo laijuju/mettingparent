@@ -84,7 +84,7 @@
 
     function findWorkerById(id) {
         $.ajax({
-            url: '../findWorkerById',
+            url: '/mettingweb-1.0-SNAPSHOT/findWorkerById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
@@ -114,7 +114,7 @@
 
     function updateWorker() {
         $.ajax({
-            url: '../updateWorker',
+            url: '/mettingweb-1.0-SNAPSHOT/updateWorker',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({

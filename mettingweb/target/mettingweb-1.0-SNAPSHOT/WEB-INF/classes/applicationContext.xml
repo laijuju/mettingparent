@@ -19,9 +19,9 @@
     <!--配置连接池-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql:///metting"/>
+        <property name="url" value="jdbc:mysql://106.13.225.171:3306/metting?useUnicode=true&amp;characterEncoding=UTF-8"/>
         <property name="username" value="root"/>
-        <property name="password" value="960124"/>
+        <property name="password" value="xiaojuju"/>
     </bean>
 
     <!--配置SqlSessionFactory的创建-->
@@ -30,7 +30,7 @@
         <property name="dataSource" ref="dataSource"></property>
         <!--这个配置的是mapper.xml文件接口所在的位置-->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
-        <property name="configLocation"  value="classpath:mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>
 
     <!--配置映射文件-->

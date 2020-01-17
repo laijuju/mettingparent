@@ -75,7 +75,7 @@
 
     function findDelegationById(id) {
         $.ajax({
-            url: '../findDelegationById',
+            url: '/mettingweb-1.0-SNAPSHOT/findDelegationById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
@@ -104,7 +104,7 @@
 
     function updateDelegation() {
         $.ajax({
-            url: '../updateDelegation',
+            url: '/mettingweb-1.0-SNAPSHOT/updateDelegation',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({

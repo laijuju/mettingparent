@@ -84,7 +84,7 @@
 
     function findSeatById(id) {
         $.ajax({
-            url: '../findSeatById',
+            url: '/mettingweb-1.0-SNAPSHOT/findSeatById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
@@ -114,7 +114,7 @@
 
     function updateSeat() {
         $.ajax({
-            url: '../updateSeat',
+            url: '/mettingweb-1.0-SNAPSHOT/updateSeat',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({

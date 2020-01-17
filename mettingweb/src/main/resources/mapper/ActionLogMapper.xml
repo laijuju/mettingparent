@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mapper.ActionLogMapprt">
+
+    <!--查询操作日志-->
+    <select id="findActionAll" parameterType="String" resultType="com.juju.po.ActionLog">
+     select * from t_action_log where adminLoginName = #{adminLoginName}
+    </select>
+
+    <!--    增加操作日志-->
+    <insert id="addActionLog" parameterType="com.juju.po.ActionLog">
+        insert into t_action_log(nickName,adminLoginName,actionName,actionTime,actionState)
+        values(#{nickName},#{adminLoginName},#{actionName},#{actionTime},#{actionState})
+    </insert>
+
+</mapper>

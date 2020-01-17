@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mettingpojo" />
-        <module name="mettingweb" />
         <module name="mettingcommons1" />
+        <module name="mettingweb" />
         <module name="mettingservice" />
         <module name="mettingmapper" />
         <module name="mettingdao" />
+        <module name="mettingpojo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

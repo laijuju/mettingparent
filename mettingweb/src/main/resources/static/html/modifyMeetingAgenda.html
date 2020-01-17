@@ -75,7 +75,7 @@
 
     function findAgendaById(id) {
         $.ajax({
-            url: '../findMeetingAgendaById',
+            url: '/mettingweb-1.0-SNAPSHOT/findMeetingAgendaById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
@@ -104,7 +104,7 @@
 
     function updateAgendaById() {
         $.ajax({
-            url: '../updateMeetingAgenda',
+            url: '/mettingweb-1.0-SNAPSHOT/updateMeetingAgenda',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({

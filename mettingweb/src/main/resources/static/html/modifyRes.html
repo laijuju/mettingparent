@@ -84,7 +84,7 @@
 
     function findRoleById(id) {
         $.ajax({
-            url: '../findPermByPermId',
+            url: '/mettingweb-1.0-SNAPSHOT/findPermByPermId',
             type: 'post',
             dataType: 'json',
             data : {permId : id},
@@ -112,7 +112,7 @@
 
     function updateRoleById() {
         $.ajax({
-            url: '../updatePerm',
+            url: '/mettingweb-1.0-SNAPSHOT/updatePerm',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({

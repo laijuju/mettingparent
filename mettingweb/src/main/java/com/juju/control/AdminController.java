@@ -240,4 +240,22 @@ public class AdminController {
         }
     }
 
+    @PostMapping("findAdminByToken")
+    @ApiOperation(value = "根据token查询用户",notes = "token不能为null")
+//    @ApiImplicitParam(paramType = "header",name = "token",value = "用户的token",dataType = "String",required = true)
+    public AdminResult findAdminByToken(@RequestParam("token")String token){
+        AdminResult adminResult = new AdminResult();
+        adminResult.setState(0);
+        try {
+            Admin admin = adminService.findAdminByToken(token);
+            adminResult.setState(1);
+            adminResult.setMsg("根据token查询用户成功");
+            adminResult.setAdmin(admin);
+            return adminResult;
+        } catch (Exception e) {
+            adminResult.setMsg("根据token查询用户失败："+e.getMessage());
+            return adminResult;
+        }
+    }
+
 }

@@ -70,7 +70,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findSeatAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findSeatAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -154,7 +154,7 @@
      */
     function deleteSeat(id) {
         $.ajax({
-            url: '../deleteSeat',
+            url: '/mettingweb-1.0-SNAPSHOT/deleteSeat',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({id : id}),

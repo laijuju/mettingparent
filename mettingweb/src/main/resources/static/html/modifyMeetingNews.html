@@ -109,7 +109,7 @@
 
     function findNewsById(id) {
         $.ajax({
-            url: '../findNewsById',
+            url: '/mettingweb-1.0-SNAPSHOT/findNewsById',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({
@@ -142,7 +142,7 @@
 
     function updateNewsById() {
         $.ajax({
-            url: '../updateNews',
+            url: '/mettingweb-1.0-SNAPSHOT/updateNews',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({

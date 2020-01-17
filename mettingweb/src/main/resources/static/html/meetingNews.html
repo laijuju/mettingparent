@@ -72,7 +72,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findNewsAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findNewsAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -162,7 +162,7 @@
      */
     function deleteNewsById(id) {
         $.ajax({
-            url: '../deleteNews',
+            url: '/mettingweb-1.0-SNAPSHOT/deleteNews',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({id: id}),

@@ -155,4 +155,9 @@ public class AdminService implements IAdminService {
         adminMapper.addUserRole(adminId, roleId);
     }
 
+    @Override
+    public Admin findAdminByToken(String token) throws Exception {
+        return adminMapper.findAdminByToken(token);
+    }
+
 }

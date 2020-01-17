@@ -104,7 +104,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findRoleAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findRoleAll',
             type: 'post',
             dataType: 'json',
             headers: {
@@ -184,7 +184,7 @@
     */
     function deleteRoleById(id) {
         $.ajax({
-            url: '../deleteRole',
+            url: '/mettingweb-1.0-SNAPSHOT/deleteRole',
             type: 'post',
             dataType: 'json',
             data : {roleId : id},

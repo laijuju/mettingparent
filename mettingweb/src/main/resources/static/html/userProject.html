@@ -73,7 +73,7 @@
      */
     function init() {
         $.ajax({
-            url: '../findUserAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findUserAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -163,7 +163,7 @@
      */
     function deleteUserById(id) {
         $.ajax({
-            url: '../deleteAdmin',
+            url: '/mettingweb-1.0-SNAPSHOT/deleteAdmin',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({id : id}),

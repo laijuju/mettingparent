@@ -15,14 +15,15 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder"> 登录日志列表</strong></div>
+    <div class="panel-head"><strong class="icon-reorder"> 行为日志列表</strong></div>
     <table class="table table-hover text-center" id="vo">
         <tr>
             <th width="5%">ID</th>
             <th width="5%">用户名</th>
             <th width="15%">账号</th>
-            <th width="10%">登录时间</th>
-            <th width="10%">登录状态</th>
+            <th width="15%">操作记录</th>
+            <th width="10%">操作时间</th>
+            <th width="10%">操作结果</th>
         </tr>
     </table>
 </div>
@@ -41,13 +42,13 @@
     function init() {
         var userInfoObj = localStorage.getItem("userInfo");
         var userInfo = eval('(' + userInfoObj + ')');
-        var adminLoginName = userInfo.adminLoginName;
+        var adminLoginName1 = userInfo.adminLoginName;
         $.ajax({
-            url: '/mettingweb-1.0-SNAPSHOT/findLogAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findActionAll',
             type: 'get',
             dataType: 'json',
             data: {
-                loginName: adminLoginName
+                adminLoginName: adminLoginName1
             },
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +58,7 @@
                 console.log("请求成功的数据是：" + data)
                 console.log(data.state);
                 if (data.state == 1) {//说明获取数据成功
-                    setData(data.logs);
+                    setData(data.actionLogs);
                 }
                 ;
                 if (data.state == 0) {
@@ -73,31 +74,34 @@
     /*
         将获取到底数据设置到页面上
      */
-    function setData(logs) {
+    function setData(actionLogs) {
         //找到添加数据的父节点
 
-        for (var i = 0; i < logs.length; i++) {
-            var log = logs[i];
+        for (var i = 0; i < actionLogs.length; i++) {
+            var actionLog = actionLogs[i];
             //拼接数据
             //生成节点
             var tableParent = document.getElementById("vo")
             var trElement = document.createElement("tr");
-            var logIdElement = document.createElement("td");
-            logIdElement.innerText = log.id;
+            var actionLogIdElement = document.createElement("td");
+            actionLogIdElement.innerText = actionLog.id;
             var nickNameElement = document.createElement("td");
-            nickNameElement.innerText = log.nickName;
-            var loginNameElement = document.createElement("td");
-            loginNameElement.innerText = log.loginName;
-            var loginTimeElement = document.createElement("td");
-            loginTimeElement.innerText = dateFormat(log.loginTime);
-            var loginStateElement = document.createElement("td");
-            loginStateElement.innerText = log.loginState;
+            nickNameElement.innerText = actionLog.nickName;
+            var adminLoginNameElement = document.createElement("td");
+            adminLoginNameElement.innerText = actionLog.adminLoginName;
+            var actionNameElement = document.createElement("td");
+            actionNameElement.innerText = actionLog.actionName;
+            var actionTimeElement = document.createElement("td");
+            actionTimeElement.innerText = dateFormat(actionLog.actionTime);
+            var actionStateElement = document.createElement("td");
+            actionStateElement.innerText = actionLog.actionState;
 
-            trElement.appendChild(logIdElement);
+            trElement.appendChild(actionLogIdElement);
             trElement.appendChild(nickNameElement);
-            trElement.appendChild(loginNameElement);
-            trElement.appendChild(loginTimeElement);
-            trElement.appendChild(loginStateElement);
+            trElement.appendChild(adminLoginNameElement);
+            trElement.appendChild(actionNameElement);
+            trElement.appendChild(actionTimeElement);
+            trElement.appendChild(actionStateElement);
             tableParent.appendChild(trElement);
         }
     }

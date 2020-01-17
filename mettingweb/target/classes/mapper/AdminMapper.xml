@@ -70,9 +70,13 @@
         update t_admin set lastLoginTime = #{lastLoginTime} where id = #{id}
     </update>
 
-<!--    生成登录日志记录-->
+    <!--    生成登录日志记录-->
     <insert id="addLog" parameterType="com.juju.po.Admin">
         insert into t_log(userId,loginTime) values(#{id},#{lastLoginTime})
     </insert>
 
+    <!--    通过token查询用户信息-->
+    <select id="findAdminByToken" parameterType="String" resultType="com.juju.po.Admin">
+        select * from t_admin where token = #{token}
+    </select>
 </mapper>

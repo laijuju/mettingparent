@@ -68,4 +68,9 @@ public interface IAdminService {
      */
     void addUserRole(@Param("adminId") int adminId, @Param("roleId") int roleId) throws Exception;
 
+    /*
+        通过token查找用户信息
+    */
+    Admin findAdminByToken(@Param("token")String token) throws Exception;
+
 }

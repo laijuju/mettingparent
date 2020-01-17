@@ -75,7 +75,7 @@
 
     function findRoleById(id) {
         $.ajax({
-            url: '../selectMeetingNoticeById',
+            url: '/mettingweb-1.0-SNAPSHOT/selectMeetingNoticeById',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({
@@ -104,7 +104,7 @@
 
     function updateRoleById() {
         $.ajax({
-            url: '../updateMeetingNotice',
+            url: '/mettingweb-1.0-SNAPSHOT/updateMeetingNotice',
             type: 'post',
             dataType: 'json',
             data : JSON.stringify({

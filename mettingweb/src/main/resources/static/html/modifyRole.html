@@ -91,7 +91,7 @@
 
     function init() {
         $.ajax({
-            url: '../findPermsAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findPermsAll',
             type: 'get',
             dataType: 'json',
             headers: {
@@ -142,7 +142,7 @@
 
     function findRoleById(id) {
         $.ajax({
-            url: '../findPermByRoleId',
+            url: '/mettingweb-1.0-SNAPSHOT/findPermByRoleId',
             async: false,
             type: 'post',
             dataType: 'json',
@@ -176,7 +176,7 @@
         });
         console.log("传输的perms：" + pName.substring(0, pName.length - 1));
         $.ajax({
-            url: '../addPermsByRoleId',
+            url: '/mettingweb-1.0-SNAPSHOT/addPermsByRoleId',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({

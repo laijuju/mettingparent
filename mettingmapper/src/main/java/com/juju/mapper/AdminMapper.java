@@ -76,4 +76,9 @@ public interface AdminMapper {
         记录登录，写入日志
      */
     void addLog(Admin admin);
+
+    /*
+        通过token查找用户信息
+     */
+    Admin findAdminByToken(@Param("token")String token);
 }

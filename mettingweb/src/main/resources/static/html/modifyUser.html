@@ -114,7 +114,7 @@
 
     function init() {
         $.ajax({
-            url: '../findStaffAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findStaffAll',
             type: 'get',
             async:false,
             dataType: 'json',
@@ -139,7 +139,7 @@
         });
 
         $.ajax({
-            url: '../findDelegationAll',
+            url: '/mettingweb-1.0-SNAPSHOT/findDelegationAll',
             type: 'get',
             async:false,
             dataType: 'json',
@@ -167,7 +167,7 @@
 
     function findUserById(id) {
         $.ajax({
-            url: '../findUserById',
+            url: '/mettingweb-1.0-SNAPSHOT/findUserById',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({
@@ -201,7 +201,7 @@
 
     function updateUser() {
         $.ajax({
-            url: '../updateUser',
+            url: '/mettingweb-1.0-SNAPSHOT/updateUser',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({

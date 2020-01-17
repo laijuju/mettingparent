@@ -77,7 +77,7 @@
     console.log("原密码"+mpass);
     console.log("新密码"+newpass);
     $.ajax({
-      url: '../updatePassword',
+      url: '/mettingweb-1.0-SNAPSHOT/updatePassword',
       type: 'post',
       dataType: 'json',
       data: {adminId: userInfoObj.id, oldPassword: mpass, newPassword: newpass},
