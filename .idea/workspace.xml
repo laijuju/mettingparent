@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3990dc89-771d-49e6-b962-5b90961f9b4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/interceptor/AuthticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/java/com/juju/interceptor/AuthticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addMeetingWorker.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/addMeetingWorker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/unlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/src/main/resources/static/html/unlogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/interceptor/AuthticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/classes/com/juju/interceptor/AuthticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/interceptor/AuthticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/mettingweb/target/mettingweb-1.0-SNAPSHOT/WEB-INF/classes/com/juju/interceptor/AuthticationFilter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +247,7 @@
       <workItem from="1579108141248" duration="216000" />
       <workItem from="1579141110013" duration="21894000" />
       <workItem from="1579225725682" duration="5863000" />
-      <workItem from="1579233306971" duration="8624000" />
+      <workItem from="1579233306971" duration="9580000" />
     </task>
     <task id="LOCAL-00001" summary="第二次上传测试">
       <created>1578299767683</created>
@@ -390,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579231923613</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="完成服务器部署">
+      <created>1579244140126</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1579244140126</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,10 +446,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1578884817247" />
-    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1579231875563">
+    <state x="415" y="0" key="CommitChangelistDialog2" timestamp="1579244091846">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579231875563" />
+    <state x="415" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579244091846" />
     <state x="311" y="55" key="FileChooserDialogImpl" timestamp="1578298298964">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
